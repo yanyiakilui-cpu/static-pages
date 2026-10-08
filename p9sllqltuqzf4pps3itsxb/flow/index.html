@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F25C7A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Flow">
+<meta name="application-name" content="Flow">
+<meta name="description" content="Flow: a private, offline period and cycle tracker.">
+<title>Flow · Period Tracker</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23F25C7A'/%3E%3Cpath d='M32 12C32 12 18 28 18 38a14 14 0 0 0 28 0C46 28 32 12 32 12z' fill='%23ffffff'/%3E%3Ccircle cx='27' cy='38' r='4' fill='%23fff' opacity='.6'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#ffffff; --card:#ffffff; --ink:#1f1a1d; --muted:#6b6168; --line:#f0e4e9;
+  /* Flo-style coral + teal. --plum = accessible coral for text/buttons, --period = Flo coral for circles */
+  --plum:#C92F58; --plum-2:#B4264D; --rose:#D13760; --rose-soft:#FDE8EE; --rose-mid:#F7B6C6;
+  --period:#F25C7A; --pred:#FDE4EA; --pred-ink:#C92F58; --fert:#E3F4F4; --fert-ink:#16807F; --ovu:#2BA5A5;
+  --warn-bg:#fff4e5; --warn-ink:#7a4a00; --ok-bg:#eaf6f0; --ok-ink:#1f6146; --info-bg:#f1ecf7; --info-ink:#4b3570;
+  --radius:20px; --shadow:0 2px 10px rgba(242,92,122,.07), 0 1px 2px rgba(31,26,29,.05);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.45;min-height:100vh}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+.app{max-width:560px;margin:0 auto;padding:calc(env(safe-area-inset-top) + 14px) 16px calc(96px + env(safe-area-inset-bottom))}
+header.top{display:flex;align-items:center;justify-content:space-between;margin:2px 4px 14px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:750;font-size:1.45rem;color:var(--plum);letter-spacing:-.01em}
+.brand svg{width:32px;height:32px}
+.today-lbl{color:var(--muted);font-size:.9rem}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-bottom:14px;border:1px solid var(--line)}
+.card h2{font-size:1.02rem;margin:0 0 10px;color:var(--plum)}
+.card h3{font-size:.95rem;margin:0 0 4px}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--info-bg);color:var(--info-ink);vertical-align:middle}
+.tag.fert{background:var(--fert);color:var(--fert-ink)}
+/* hero */
+.hero{background:linear-gradient(160deg,#fff 0%,#fff3f6 100%);text-align:center;padding:22px 18px 18px}
+.ring{position:relative;width:220px;height:220px;margin:0 auto 6px}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 26px}
+.ring .k{font-size:.82rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.ring .big{font-size:2.5rem;font-weight:800;color:var(--ink);line-height:1.1}
+.ring .sub{font-size:.95rem;color:var(--ink);margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;padding:13px 18px;font-weight:650;min-height:48px;transition:transform .08s ease, background .15s}
+.btn:active{transform:scale(.98)}
+.btn.primary{background:var(--rose);color:#fff}
+.btn.primary:hover{background:var(--plum-2)}
+.btn.rose{background:var(--rose);color:#fff}
+.btn.soft{background:var(--rose-soft);color:var(--plum)}
+.btn.ghost{background:transparent;color:var(--plum);border:1.5px solid var(--rose-mid)}
+.btn.danger{background:#fde8ea;color:#9b1c2e}
+.btn.block{width:100%}
+.btn-row{display:flex;gap:10px;margin-top:12px}
+.btn-row .btn{flex:1}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;box-shadow:var(--shadow)}
+.stat .v{font-size:1.45rem;font-weight:800;color:var(--plum)}
+.stat .v small{font-size:.8rem;font-weight:600;color:var(--muted)}
+.stat .l{font-size:.8rem;color:var(--muted)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.kv{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)}
+.kv:last-child{border-bottom:0}
+.note{border-radius:16px;padding:14px 14px;margin-bottom:10px;font-size:.93rem}
+.note h3{margin:0 0 4px;font-size:.98rem}
+.note.warn{background:var(--warn-bg);color:var(--warn-ink)}
+.note.ok{background:var(--ok-bg);color:var(--ok-ink)}
+.note.info{background:var(--info-bg);color:var(--info-ink)}
+.disclaimer{font-size:.82rem;color:var(--muted);margin-top:8px}
+/* nav */
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;justify-content:center;padding:6px 6px calc(6px + env(safe-area-inset-bottom));z-index:20}
+nav.tabs .inner{display:flex;max-width:560px;width:100%}
+nav.tabs button{flex:1;background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;color:var(--muted);font-size:.72rem;font-weight:600;border-radius:12px;min-height:52px}
+nav.tabs button svg{width:24px;height:24px}
+nav.tabs button[aria-selected="true"]{color:var(--plum);background:var(--rose-soft)}
+.view{display:none}
+.view.active{display:block;animation:fade .18s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+/* calendar */
+body.cal-on header.top{display:none}
+body.cal-on .app{padding-top:0}
+.cal-top{position:sticky;top:0;z-index:15;background:#fff;margin:0 -16px;padding:calc(env(safe-area-inset-top) + 6px) 16px 0;border-bottom:1px solid var(--line)}
+.cal-bar{display:flex;align-items:center;justify-content:space-between;height:54px}
+.xbtn{width:44px;height:44px;border:0;background:none;display:inline-flex;align-items:center;justify-content:center;color:var(--ink);border-radius:12px;padding:0}
+.xbtn svg{width:26px;height:26px}
+.seg2{display:inline-flex;background:#eee8eb;border-radius:13px;padding:3px}
+.seg2 button{border:0;background:none;border-radius:10px;padding:6px 22px;font-weight:700;color:#7a7076;min-height:36px}
+.seg2 button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.14)}
+.wk{display:grid;grid-template-columns:repeat(7,1fr);font-size:.74rem;color:var(--muted);text-align:center;font-weight:600;padding:0 0 5px}
+.edit-hint{background:var(--rose-soft);color:var(--plum);font-size:.86rem;text-align:center;padding:7px;border-radius:10px;margin-bottom:6px;font-weight:600}
+.mon{padding:14px 0 10px;border-bottom:1px solid var(--line)}
+.mon:last-of-type{border-bottom:0}
+.mon h3{text-align:center;font-size:1.2rem;font-weight:800;margin:4px 0 18px}
+.mgrid{display:grid;grid-template-columns:repeat(7,1fr);row-gap:32px}
+.d{position:relative;display:flex;align-items:center;justify-content:center;background:none;border:0;padding:0;height:48px;color:var(--ink)}
+.d .c{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.17rem;font-weight:500;border:2px solid transparent}
+.d .tl{position:absolute;top:-11px;line-height:1;left:0;right:0;text-align:center;font-size:.64rem;font-weight:800;letter-spacing:.04em;color:var(--ink)}
+.d.today .c{font-weight:800}
+.d.period .c{background:var(--period);color:#fff;font-weight:700}
+.d.pred .c{background:var(--pred);color:var(--pred-ink);font-weight:600}
+.d.predtail .c{background:var(--pred);border:2px dotted var(--period);color:var(--pred-ink);font-weight:600}
+.d.fert .c{color:var(--fert-ink);font-weight:600}
+.d.ovu .c{border:2px dotted var(--ovu);color:var(--fert-ink);font-weight:700}
+.d.edit .c{border:2px solid #e9dfe4}
+.d.edit.sel .c{background:var(--period);border-color:var(--period);color:#fff;font-weight:700}
+.d.edit.future{opacity:.35}
+.d:disabled{cursor:default}
+.cal-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;font-size:.74rem;color:var(--muted);padding:16px 0 2px}
+.cal-legend span{display:inline-flex;align-items:center;gap:5px}
+.cal-note{font-size:.74rem;color:var(--muted);text-align:center;margin:4px 0 0}
+.sw{width:12px;height:12px;border-radius:50%;display:inline-block;box-sizing:border-box}
+.pill{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(80px + env(safe-area-inset-bottom));background:var(--rose);color:#fff;border:0;border-radius:999px;padding:10px 24px;font-weight:700;font-size:.95rem;box-shadow:0 4px 14px rgba(209,55,96,.35);z-index:18;min-height:44px;white-space:nowrap}
+.edit-bar{position:fixed;left:0;right:0;bottom:calc(76px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:10px;z-index:18;padding:0 16px}
+.edit-bar .btn{min-width:130px;box-shadow:0 4px 14px rgba(0,0,0,.14)}
+.edit-bar .btn.soft{background:#fff;border:1.5px solid var(--rose-mid)}
+.more{display:block;margin:8px auto 0;background:none;border:0;color:var(--plum);font-weight:600;padding:10px;min-height:44px}
+.ynav{display:flex;align-items:center;justify-content:center;gap:18px;padding:12px 0 4px}
+.ynav b{font-size:1.25rem}
+.icon-btn{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--plum);display:inline-flex;align-items:center;justify-content:center;font-size:1.3rem}
+.ygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 10px;padding:10px 0}
+@media(min-width:520px){.ygrid{grid-template-columns:repeat(4,1fr)}}
+.ym{background:none;border:0;padding:4px;text-align:left;border-radius:12px;color:var(--ink)}
+.ym h4{margin:0 0 4px 2px;font-size:.92rem;font-weight:800}
+.ym.cur h4{color:var(--plum)}
+.yg{display:grid;grid-template-columns:repeat(7,1fr);gap:1px}
+.yg span{font-size:.58rem;height:15px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.yg .period{background:var(--period);color:#fff;font-weight:700}
+.yg .pred,.yg .predtail{background:var(--pred);color:var(--pred-ink)}
+.yg .fert{color:var(--fert-ink);font-weight:700}
+.yg .ovu{color:var(--fert-ink);font-weight:800;box-shadow:inset 0 0 0 1px var(--ovu)}
+.yg .today{font-weight:900;text-decoration:underline}
+/* history */
+.hist-item{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:10px;box-shadow:var(--shadow)}
+.hist-item .d{font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{font-size:.8rem;background:var(--rose-soft);color:var(--plum);padding:3px 10px;border-radius:999px}
+.flowdot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--period);margin-right:2px;vertical-align:middle}
+.flowdot.off{background:var(--rose-mid);opacity:.45}
+/* bars */
+.bar-row{display:grid;grid-template-columns:92px 1fr 44px;gap:8px;align-items:center;margin:8px 0;font-size:.86rem}
+.bar{height:12px;border-radius:99px;background:var(--rose-soft);position:relative;overflow:hidden}
+.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:linear-gradient(90deg,var(--rose-mid),var(--rose))}
+.bar i.flag{background:linear-gradient(90deg,#f3c98b,#c77d10)}
+/* sheet */
+.backdrop{position:fixed;inset:0;background:rgba(40,15,35,.38);display:none;align-items:flex-end;justify-content:center;z-index:50}
+.backdrop.open{display:flex}
+.sheet{background:#fff;width:100%;max-width:560px;border-radius:24px 24px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom));max-height:92vh;overflow:auto;animation:up .2s ease}
+@media(min-width:600px){.backdrop{align-items:center}.sheet{border-radius:24px}}
+@keyframes up{from{transform:translateY(30px);opacity:.5}to{transform:none;opacity:1}}
+.sheet h2{margin:0 0 14px;color:var(--plum);font-size:1.2rem}
+label.f{display:block;font-weight:650;font-size:.9rem;margin:12px 0 6px}
+input[type=date],textarea,input[type=text]{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;min-height:46px}
+input[type=date]:focus,textarea:focus{border-color:var(--rose);outline:none}
+textarea{min-height:80px;resize:vertical}
+.check{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:.95rem}
+.check input{width:22px;height:22px;accent-color:var(--plum)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button,.symp button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;min-height:40px;font-size:.9rem}
+.seg button[aria-pressed="true"],.symp button[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.symp{display:flex;gap:8px;flex-wrap:wrap}
+.err{color:#9b1c2e;font-size:.9rem;margin-top:10px;min-height:1em}
+.toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:11px 18px;border-radius:999px;font-size:.92rem;opacity:0;pointer-events:none;transition:all .2s;z-index:60;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.empty{text-align:center;padding:26px 10px;color:var(--muted)}
+.list-actions{display:flex;flex-direction:column;gap:10px}
+a{color:var(--rose)}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#F25C7A"/><path d="M32 12C32 12 18 28 18 38a14 14 0 0 0 28 0C46 28 32 12 32 12z" fill="#fff"/><circle cx="27" cy="38" r="4" fill="#F25C7A" opacity=".35"/></svg>
+      <span>Flow</span>
+    </div>
+    <div class="today-lbl" id="todayLbl"></div>
+  </header>
+
+  <main>
+    <section class="view active" id="view-home" aria-label="Today"></section>
+    <section class="view" id="view-calendar" aria-label="Calendar"></section>
+    <section class="view" id="view-history" aria-label="History"></section>
+    <section class="view" id="view-insights" aria-label="Insights"></section>
+    <section class="view" id="view-data" aria-label="Data and settings"></section>
+  </main>
+</div>
+
+<nav class="tabs" aria-label="Main">
+  <div class="inner" role="tablist">
+    <button role="tab" data-tab="home" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"/></svg>Today</button>
+    <button role="tab" data-tab="calendar" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</button>
+    <button role="tab" data-tab="history" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>History</button>
+    <button role="tab" data-tab="insights" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Insights</button>
+    <button role="tab" data-tab="data" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Data</button>
+  </div>
+</nav>
+
+<div class="backdrop" id="sheetWrap" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="sheet" id="sheet"></div>
+</div>
+<div id="calFloat"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script id="flow-core">
+/* ===== Core cycle logic (pure, testable; no DOM) ===== */
+var FlowCore = (function () {
+  var DAY = 86400000;
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function toNum(s) { var p = s.split('-'); return Math.round(Date.UTC(+p[0], +p[1] - 1, +p[2]) / DAY); }
+  function toStr(n) { return new Date(n * DAY).toISOString().slice(0, 10); }
+  function addDays(s, k) { return toStr(toNum(s) + k); }
+  function diff(a, b) { return toNum(a) - toNum(b); } // a - b in days
+  function localToday() { var d = new Date(); return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function isDate(s) { return typeof s === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(s) && toStr(toNum(s)) === s; }
+  function mean(a) { return a.length ? a.reduce(function (x, y) { return x + y; }, 0) / a.length : null; }
+  function sd(a) { if (a.length < 2) return null; var m = mean(a); return Math.sqrt(mean(a.map(function (x) { return (x - m) * (x - m); }))); }
+  function sortPeriods(ps) { return ps.slice().sort(function (a, b) { return toNum(a.start) - toNum(b.start); }); }
+
+  var DEFAULT_CYCLE = 28, DEFAULT_PERIOD = 5, LUTEAL = 14, MAX_RECENT = 6, PRED_CYCLES = 3;
+  var SHORT = 21, LONG = 35, LONG_PERIOD = 7, IRREG_VAR = 7, LATE_DAYS = 7;
+
+  // Effective end of a period for display/overlap. Last period w/o end = ongoing (to today).
+  // Earlier periods w/o end = end not logged (treated as start day only).
+  function effEnd(p, isLast, today) {
+    if (p.end) return p.end;
+    if (isLast) return toNum(today) >= toNum(p.start) ? today : p.start;
+    return p.start;
+  }
+  function duration(p) { return p.end ? diff(p.end, p.start) + 1 : null; }
+
+  function analyze(periods, today) {
+    today = today || localToday();
+    var t = toNum(today);
+    var ps = sortPeriods(periods || []);
+    var n = ps.length;
+    var cycles = [];
+    for (var i = 0; i < n - 1; i++) {
+      cycles.push({ start: ps[i].start, nextStart: ps[i + 1].start, length: diff(ps[i + 1].start, ps[i].start), periodLength: duration(ps[i]) });
+    }
+    var recent = cycles.slice(-MAX_RECENT);
+    var lens = recent.map(function (c) { return c.length; });
+    var allLens = cycles.map(function (c) { return c.length; });
+    var enough = n >= 2;
+    var avgCycleRaw = enough ? mean(lens) : null;
+    var avgCycle = enough ? Math.round(avgCycleRaw) : DEFAULT_CYCLE;
+    var completedDur = ps.filter(function (p) { return p.end; }).map(duration).slice(-MAX_RECENT);
+    var avgPeriodRaw = completedDur.length ? mean(completedDur) : null;
+    var avgPeriod = completedDur.length ? Math.round(avgPeriodRaw) : DEFAULT_PERIOD;
+    var variation = lens.length >= 2 ? Math.max.apply(null, lens) - Math.min.apply(null, lens) : null;
+
+    var last = n ? ps[n - 1] : null;
+    var ongoing = !!(last && !last.end && toNum(last.start) <= t);
+    var res = {
+      today: today, periods: ps, count: n, cycles: cycles, recentCycles: recent,
+      enoughData: enough, avgCycleRaw: avgCycleRaw, avgCycle: avgCycle,
+      avgPeriodRaw: avgPeriodRaw, avgPeriod: avgPeriod, periodSamples: completedDur.length,
+      shortest: allLens.length ? Math.min.apply(null, allLens) : null,
+      longest: allLens.length ? Math.max.apply(null, allLens) : null,
+      variation: variation, stdDev: sd(lens),
+      last: last, ongoing: ongoing, periodDay: ongoing ? t - toNum(last.start) + 1 : null,
+      cycleDay: last ? t - toNum(last.start) + 1 : null,
+      nextStart: null, daysUntil: null, lateBy: 0, ovulation: null, fertileStart: null, fertileEnd: null,
+      fertileNow: false, projections: [], insights: [],
+      // uncertain tail of predicted periods (dotted days): 3 by default, else ~1 SD of cycle length, clamped 2..5
+      predTail: lens.length >= 3 ? Math.max(2, Math.min(5, Math.ceil(sd(lens)))) : 3,
+      // estimated fertile windows for already-logged cycles (ovulation ~14 days before the next logged start)
+      pastWindows: cycles.map(function (c) { var o = toNum(c.nextStart) - LUTEAL; return { ovulation: toStr(o), fertileStart: toStr(o - 5), fertileEnd: toStr(o + 1), after: c.start }; })
+    };
+    if (last) {
+      var ns = toNum(last.start) + avgCycle;
+      res.nextStart = toStr(ns);
+      res.daysUntil = ns - t;
+      res.lateBy = (!ongoing && ns < t) ? t - ns : 0;
+      var ov = ns - LUTEAL;
+      res.ovulation = toStr(ov);
+      res.fertileStart = toStr(ov - 5);
+      res.fertileEnd = toStr(ov + 1);
+      res.fertileNow = !ongoing && t >= ov - 5 && t <= ov + 1;
+      // projections for calendar (next ~12 cycles)
+      // Next PRED_CYCLES predicted periods. Days 1..avgPeriod are "likely" (filled);
+      // the following predTail days are the less certain tail (dotted), sized by how much cycles vary.
+      var first = res.lateBy > 0 ? t : ns;
+      for (var k = 0; k < PRED_CYCLES; k++) {
+        var s = first + k * avgCycle;
+        var o = k === 0 ? ov : s - LUTEAL;
+        res.projections.push({ start: toStr(s), filledEnd: toStr(s + avgPeriod - 1), end: toStr(s + avgPeriod - 1 + res.predTail),
+          ovulation: toStr(o), fertileStart: toStr(o - 5), fertileEnd: toStr(o + 1), after: last.start });
+      }
+    }
+    res.insights = insights(res);
+    return res;
+  }
+
+  function plural(n, w) { return n + ' ' + w + (n === 1 ? '' : 's'); }
+
+  function insights(a) {
+    var out = [];
+    var doc = ' If this keeps happening over a few cycles, it\u2019s worth mentioning to a doctor or nurse.';
+    if (a.count < 2) {
+      out.push({ level: 'info', id: 'lowdata', title: 'Predictions will get better', text: 'Until you\u2019ve logged at least 2 periods, Flow assumes a typical 28-day cycle. Predictions and insights improve as you log more periods (or import your history).' });
+    } else if (a.cycles.length < 3) {
+      out.push({ level: 'info', id: 'fewcycles', title: 'Still learning your cycle', text: 'Averages are based on ' + plural(a.cycles.length, 'cycle') + ' so far. Predictions become more reliable after about 3\u20136 cycles.' });
+    }
+    var rc = a.recentCycles;
+    var short = rc.filter(function (c) { return c.length < SHORT; });
+    var long = rc.filter(function (c) { return c.length > LONG; });
+    if (short.length) out.push({ level: 'warn', id: 'short', title: 'Shorter cycle' + (short.length > 1 ? 's' : '') + ' noticed', text: short.length + ' of your last ' + plural(rc.length, 'cycle') + ' ' + (short.length === 1 ? 'was' : 'were') + ' shorter than 21 days (' + short.map(function (c) { return c.length + ' days'; }).join(', ') + '). An occasional short cycle can happen with stress, illness, travel or changes in routine.' + doc });
+    if (long.length) out.push({ level: 'warn', id: 'long', title: 'Longer cycle' + (long.length > 1 ? 's' : '') + ' noticed', text: long.length + ' of your last ' + plural(rc.length, 'cycle') + ' ' + (long.length === 1 ? 'was' : 'were') + ' longer than 35 days (' + long.map(function (c) { return c.length + ' days'; }).join(', ') + '). This can happen now and then. If you forgot to log a period, adding it will keep your stats accurate.' + doc });
+    var recentPeriods = a.periods.slice(-MAX_RECENT);
+    var longP = recentPeriods.filter(function (p) { var d = duration(p); return d !== null && d > LONG_PERIOD; });
+    if (longP.length) out.push({ level: 'warn', id: 'longperiod', title: 'Longer period' + (longP.length > 1 ? 's' : ''), text: plural(longP.length, 'recent period') + ' lasted more than 7 days (' + longP.map(function (p) { return duration(p) + ' days'; }).join(', ') + '). Periods longer than a week, or very heavy bleeding, are good to bring up with a doctor, especially if it\u2019s becoming a pattern.' });
+    if (a.ongoing && a.periodDay > LONG_PERIOD) out.push({ level: 'warn', id: 'ongoinglong', title: 'Current period: day ' + a.periodDay, text: 'Your current period has been going for more than 7 days. If it has actually ended, tap \u201cPeriod ended\u201d to update it. If bleeding is continuing, consider checking in with a doctor.' });
+    if (rc.length >= 3 && a.variation > IRREG_VAR) out.push({ level: 'warn', id: 'irregular', title: 'Cycle length is varying', text: 'Over your last ' + rc.length + ' cycles, length varied by ' + a.variation + ' days (from ' + Math.min.apply(null, rc.map(function (c) { return c.length; })) + ' to ' + Math.max.apply(null, rc.map(function (c) { return c.length; })) + '). A difference of more than about 7\u20139 days between cycles is often described as irregular. Predictions will be less precise.' + doc });
+    if (a.lateBy > LATE_DAYS) out.push({ level: 'warn', id: 'late', title: 'Period is ' + a.lateBy + ' days later than predicted', text: 'Cycles can shift for many reasons, like stress, illness, travel, weight change or new medication. If there\u2019s a chance you could be pregnant, a test can help. If your period stays late or you miss several, please talk to a doctor.' });
+    else if (a.lateBy > 0) out.push({ level: 'info', id: 'slightlylate', title: 'Period expected ' + plural(a.lateBy, 'day') + ' ago', text: 'A few days\u2019 difference is completely normal. Log it when it starts.' });
+    var hasWarn = out.some(function (x) { return x.level === 'warn'; });
+    if (!hasWarn && a.cycles.length >= 2) out.push({ level: 'ok', id: 'good', title: 'Your cycles look steady', text: 'Your recent cycles are within the typical 21\u201335 day range' + (a.periodSamples ? ' and your periods last about ' + plural(a.avgPeriod, 'day') : '') + '. Nice work keeping track.' });
+    return out;
+  }
+
+  // Validate a period against the existing list (excluding id). Returns error string or null.
+  function validate(p, periods, today, excludeId) {
+    if (!isDate(p.start)) return 'Please choose a valid start date.';
+    if (diff(p.start, today) > 0) return 'Start date can\u2019t be in the future.';
+    if (p.end) {
+      if (!isDate(p.end)) return 'Please choose a valid end date.';
+      if (diff(p.end, p.start) < 0) return 'End date must be on or after the start date.';
+      if (diff(p.end, today) > 0) return 'End date can\u2019t be in the future.';
+      if (diff(p.end, p.start) > 30) return 'That period would be over 30 days long. Please check the dates.';
+    }
+    var others = sortPeriods(periods.filter(function (x) { return x.id !== excludeId; }));
+    var all = sortPeriods(others.concat([p]));
+    for (var i = 0; i < all.length; i++) {
+      var isLast = i === all.length - 1;
+      if (i > 0) {
+        var prevEnd = effEnd(all[i - 1], false, today);
+        if (all[i - 1].start === all[i].start || diff(all[i].start, prevEnd) <= 0) {
+          if (all[i] === p || all[i - 1] === p) return 'These dates overlap a period you already logged (' + all[i - 1].start + '). Edit that one instead.';
+        }
+      }
+    }
+    return null;
+  }
+
+  // Parse pasted lines "YYYY-MM-DD,YYYY-MM-DD" (or just a start date)
+  function parsePasted(text) {
+    var rows = [], bad = [];
+    (text || '').split(/\r?\n/).forEach(function (line, idx) {
+      var l = line.trim();
+      if (!l || /^#/.test(l)) return;
+      var m = l.match(/\d{4}-\d{1,2}-\d{1,2}/g);
+      if (!m) { if (!/start/i.test(l)) bad.push({ line: idx + 1, text: l, reason: 'no date found' }); return; }
+      var norm = m.map(function (d) { var q = d.split('-'); return q[0] + '-' + pad(+q[1]) + '-' + pad(+q[2]); });
+      if (!isDate(norm[0]) || (norm[1] && !isDate(norm[1]))) { bad.push({ line: idx + 1, text: l, reason: 'invalid date' }); return; }
+      rows.push({ start: norm[0], end: norm[1] || null, line: idx + 1 });
+    });
+    return { rows: rows, bad: bad };
+  }
+
+  return { toNum: toNum, toStr: toStr, addDays: addDays, diff: diff, localToday: localToday, isDate: isDate,
+    sortPeriods: sortPeriods, duration: duration, effEnd: effEnd, analyze: analyze, validate: validate, parsePasted: parsePasted,
+    consts: { DEFAULT_CYCLE: DEFAULT_CYCLE, DEFAULT_PERIOD: DEFAULT_PERIOD } };
+})();
+if (typeof module !== 'undefined' && module.exports) module.exports = FlowCore;
+</script>
+
+<script>
+/* ===== UI ===== */
+(function () {
+  var C = FlowCore;
+  var KEY = 'flow-tracker-v1';
+  var state = load();
+  var SYMPTOMS = ['Cramps', 'Headache', 'Bloating', 'Tired', 'Mood swings', 'Low mood', 'Acne', 'Back pain', 'Tender breasts', 'Nausea', 'Cravings', 'Spotting'];
+  var FLOWS = [['light', 'Light'], ['medium', 'Medium'], ['heavy', 'Heavy']];
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (raw) { var d = JSON.parse(raw); if (d && Array.isArray(d.periods)) return d; }
+    } catch (e) { }
+    return { version: 1, periods: [] };
+  }
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(state)); }
+    catch (e) { toast('Couldn\u2019t save. Storage may be full or disabled.'); }
+  }
+  function uid() { return 'p' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+  function today() { return C.localToday(); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function fmt(s, o) { return new Date(C.toNum(s) * 86400000).toLocaleDateString(undefined, Object.assign({ timeZone: 'UTC' }, o || { month: 'short', day: 'numeric' })); }
+  function fmtY(s) { return fmt(s, { month: 'short', day: 'numeric', year: 'numeric' }); }
+  function fmtW(s) { return fmt(s, { weekday: 'short', month: 'short', day: 'numeric' }); }
+  function pl(n, w) { return n + ' ' + w + (n === 1 ? '' : 's'); }
+  function $(id) { return document.getElementById(id); }
+  var toastT;
+  function toast(msg) { var t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove('show'); }, 2600); }
+
+  /* ---------- tabs ---------- */
+  var tabs = document.querySelectorAll('nav.tabs button');
+  function showTab(name) {
+    tabs.forEach(function (b) { b.setAttribute('aria-selected', b.dataset.tab === name ? 'true' : 'false'); });
+    document.querySelectorAll('.view').forEach(function (v) { v.classList.toggle('active', v.id === 'view-' + name); });
+    if (name !== 'calendar') { editMode = false; editSet = null; }
+    document.body.classList.toggle('cal-on', name === 'calendar');
+    render();
+    window.scrollTo(0, 0);
+    if (name === 'calendar' && calMode === 'month') scrollToMonth(today().slice(0, 7), 150);
+  }
+  tabs.forEach(function (b) { b.addEventListener('click', function () { showTab(b.dataset.tab); }); });
+
+  /* ---------- render ---------- */
+  function render() {
+    var a = C.analyze(state.periods, today());
+    $('todayLbl').textContent = fmtW(today());
+    renderHome(a); renderCalendar(a); renderHistory(a); renderInsights(a); renderData(a);
+  }
+
+  function ring(frac, color) {
+    var r = 96, c = 2 * Math.PI * r, f = Math.max(0, Math.min(1, frac));
+    return '<svg viewBox="0 0 220 220" aria-hidden="true"><circle cx="110" cy="110" r="' + r + '" fill="none" stroke="#FDE4EA" stroke-width="14"/>' +
+      (f <= 0 ? '' : '<circle cx="110" cy="110" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="14" stroke-linecap="round" stroke-dasharray="' + (c * f).toFixed(1) + ' ' + c.toFixed(1) + '"/>') + '</svg>';
+  }
+
+  function renderHome(a) {
+    var h = '';
+    if (!a.count) {
+      h += '<div class="card hero"><div class="ring">' + ring(0, '#F25C7A') + '<div class="center"><div class="k">Welcome</div><div class="sub" style="font-size:1.05rem">Log your period to start tracking your cycle</div></div></div>' +
+        '<div class="btn-row"><button class="btn primary" data-act="startToday">Period started today</button></div>' +
+        '<div class="btn-row"><button class="btn soft" data-act="logPast">Log a past period</button><button class="btn ghost" data-act="goData">Import from Flo</button></div></div>';
+      h += '<div class="note info"><h3>Private by design</h3>Everything stays on this device, in this browser. Nothing is uploaded anywhere. Use <b>Data \u2192 Export</b> now and then to keep a backup.</div>';
+      $('view-home').innerHTML = h; return;
+    }
+    var center, frac, color = '#F25C7A';
+    if (a.ongoing) {
+      frac = a.periodDay / Math.max(a.avgPeriod, a.periodDay);
+      center = '<div class="k">Period</div><div class="big">Day ' + a.periodDay + '</div><div class="sub">Usually lasts ~' + pl(a.avgPeriod, 'day') + '</div>';
+    } else {
+      frac = a.cycleDay / a.avgCycle; color = '#F25C7A';
+      var sub;
+      if (a.lateBy > 0) sub = '<b>' + pl(a.lateBy, 'day') + ' late</b>';
+      else if (a.daysUntil === 0) sub = 'Period expected <b>today</b>';
+      else sub = 'Next period in <b>' + pl(a.daysUntil, 'day') + '</b>';
+      center = '<div class="k">Cycle day</div><div class="big">' + a.cycleDay + '</div><div class="sub">' + sub + '</div>';
+    }
+    h += '<div class="card hero"><div class="ring">' + ring(frac, color) + '<div class="center">' + center + '</div></div>';
+    if (a.fertileNow) h += '<div style="margin:2px 0 4px"><span class="tag fert">Estimated fertile window</span></div>';
+    if (a.ongoing) h += '<div class="btn-row"><button class="btn rose" data-act="endToday">Period ended today</button></div><div class="btn-row"><button class="btn soft" data-act="edit" data-id="' + a.last.id + '">Edit current period</button></div>';
+    else h += '<div class="btn-row"><button class="btn primary" data-act="startToday">Period started today</button></div><div class="btn-row"><button class="btn soft" data-act="logPast">Log a past period</button></div>';
+    h += '</div>';
+
+    // next period card
+    h += '<div class="grid2">';
+    h += '<div class="stat"><div class="l">Next period' + (a.enoughData ? '' : ' (est.)') + '</div><div class="v" style="font-size:1.2rem">' + (a.ongoing ? fmt(a.nextStart) : (a.lateBy > 0 ? 'Any day' : fmt(a.nextStart))) + '</div><div class="l">' +
+      (a.ongoing ? 'in ' + pl(a.daysUntil, 'day') : (a.lateBy > 0 ? 'was due ' + fmt(a.nextStart) : (a.daysUntil === 0 ? 'today' : 'in ' + pl(a.daysUntil, 'day')))) + '</div></div>';
+    var fertPast = C.diff(today(), a.fertileEnd) > 0;
+    h += '<div class="stat"><div class="l">Ovulation <span class="tag fert" style="font-size:.6rem;padding:2px 6px">estimate</span></div><div class="v" style="font-size:1.2rem">' + fmt(a.ovulation) + '</div><div class="l">Fertile ' + fmt(a.fertileStart) + '\u2013' + fmt(a.fertileEnd) + (fertPast ? ' (passed)' : '') + '</div></div>';
+    h += '<div class="stat"><div class="l">Avg cycle</div><div class="v">' + a.avgCycle + ' <small>days</small></div><div class="l">' + (a.enoughData ? 'last ' + pl(a.recentCycles.length, 'cycle') : 'default until 2 logs') + '</div></div>';
+    h += '<div class="stat"><div class="l">Avg period</div><div class="v">' + a.avgPeriod + ' <small>days</small></div><div class="l">' + (a.periodSamples ? 'last ' + pl(a.periodSamples, 'period') : 'default estimate') + '</div></div>';
+    h += '</div><div style="height:14px"></div>';
+
+    var warn = a.insights.filter(function (x) { return x.level === 'warn' || x.id === 'lowdata' || x.id === 'slightlylate'; });
+    if (warn.length) {
+      var w = warn[0];
+      h += '<div class="note ' + w.level + '"><h3>' + esc(w.title) + '</h3>' + esc(w.text) + (warn.length > 1 ? '<div style="margin-top:6px"><a href="#" data-act="goInsights">See all ' + warn.length + ' insights \u2192</a></div>' : '') + '</div>';
+    } else {
+      var ok = a.insights.filter(function (x) { return x.level === 'ok'; })[0];
+      if (ok) h += '<div class="note ok"><h3>' + esc(ok.title) + '</h3>' + esc(ok.text) + '</div>';
+    }
+    h += '<p class="disclaimer">Ovulation and fertile window are rough estimates (about 14 days before the next predicted period). Don\u2019t use them as contraception. Flow isn\u2019t medical advice.</p>';
+    $('view-home').innerHTML = h;
+  }
+
+  var calMode = 'month', calYear = null, calFrom = -6, calTo = 3, editMode = false, editSet = null;
+  function ymAdd(ym, k) { var y = +ym.slice(0, 4), m = +ym.slice(5, 7) - 1 + k; y += Math.floor(m / 12); m = ((m % 12) + 12) % 12; return y + '-' + (m < 9 ? '0' : '') + (m + 1); }
+  function ymDiff(a, b) { return (+a.slice(0, 4) - +b.slice(0, 4)) * 12 + (+a.slice(5, 7) - +b.slice(5, 7)); }
+  function calActive() { return document.body.classList.contains('cal-on'); }
+
+  // date -> 'period' | 'pred' | 'predtail' | 'ovu' | 'fert'  (earlier rules win)
+  function dayMaps(a) {
+    var map = {}, t = today();
+    function mark(from, to, cls, cond) { for (var d = from; C.diff(d, to) <= 0; d = C.addDays(d, 1)) if (!map[d] && (!cond || cond(d))) map[d] = cls; }
+    function notPast(d) { return C.diff(d, t) >= 0; }
+    a.periods.forEach(function (p, i) { mark(p.start, C.effEnd(p, i === a.periods.length - 1, t), 'period'); });
+    a.projections.forEach(function (pr) { mark(pr.start, pr.filledEnd, 'pred', notPast); mark(C.addDays(pr.filledEnd, 1), pr.end, 'predtail', notPast); });
+    a.pastWindows.concat(a.projections).forEach(function (w) {
+      var ok = function (d) { return C.diff(d, w.after) > 0; };
+      if (!map[w.ovulation] && ok(w.ovulation)) map[w.ovulation] = 'ovu';
+      mark(w.fertileStart, w.fertileEnd, 'fert', ok);
+    });
+    return map;
+  }
+  var DAYNAMES = { period: 'period day', pred: 'predicted period', predtail: 'possible period day (less certain)', fert: 'estimated fertile day', ovu: 'estimated ovulation day' };
+
+  function monthBlock(ym, map, t) {
+    var y = +ym.slice(0, 4), m = +ym.slice(5, 7), first = ym + '-01';
+    var startDow = new Date(Date.UTC(y, m - 1, 1)).getUTCDay(), daysIn = new Date(Date.UTC(y, m, 0)).getUTCDate();
+    var name = new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString(undefined, { month: 'long', timeZone: 'UTC' }) + (y !== +t.slice(0, 4) ? ' ' + y : '');
+    var h = '<section class="mon" id="m-' + ym + '"><h3>' + esc(name) + '</h3><div class="mgrid">';
+    for (var i = 0; i < startDow; i++) h += '<span aria-hidden="true"></span>';
+    for (var d = 1; d <= daysIn; d++) {
+      var ds = C.addDays(first, d - 1), fut = C.diff(ds, t) > 0, isT = ds === t;
+      var cls = editMode ? 'edit' + (editSet[ds] ? ' sel' : '') + (fut ? ' future' : '') : (map[ds] || '');
+      var lbl = fmtW(ds) + (isT ? ', today' : '') + (editMode ? (editSet[ds] ? ', marked as period' : '') : (map[ds] ? ', ' + DAYNAMES[map[ds]] : ''));
+      h += '<button class="d ' + cls + (isT ? ' today' : '') + '" data-act="day" data-date="' + ds + '"' + (editMode && fut ? ' disabled' : '') +
+        (editMode ? ' aria-pressed="' + !!editSet[ds] + '"' : '') + ' aria-label="' + esc(lbl) + '">' + (isT ? '<span class="tl" aria-hidden="true">TODAY</span>' : '') + '<span class="c">' + d + '</span></button>';
+    }
+    return h + '</div></section>';
+  }
+
+  function renderCalendar(a) {
+    var t = today(), cur = t.slice(0, 7), map = dayMaps(a);
+    if (!calYear) calYear = +t.slice(0, 4);
+    var h = '<div class="cal-top"><div class="cal-bar"><button class="xbtn" data-act="calClose" aria-label="Close calendar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></button>' +
+      '<div class="seg2" role="group" aria-label="Calendar view"><button data-act="calMode" data-mode="month" aria-pressed="' + (calMode === 'month') + '">Month</button><button data-act="calMode" data-mode="year" aria-pressed="' + (calMode === 'year') + '">Year</button></div><span style="width:44px"></span></div>';
+    if (calMode === 'month') {
+      if (editMode) h += '<div class="edit-hint" role="status">Tap days to mark or unmark your period</div>';
+      h += '<div class="wk" aria-hidden="true"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>';
+    }
+    h += '</div>';
+    var legend = '<div class="cal-legend"><span><i class="sw" style="background:var(--period)"></i>Period</span><span><i class="sw" style="background:var(--pred)"></i>Predicted</span>' +
+      '<span><i class="sw" style="background:var(--pred);border:1.5px dotted var(--period)"></i>Possible</span><span><b style="color:var(--fert-ink)">12</b>Fertile (est.)</span>' +
+      '<span><i class="sw" style="border:1.5px dotted var(--ovu)"></i>Ovulation (est.)</span></div>';
+    if (calMode === 'month') {
+      if (!editMode) h += '<button class="more" data-act="calEarlier">Show earlier months</button>';
+      for (var k = calFrom; k <= calTo; k++) h += monthBlock(ymAdd(cur, k), map, t);
+      h += legend + '<p class="cal-note">Tap a day to log or edit. Predictions and fertile days are estimates, not contraception.</p><div style="height:84px"></div>';
+    } else {
+      h += '<div class="ynav"><button class="icon-btn" data-act="yPrev" aria-label="Previous year">\u2039</button><b>' + calYear + '</b><button class="icon-btn" data-act="yNext" aria-label="Next year">\u203a</button></div><div class="ygrid">';
+      for (var mm = 1; mm <= 12; mm++) {
+        var ym = calYear + '-' + (mm < 10 ? '0' : '') + mm, first = ym + '-01';
+        var sd = new Date(Date.UTC(calYear, mm - 1, 1)).getUTCDay(), dim = new Date(Date.UTC(calYear, mm, 0)).getUTCDate();
+        h += '<button class="ym' + (ym === cur ? ' cur' : '') + '" data-act="yMonth" data-month="' + ym + '" aria-label="Open ' + esc(fmt(first, { month: 'long', year: 'numeric' })) + '"><h4>' + esc(fmt(first, { month: 'short' })) + '</h4><div class="yg" aria-hidden="true">';
+        for (var b = 0; b < sd; b++) h += '<span></span>';
+        for (var dd = 1; dd <= dim; dd++) { var ds = C.addDays(first, dd - 1); h += '<span class="' + (map[ds] || '') + (ds === t ? ' today' : '') + '">' + dd + '</span>'; }
+        h += '</div></button>';
+      }
+      h += '</div>' + legend + '<p class="cal-note">Tap a month to open it.</p><div style="height:20px"></div>';
+    }
+    var sy = window.scrollY;
+    $('view-calendar').innerHTML = h;
+    var f = '';
+    if (calActive() && calMode === 'month') f = editMode ? '<div class="edit-bar"><button class="btn soft" data-act="editCancel">Cancel</button><button class="btn primary" data-act="editSave">Save</button></div>' : '<button class="pill" data-act="editStart">Edit period dates</button>';
+    $('calFloat').innerHTML = f;
+    if (calActive()) window.scrollTo(0, sy);
+  }
+
+  function scrollToMonth(ym, peek) {
+    var el = $('m-' + ym), top = document.querySelector('.cal-top');
+    if (!el) return;
+    window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + window.scrollY - (top ? top.offsetHeight : 0) - (peek || 0)));
+  }
+
+  function startEdit() {
+    editSet = {}; var t = today(), ps = C.sortPeriods(state.periods);
+    ps.forEach(function (p, i) { for (var d = p.start, e = C.effEnd(p, i === ps.length - 1, t); C.diff(d, e) <= 0; d = C.addDays(d, 1)) editSet[d] = true; });
+    editMode = true; render();
+  }
+  function saveEdit() {
+    var t = today();
+    var days = Object.keys(editSet).filter(function (d) { return editSet[d]; }).sort();
+    var runs = [];
+    days.forEach(function (d) { var r = runs[runs.length - 1]; if (r && C.diff(d, r.e) === 1) r.e = d; else runs.push({ s: d, e: d }); });
+    var long = runs.filter(function (r) { return C.diff(r.e, r.s) + 1 > 14; });
+    if (long.length && !confirm('One of these periods would be ' + (C.diff(long[0].e, long[0].s) + 1) + ' days long. Save anyway?')) return;
+    var old = C.sortPeriods(state.periods), lastOld = old[old.length - 1], used = {};
+    var out = runs.map(function (r, i) {
+      var match = old.filter(function (p, j) { return !used[p.id] && C.diff(p.start, r.e) <= 0 && C.diff(C.effEnd(p, j === old.length - 1, t), r.s) >= 0; })[0];
+      var q = match ? Object.assign({}, match) : { id: uid(), flow: '', symptoms: [], notes: '' };
+      if (match) used[match.id] = true;
+      q.start = r.s; q.end = r.e;
+      if (match && !match.end) {
+        if (match === lastOld && i === runs.length - 1 && r.e === t) q.end = null;          // still ongoing
+        else if (match !== lastOld && r.s === r.e && r.s === match.start) q.end = null;     // end date was never logged
+      }
+      return q;
+    });
+    state.periods = C.sortPeriods(out); save();
+    editMode = false; editSet = null; render();
+    toast('Period dates saved');
+  }
+
+  function flowDots(f) {
+    var n = f === 'light' ? 1 : f === 'medium' ? 2 : f === 'heavy' ? 3 : 0;
+    if (!n) return '';
+    var s = ' \u00b7 <span aria-label="' + f + ' flow">'; for (var i = 1; i <= 3; i++) s += '<i class="flowdot' + (i > n ? ' off' : '') + '"></i>'; return s + ' ' + f.charAt(0).toUpperCase() + f.slice(1) + '</span>';
+  }
+
+  function renderHistory(a) {
+    var h = '<div class="row" style="margin:0 4px 10px"><h2 style="margin:0;color:var(--plum);font-size:1.15rem">History</h2><button class="btn soft" style="min-height:40px;padding:8px 14px" data-act="logPast">+ Add</button></div>';
+    if (!a.count) { $('view-history').innerHTML = h + '<div class="card empty">No periods logged yet.</div>'; return; }
+    var ps = a.periods;
+    for (var i = ps.length - 1; i >= 0; i--) {
+      var p = ps[i], isLast = i === ps.length - 1;
+      var dur = C.duration(p);
+      var cyc = i < ps.length - 1 ? C.diff(ps[i + 1].start, p.start) : null;
+      var range = fmtY(p.start) + ' \u2013 ' + (p.end ? fmtY(p.end) : (isLast ? 'ongoing' : '?'));
+      var meta = dur ? pl(dur, 'day') : (isLast && !p.end ? 'Ongoing \u00b7 day ' + (C.diff(today(), p.start) + 1) : 'End date not logged');
+      h += '<button class="hist-item" data-act="edit" data-id="' + esc(p.id) + '"><div class="row"><span class="d">' + esc(range) + '</span><span class="muted small">\u203a</span></div>' +
+        '<div class="muted small">' + meta + flowDots(p.flow) + (cyc !== null ? ' \u00b7 cycle ' + cyc + ' days' : (isLast ? ' \u00b7 current cycle' : '')) + '</div>';
+      if ((p.symptoms && p.symptoms.length) || p.notes) {
+        h += '<div class="chips">' + (p.symptoms || []).map(function (s) { return '<span class="chip">' + esc(s) + '</span>'; }).join('') + '</div>';
+        if (p.notes) h += '<div class="small" style="margin-top:6px">' + esc(p.notes) + '</div>';
+      }
+      h += '</button>';
+    }
+    $('view-history').innerHTML = h;
+  }
+
+  function renderInsights(a) {
+    var h = '<div class="card"><h2>Cycle stats</h2>';
+    function v(x, u) { return x === null || x === undefined ? '<span class="muted">\u2013</span>' : x + (u ? ' <small>' + u + '</small>' : ''); }
+    h += '<div class="grid3">' +
+      '<div class="stat"><div class="v">' + v(a.enoughData ? Math.round(a.avgCycleRaw * 10) / 10 : null, 'd') + '</div><div class="l">Avg cycle</div></div>' +
+      '<div class="stat"><div class="v">' + v(a.avgPeriodRaw !== null ? Math.round(a.avgPeriodRaw * 10) / 10 : null, 'd') + '</div><div class="l">Avg period</div></div>' +
+      '<div class="stat"><div class="v">' + v(a.cycles.length) + '</div><div class="l">Cycles logged</div></div>' +
+      '<div class="stat"><div class="v">' + v(a.shortest, 'd') + '</div><div class="l">Shortest</div></div>' +
+      '<div class="stat"><div class="v">' + v(a.longest, 'd') + '</div><div class="l">Longest</div></div>' +
+      '<div class="stat"><div class="v">' + v(a.variation, 'd') + '</div><div class="l">Variation*</div></div></div>';
+    h += '<p class="muted small" style="margin:10px 0 0">Averages and predictions use your last ' + (a.recentCycles.length || 'up to 6') + ' cycles. *Variation = longest minus shortest of those cycles.' + (a.enoughData ? '' : ' With fewer than 2 periods logged, predictions assume a 28-day cycle.') + '</p></div>';
+
+    h += '<div class="card"><h2>Recent cycles</h2>';
+    if (!a.recentCycles.length) h += '<p class="muted small" style="margin:0">Log at least two periods to see cycle lengths.</p>';
+    else {
+      var max = Math.max(40, Math.max.apply(null, a.recentCycles.map(function (c) { return c.length; })));
+      a.recentCycles.slice().reverse().forEach(function (c) {
+        var flag = c.length < 21 || c.length > 35;
+        h += '<div class="bar-row"><span class="muted">' + fmt(c.start) + '</span><div class="bar" role="img" aria-label="' + c.length + ' day cycle"><i class="' + (flag ? 'flag' : '') + '" style="width:' + (c.length / max * 100).toFixed(1) + '%"></i></div><b>' + c.length + 'd</b></div>';
+      });
+      h += '<p class="muted small" style="margin:8px 0 0">Typical range is 21\u201335 days. Amber bars are outside it.</p>';
+    }
+    h += '</div>';
+
+    h += '<div class="card"><h2>Cycle health</h2>';
+    a.insights.forEach(function (x) { h += '<div class="note ' + x.level + '"><h3>' + esc(x.title) + '</h3>' + esc(x.text) + '</div>'; });
+    if (!a.insights.length) h += '<p class="muted small">Log a period to see insights.</p>';
+    h += '<p class="disclaimer">These are gentle pattern notes, not a diagnosis or medical advice. Every body is different. If something feels off, or a pattern keeps repeating, please talk to a doctor or nurse.</p></div>';
+    $('view-insights').innerHTML = h;
+  }
+
+  function renderData(a) {
+    var h = '<div class="card"><h2>Backup & export</h2><p class="muted small" style="margin-top:0">Your data lives only in this browser on this device (' + pl(a.count, 'period') + ' saved). Export a backup regularly, and keep it somewhere safe.</p>' +
+      '<div class="list-actions"><button class="btn primary block" data-act="exportJson">Export backup (JSON)</button><button class="btn soft block" data-act="exportCsv">Export spreadsheet (CSV)</button><button class="btn ghost block" data-act="copyJson">Show backup text to copy</button></div></div>';
+    h += '<div class="card"><h2>Restore a backup</h2><p class="muted small" style="margin-top:0">Choose a Flow backup file (.json) you exported earlier.</p><input type="file" id="fileIn" accept=".json,application/json" hidden><button class="btn soft block" data-act="importJson">Import backup file</button></div>';
+    h += '<div class="card"><h2>Bring your history from Flo</h2><p class="muted small" style="margin-top:0">Paste one period per line as <b>start,end</b> dates (YYYY-MM-DD). The end date is optional. Duplicates are skipped.</p>' +
+      '<textarea id="pasteIn" spellcheck="false" placeholder="2026-01-04,2026-01-08&#10;2026-02-01,2026-02-06&#10;2026-03-01,2026-03-05"></textarea><div class="btn-row"><button class="btn primary" data-act="importPaste">Import dates</button></div><div class="err" id="pasteMsg" style="color:var(--muted)"></div></div>';
+    h += '<div class="card"><h2>Danger zone</h2><button class="btn danger block" data-act="clearAll">Clear all data</button></div>';
+    h += '<p class="disclaimer" style="text-align:center">Flow works offline. No accounts, no tracking, no network.<br>Not medical advice.</p>';
+    var keep = $('pasteIn') ? $('pasteIn').value : '';
+    $('view-data').innerHTML = h;
+    $('pasteIn').value = keep;
+    $('fileIn').addEventListener('change', onFile);
+  }
+
+  /* ---------- sheet / forms ---------- */
+  function openSheet(html) { $('sheet').innerHTML = html; $('sheetWrap').classList.add('open'); var f = $('sheet').querySelector('input,button'); if (f) setTimeout(function () { f.focus(); }, 30); }
+  function closeSheet() { $('sheetWrap').classList.remove('open'); $('sheet').innerHTML = ''; }
+  $('sheetWrap').addEventListener('click', function (e) { if (e.target === $('sheetWrap')) closeSheet(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSheet(); });
+
+  function openForm(p, defaults) {
+    var isNew = !p;
+    p = p || Object.assign({ id: null, start: today(), end: null, flow: '', symptoms: [], notes: '' }, defaults || {});
+    var t = today();
+    var sorted = C.sortPeriods(state.periods);
+    var isLatest = isNew ? !sorted.some(function (x) { return C.diff(x.start, p.start) > 0; }) : sorted[sorted.length - 1].id === p.id;
+    var h = '<h2 id="sheetTitle">' + (isNew ? 'Log period' : 'Edit period') + '</h2>' +
+      '<label class="f" for="fStart">Start date</label><input type="date" id="fStart" max="' + t + '" value="' + esc(p.start) + '">' +
+      '<label class="f" for="fEnd">End date</label><input type="date" id="fEnd" max="' + t + '" value="' + esc(p.end || '') + '">' +
+      '<label class="check"><input type="checkbox" id="fOngoing"' + (!p.end ? ' checked' : '') + '> Still ongoing (no end date yet)</label>' +
+      '<div class="btn-row" style="margin-top:8px"><button class="btn ghost" type="button" data-act="fEndToday" style="min-height:42px">Period ended today</button></div>' +
+      '<label class="f">Flow <span class="muted small">(optional)</span></label><div class="seg" id="fFlow">' +
+      FLOWS.map(function (f) { return '<button type="button" data-v="' + f[0] + '" aria-pressed="' + (p.flow === f[0]) + '">' + f[1] + '</button>'; }).join('') + '</div>' +
+      '<label class="f">Symptoms & mood <span class="muted small">(optional)</span></label><div class="symp" id="fSymp">' +
+      SYMPTOMS.concat((p.symptoms || []).filter(function (s) { return SYMPTOMS.indexOf(s) < 0; })).map(function (s) { return '<button type="button" data-v="' + esc(s) + '" aria-pressed="' + ((p.symptoms || []).indexOf(s) >= 0) + '">' + esc(s) + '</button>'; }).join('') + '</div>' +
+      '<label class="f" for="fNotes">Notes <span class="muted small">(optional)</span></label><textarea id="fNotes" maxlength="500" placeholder="Anything you want to remember">' + esc(p.notes || '') + '</textarea>' +
+      '<div class="err" id="fErr" role="alert"></div>' +
+      '<div class="btn-row"><button class="btn soft" type="button" data-act="close">Cancel</button><button class="btn primary" type="button" data-act="saveForm">Save</button></div>' +
+      (isNew ? '' : '<div class="btn-row"><button class="btn danger" type="button" data-act="deleteForm">Delete this period</button></div>');
+    openSheet(h);
+    var sheet = $('sheet');
+    sheet.dataset.id = p.id || '';
+    var end = $('fEnd'), ong = $('fOngoing');
+    function sync() { end.disabled = ong.checked; if (ong.checked) end.value = ''; }
+    ong.addEventListener('change', function () { sync(); if (!ong.checked && !end.value) end.value = C.diff(t, $('fStart').value) >= 0 && C.diff(C.addDays($('fStart').value, 4), t) <= 0 ? C.addDays($('fStart').value, 4) : t; });
+    end.addEventListener('input', function () { if (end.value) ong.checked = false; });
+    if (!isLatest && !p.end) ong.checked = false;
+    sync();
+    $('fFlow').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; var on = b.getAttribute('aria-pressed') === 'true'; $('fFlow').querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); }); b.setAttribute('aria-pressed', on ? 'false' : 'true'); });
+    $('fSymp').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); });
+  }
+
+  function readForm() {
+    var flowBtn = $('fFlow').querySelector('[aria-pressed="true"]');
+    return {
+      id: $('sheet').dataset.id || null,
+      start: $('fStart').value,
+      end: $('fOngoing').checked ? null : ($('fEnd').value || null),
+      flow: flowBtn ? flowBtn.dataset.v : '',
+      symptoms: Array.prototype.map.call($('fSymp').querySelectorAll('[aria-pressed="true"]'), function (b) { return b.dataset.v; }),
+      notes: $('fNotes').value.trim().slice(0, 500)
+    };
+  }
+
+  function upsert(p) {
+    var err = C.validate(p, state.periods, today(), p.id);
+    if (err) return err;
+    if (!p.id) { p.id = uid(); state.periods.push(p); }
+    else state.periods = state.periods.map(function (x) { return x.id === p.id ? p : x; });
+    state.periods = C.sortPeriods(state.periods);
+    save(); render(); return null;
+  }
+
+  function byId(id) { return state.periods.filter(function (p) { return p.id === id; })[0]; }
+
+  function startOn(date) {
+    var a = C.analyze(state.periods, today());
+    var ps = a.periods;
+    // auto-close an ongoing earlier period the day before, if that seems reasonable
+    if (a.ongoing && C.diff(date, a.last.start) > 0) {
+      var len = C.diff(date, a.last.start);
+      if (len <= 15 && confirm('Your period that started ' + fmt(a.last.start) + ' is still marked as ongoing. End it on ' + fmt(C.addDays(date, -1)) + '?')) {
+        a.last.end = C.addDays(date, -1);
+      } else if (len <= 15) return;
+      else a.last.end = null; // old ongoing becomes "end not logged"
+    }
+    var err = upsert({ id: null, start: date, end: null, flow: '', symptoms: [], notes: '' });
+    if (err) { state = load(); render(); toast(err); return false; }
+    toast('Period start logged for ' + fmt(date));
+    return true;
+  }
+  function endOn(p, date) {
+    var q = Object.assign({}, p, { end: date });
+    var err = upsert(q);
+    if (err) { toast(err); return false; }
+    toast('Period ended ' + fmt(date) + ' (' + pl(C.duration(q), 'day') + ')');
+    return true;
+  }
+
+  function dayAction(ds) {
+    var t = today();
+    var a = C.analyze(state.periods, t);
+    var ps = a.periods;
+    var h = '<h2 id="sheetTitle">' + esc(fmtW(ds)) + '</h2>';
+    var acts = [];
+    if (C.diff(ds, t) > 0) {
+      var pr = a.projections.filter(function (x) { return C.diff(ds, x.start) >= 0 && C.diff(ds, x.end) <= 0; })[0];
+      h += '<p class="muted">' + (pr ? 'Your period is predicted around this day.' : 'This day is in the future.') + ' You can log periods once they happen.</p>';
+      acts.push('<button class="btn soft block" data-act="close">Close</button>');
+    } else {
+      var inside = null, prior = null;
+      ps.forEach(function (p, i) {
+        var e = C.effEnd(p, i === ps.length - 1, t);
+        if (C.diff(ds, p.start) >= 0 && C.diff(ds, e) <= 0) inside = p;
+        if (C.diff(ds, p.start) > 0) prior = p;
+      });
+      if (inside) {
+        h += '<p class="muted">Part of your period from ' + fmt(inside.start) + (inside.end ? ' to ' + fmt(inside.end) : ' (ongoing)') + '.</p>';
+        if (ds !== inside.start && ds !== inside.end) acts.push('<button class="btn rose block" data-act="endOn" data-id="' + inside.id + '" data-date="' + ds + '">Period ended on this day</button>');
+        acts.push('<button class="btn soft block" data-act="edit" data-id="' + inside.id + '">Edit this period</button>');
+      } else {
+        acts.push('<button class="btn primary block" data-act="startOn" data-date="' + ds + '">Period started on this day</button>');
+        if (prior && C.diff(ds, prior.start) <= 14) {
+          var nextAfter = ps.filter(function (p) { return C.diff(p.start, ds) > 0; })[0];
+          if (!nextAfter) acts.push('<button class="btn soft block" data-act="endOn" data-id="' + prior.id + '" data-date="' + ds + '">Period (from ' + fmt(prior.start) + ') ended on this day</button>');
+        }
+      }
+      acts.push('<button class="btn ghost block" data-act="close">Cancel</button>');
+    }
+    openSheet(h + '<div class="list-actions">' + acts.join('') + '</div>');
+  }
+
+  /* ---------- data ---------- */
+  function download(name, text, type) {
+    var blob = new Blob([text], { type: type });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  }
+  function backupJson() { return JSON.stringify({ app: 'flow-tracker', version: 1, exportedAt: new Date().toISOString(), periods: C.sortPeriods(state.periods) }, null, 2); }
+  function csvCell(s) { s = String(s == null ? '' : s); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }
+  function csv() {
+    var ps = C.sortPeriods(state.periods), rows = [['start_date', 'end_date', 'period_days', 'cycle_length_days', 'flow', 'symptoms', 'notes']];
+    ps.forEach(function (p, i) { rows.push([p.start, p.end || '', C.duration(p) || '', i < ps.length - 1 ? C.diff(ps[i + 1].start, p.start) : '', p.flow || '', (p.symptoms || []).join('; '), p.notes || '']); });
+    return rows.map(function (r) { return r.map(csvCell).join(','); }).join('\n') + '\n';
+  }
+  function sanitize(p) {
+    if (!p || !C.isDate(p.start)) return null;
+    return { id: typeof p.id === 'string' && p.id ? p.id.slice(0, 40) : uid(), start: p.start, end: C.isDate(p.end) && C.diff(p.end, p.start) >= 0 ? p.end : null,
+      flow: ['light', 'medium', 'heavy'].indexOf(p.flow) >= 0 ? p.flow : '', symptoms: Array.isArray(p.symptoms) ? p.symptoms.filter(function (s) { return typeof s === 'string'; }).map(function (s) { return s.slice(0, 40); }).slice(0, 30) : [],
+      notes: typeof p.notes === 'string' ? p.notes.slice(0, 500) : '' };
+  }
+  function onFile(e) {
+    var f = e.target.files && e.target.files[0]; if (!f) return;
+    var r = new FileReader();
+    r.onload = function () {
+      try {
+        var d = JSON.parse(r.result);
+        var arr = Array.isArray(d) ? d : d.periods;
+        if (!Array.isArray(arr)) throw new Error('bad');
+        var clean = arr.map(sanitize).filter(Boolean);
+        var seen = {}; clean = C.sortPeriods(clean).filter(function (p) { if (seen[p.start]) return false; seen[p.start] = 1; return true; });
+        if (!clean.length) { toast('No periods found in that file.'); return; }
+        if (state.periods.length && !confirm('Replace your current ' + pl(state.periods.length, 'period') + ' with ' + pl(clean.length, 'period') + ' from this backup?')) return;
+        state.periods = clean; save(); render(); toast('Restored ' + pl(clean.length, 'period'));
+      } catch (err) { toast('That file doesn\u2019t look like a Flow backup.'); }
+      e.target.value = '';
+    };
+    r.readAsText(f);
+  }
+  function importPaste() {
+    var res = C.parsePasted($('pasteIn').value), t = today();
+    if (!res.rows.length) { $('pasteMsg').textContent = res.bad.length ? 'Couldn\u2019t read any lines. Use YYYY-MM-DD,YYYY-MM-DD.' : 'Paste some dates first.'; return; }
+    var added = 0, skipped = [];
+    var rows = res.rows.slice().sort(function (a, b) { return C.diff(a.start, b.start); });
+    rows.forEach(function (r, idx) {
+      if (state.periods.some(function (p) { return p.start === r.start; })) { skipped.push('line ' + r.line + ' (already logged)'); return; }
+      var p = { id: uid(), start: r.start, end: r.end, flow: '', symptoms: [], notes: '' };
+      var err = C.validate(p, state.periods, t, null);
+      if (err) { skipped.push('line ' + r.line + ' (' + err.replace(/\.$/, '') + ')'); return; }
+      state.periods.push(p); added++;
+    });
+    state.periods = C.sortPeriods(state.periods);
+    save(); render();
+    var msg = 'Imported ' + pl(added, 'period') + '.';
+    if (skipped.length) msg += ' Skipped: ' + skipped.join('; ') + '.';
+    if (res.bad.length) msg += ' Unreadable: ' + res.bad.map(function (b) { return 'line ' + b.line; }).join(', ') + '.';
+    if (added) $('pasteIn').value = '';
+    $('pasteMsg').textContent = msg;
+    toast('Imported ' + pl(added, 'period'));
+  }
+
+  /* ---------- events ---------- */
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-act]'); if (!b) return;
+    var act = b.dataset.act, t = today();
+    if (b.tagName === 'A') e.preventDefault();
+    switch (act) {
+      case 'close': closeSheet(); break;
+      case 'startToday': {
+        var a = C.analyze(state.periods, t);
+        if (a.last && a.last.start === t) { toast('Already logged for today'); break; }
+        if (a.last && a.last.end && C.diff(a.last.end, t) >= 0) { toast('Today is already part of a logged period'); break; }
+        startOn(t); break;
+      }
+      case 'endToday': { var a2 = C.analyze(state.periods, t); if (a2.ongoing) endOn(a2.last, t); break; }
+      case 'logPast': openForm(null, { start: t }); break;
+      case 'edit': openForm(byId(b.dataset.id)); break;
+      case 'goData': showTab('data'); break;
+      case 'goInsights': showTab('insights'); break;
+      case 'fEndToday': $('fOngoing').checked = false; $('fEnd').disabled = false; $('fEnd').value = t; break;
+      case 'saveForm': {
+        var p = readForm();
+        var err = upsert(p);
+        if (err) { $('fErr').textContent = err; break; }
+        closeSheet(); toast('Saved');
+        break;
+      }
+      case 'deleteForm': {
+        var id = $('sheet').dataset.id, q = byId(id);
+        if (q && confirm('Delete the period starting ' + fmtY(q.start) + '? This can\u2019t be undone.')) {
+          state.periods = state.periods.filter(function (x) { return x.id !== id; }); save(); render(); closeSheet(); toast('Period deleted');
+        }
+        break;
+      }
+      case 'calClose': showTab('home'); break;
+      case 'calMode':
+        if (b.dataset.mode === calMode) break;
+        calMode = b.dataset.mode; editMode = false; editSet = null; calYear = +t.slice(0, 4); render();
+        window.scrollTo(0, 0); if (calMode === 'month') scrollToMonth(t.slice(0, 7), 150);
+        break;
+      case 'yPrev': calYear--; render(); break;
+      case 'yNext': calYear++; render(); break;
+      case 'yMonth': {
+        var ym = b.dataset.month, k = ymDiff(ym, t.slice(0, 7));
+        if (k < calFrom) calFrom = k - 1; if (k > calTo) calTo = k;
+        calMode = 'month'; render(); window.scrollTo(0, 0); scrollToMonth(ym, 0); break;
+      }
+      case 'calEarlier': { var h0 = document.documentElement.scrollHeight, y0 = window.scrollY; calFrom -= 6; render(); window.scrollTo(0, y0 + document.documentElement.scrollHeight - h0); break; }
+      case 'editStart': startEdit(); break;
+      case 'editCancel': editMode = false; editSet = null; render(); break;
+      case 'editSave': saveEdit(); break;
+      case 'day':
+        if (editMode) {
+          var dsx = b.dataset.date; if (C.diff(dsx, t) > 0) break;
+          editSet[dsx] = !editSet[dsx]; b.classList.toggle('sel', !!editSet[dsx]); b.setAttribute('aria-pressed', String(!!editSet[dsx]));
+        } else dayAction(b.dataset.date);
+        break;
+      case 'startOn': closeSheet(); startOn(b.dataset.date); break;
+      case 'endOn': { closeSheet(); var pp = byId(b.dataset.id); if (pp) endOn(pp, b.dataset.date); break; }
+      case 'exportJson': if (!state.periods.length) { toast('Nothing to export yet'); break; } download('flow-backup-' + t + '.json', backupJson(), 'application/json'); toast('Backup downloaded'); break;
+      case 'exportCsv': if (!state.periods.length) { toast('Nothing to export yet'); break; } download('flow-periods-' + t + '.csv', csv(), 'text/csv'); toast('CSV downloaded'); break;
+      case 'copyJson':
+        openSheet('<h2 id="sheetTitle">Backup text</h2><p class="muted small">Copy this and save it somewhere safe (e.g. a note or email to yourself). You can restore by saving it as a .json file and importing it.</p><textarea id="bkTxt" style="min-height:220px;font-family:ui-monospace,Menlo,monospace;font-size:.8rem" readonly>' + esc(backupJson()) + '</textarea><div class="btn-row"><button class="btn primary" data-act="copyNow">Copy</button><button class="btn soft" data-act="close">Done</button></div>');
+        break;
+      case 'copyNow': {
+        var ta = $('bkTxt'); ta.focus(); ta.select();
+        var done = function () { toast('Copied'); };
+        if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(ta.value).then(done, function () { document.execCommand('copy'); done(); });
+        else { try { document.execCommand('copy'); done(); } catch (x) { toast('Select the text and copy it manually'); } }
+        break;
+      }
+      case 'importJson': $('fileIn').click(); break;
+      case 'importPaste': importPaste(); break;
+      case 'clearAll':
+        if (!state.periods.length) { toast('Nothing to clear'); break; }
+        if (confirm('Delete ALL ' + pl(state.periods.length, 'period') + ' from this device? Consider exporting a backup first.') && confirm('Are you sure? This can\u2019t be undone.')) {
+          state = { version: 1, periods: [] }; save(); render(); toast('All data cleared');
+        }
+        break;
+    }
+  });
+
+  // refresh at midnight / when returning to the app
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) render(); });
+  window.addEventListener('storage', function (e) { if (e.key === KEY) { state = load(); render(); } });
+
+  render();
+})();
+</script>
+<script>
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(function () {}); });
+}
+</script>
+</body>
+</html>
