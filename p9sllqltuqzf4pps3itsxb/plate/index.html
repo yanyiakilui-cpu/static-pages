@@ -210,6 +210,19 @@ nav.tabs button.on{color:var(--blue)}
   .sheet{bottom:24px;border-radius:26px;height:min(780px,86vh)}
   .sheet.auto{height:auto}
 }
+.fd-meal{font:inherit;font-size:18px;font-weight:700;border:0;background:transparent;color:var(--ink,#1f2a44);padding:2px 4px;-webkit-appearance:none;appearance:none;text-align:center}
+.fd-prev{background:#f3f7fd;border-radius:16px;padding:10px 12px;margin:0 0 14px}
+.fd-pr{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:10px}.fd-pc b{font-size:15px}.fd-pc .nbar{margin-top:5px;height:5px}
+.fd-pn{text-align:center;color:var(--blue);font-size:12px;margin-top:8px}
+.fd-name{font-size:24px;font-weight:800;letter-spacing:-.3px}.fd-brand{margin:4px 0 14px}
+.fd-box{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #dfe7f3;border-radius:16px;padding:12px 0;margin-bottom:12px}
+.fd-box>div{text-align:center;border-left:1px solid #e6edf6}.fd-box>div:first-child{border-left:0}.fd-box b{display:block;font-size:18px}.fd-box span{font-size:12px;color:#64708a}
+.fd-box i{display:inline-block;width:7px;height:11px;border-radius:4px;margin-right:4px;vertical-align:-1px}
+.fd-amt{display:grid;grid-template-columns:1fr 2fr;gap:10px;margin-bottom:10px}
+.fd-amt input,.fd-amt select{font:inherit;font-size:17px;border:1px solid #cfdcf0;border-radius:14px;padding:13px 12px;background:#fff;text-align:center;width:100%;box-sizing:border-box;color:inherit}
+.fd-amt select{text-align:left}
+.fd-list{margin-top:18px}.fd-r{display:flex;justify-content:space-between;padding:9px 2px;font-size:15px}
+.fd-r.top{border-top:1px solid #e3e9f2;padding-top:13px;font-weight:600}.fd-r.top:first-child{border-top:0}.fd-r.lv1,.fd-r.lv2{color:#5d6880;font-size:14px}.fd-r.lv2{padding-left:14px}
 </style>
 </head>
 <body>
@@ -264,7 +277,12 @@ Roti / chapati|1 piece|40|120|3|18|3.7
 Steamed bun (mantou)|1 bun|70|160|5|33|1
 Avocado toast|1 slice|150|290|8|34|15
 # Eggs, meat & fish
-Egg, boiled|1 large|50|78|6.3|0.6|5.3
+Boiled Egg|2 large|100|154|12.5|1.1|10.6|brand=Generic;units=2:large;alt=small:38,medium:44,extra large:56,jumbo:63;sat=3.3;poly=1.4;mono=4.1;trans=0;chol=373;na=124;fiber=0;sugar=1.1;k=126;ca=50;fe=1.2;vd=2.2
+Tuna Poke|1 bowl||460|39|52|10|brand=Sushiya
+Yellowfin Ahi Tuna Poke|3 oz|85|170|14|3|10|brand=Fresh & Easy
+Tuna Ahi Poke Cubes|1 serving||90|21|0|0|brand=Freshii
+Ahi Tuna Poke|1 serving||410|27|63|5|brand=Bonefish Grill
+Tuna Poke Bowl|1 serving||830|38|46|50|brand=Freshii
 Egg, fried|1 large|46|90|6.3|0.4|7
 Scrambled eggs|2 eggs|122|200|13.5|2|15
 Egg white|1 large|33|17|3.6|0.2|0.1
@@ -500,441 +518,441 @@ Sake|1 small cup|90ml|120|0.5|4.5|0
 Soju|1 shot|50ml|65|0|1|0
 Spirits (vodka, whisky…)|1 shot (1.5 oz)|44ml|97|0|0|0
 # Crackers
-Ritz Original Crackers|5 crackers (16 g)|16|80|1|10|4.5|brand=Ritz;sat=1.5;trans=0;chol=0;na=130;fiber=0;sugar=1;addsugar=1;k=10
-Ritz Crisp & Thin Salt & Vinegar|21 chips (30 g)|30|130|2|21|4.5|brand=Ritz;sat=1;trans=0;chol=0;na=200;fiber=2;sugar=1;addsugar=1;k=270
-Ritz Toasted Chips Cheddar|13 chips (31 g)|31|150|2|21|6|brand=Ritz;sat=1.5;trans=0;chol=0;na=250;fiber=1;sugar=2;addsugar=2;k=40
-Premium Saltine Crackers|5 crackers (16 g)|16|70|1|12|1.5|brand=Nabisco;sat=0;trans=0;chol=0;na=135;fiber=0;sugar=0;k=20
-Zesta Saltines Original|5 crackers (15 g)|15|60|1|12|1.5|brand=Kellogg's;sat=0;trans=0;chol=0;na=220;fiber=0;sugar=0;addsugar=0;k=10
-Triscuit Original|6 crackers (28 g)|28|120|3|20|3.5|brand=Triscuit;sat=0;trans=0;chol=0;na=170;fiber=3;sugar=0;addsugar=0;k=120
-Triscuit Thin Crisps Original|15 crackers (30 g)|30|130|3|21|4.5|brand=Triscuit;sat=0;trans=0;na=170;sugar=0;k=122
-Triscuit Rosemary & Olive Oil|6 crackers (28 g)|28|120|3|20|4|brand=Triscuit;sat=0;trans=0;na=130;sugar=0;k=114
-Cheez-It Original|27 crackers (30 g)|30|153|3.5|17.1|7.9|brand=Cheez-It;sat=1.8;trans=0.1;chol=0;na=230;fiber=0.6;sugar=0.1;k=33
-Cheez-It White Cheddar|25 crackers (30 g)|30|151|2.5|18.7|7.5|brand=Cheez-It;sat=1.8;trans=0.1;chol=2;na=208;fiber=0.7;sugar=0.3;k=31
-Cheez-It Reduced Fat|27 crackers (30 g)|30|134|3.9|20.2|4.3|brand=Cheez-It;sat=1.1;trans=0.1;chol=0;na=247;fiber=0.6;sugar=0.2;k=35
-Goldfish Cheddar Crackers|30 g|30|140|3|20|5|brand=Pepperidge Farm;sat=1;trans=0;chol=5;na=250;fiber=1;sugar=0;addsugar=0;k=50
-Goldfish Pretzel|30 g|30|120|3|24|2|brand=Pepperidge Farm;sat=0;trans=0;chol=0;na=280;fiber=1;sugar=1;addsugar=0;k=40
-Goldfish Colors Cheddar|30 g|30|140|3|20|5|brand=Pepperidge Farm;sat=1;trans=0;chol=5;na=240;fiber=1;sugar=0;addsugar=0;k=50
-Goldfish Flavor Blasted Xtra Cheddar|30 g|30|140|4|19|5|brand=Pepperidge Farm;sat=1;trans=0;chol=5;na=260;fiber=1;sugar=0;addsugar=0;k=50
-Wheat Thins Original|16 pieces (31 g)|31|140|2|22|5|brand=Nabisco;sat=0;trans=0;chol=0;na=200;fiber=3;sugar=5;addsugar=4;k=90
-Wheat Thins Ranch|15 pieces (30 g)|30|140|2|21|5|brand=Nabisco;sat=0;trans=0;chol=0;na=170;fiber=2;sugar=5;addsugar=4;k=100
-Wheat Thins Reduced Fat|16 pieces (29 g)|29|120|2|22|3.5|brand=Nabisco;sat=0.5;trans=0;na=200;sugar=4;k=90
-Club Crackers Original|4 crackers (14 g)|14|70|1|9|3|brand=Keebler;sat=0;trans=0;chol=0;na=125;fiber=0;sugar=1;addsugar=1;k=10
-Town House Crackers|5 crackers (16 g)|16|85|0.8|9.4|5|brand=Keebler;sat=0.8;trans=0.1;chol=0;na=145;fiber=0.3;sugar=1.4;addsugar=1.3;k=16
-Honey Maid Graham Crackers|30 g|30|130|2|24|3|brand=Nabisco;sat=0;trans=0;chol=0;na=130;fiber=1;sugar=8;addsugar=8;k=50
-Teddy Grahams Honey|23 pieces (30 g)|30|130|2|22|4|brand=Nabisco;sat=0;trans=0;na=90;sugar=7;k=49
-Barnum's Animal Crackers|1 pack (28 g)|28|130|1|21|4|brand=Nabisco;sat=1;trans=0;chol=0;na=140;fiber=0;sugar=6;k=20
-Chicken in a Biskit|12 crackers (31 g)|31|160|2|19|8|brand=Nabisco;sat=0.5;trans=0;na=230;sugar=2;k=24
+Ritz Original Crackers|5 crackers (16 g)|16|80|1|10|4.5|brand=Ritz;sat=1.5;trans=0;chol=0;na=130;fiber=0;sugar=1;addsugar=1;k=10;ca=20;fe=0.5;vd=0
+Ritz Crisp & Thin Salt & Vinegar|21 chips (30 g)|30|130|2|21|4.5|brand=Ritz;sat=1;trans=0;chol=0;na=200;fiber=2;sugar=1;addsugar=1;k=270;ca=60;fe=0.5;vd=0
+Ritz Toasted Chips Cheddar|13 chips (31 g)|31|150|2|21|6|brand=Ritz;sat=1.5;trans=0;chol=0;na=250;fiber=1;sugar=2;addsugar=2;k=40;ca=60;fe=1;vd=0
+Premium Saltine Crackers|5 crackers (16 g)|16|70|1|12|1.5|brand=Nabisco;sat=0;trans=0;chol=0;na=135;fiber=0;sugar=0;k=20;ca=0;fe=0.8;vd=0
+Zesta Saltines Original|5 crackers (15 g)|15|60|1|12|1.5|brand=Kellogg's;sat=0;trans=0;chol=0;na=220;fiber=0;sugar=0;addsugar=0;k=10;poly=0.5;mono=0;ca=0;fe=0.6;vd=0
+Triscuit Original|6 crackers (28 g)|28|120|3|20|3.5|brand=Triscuit;sat=0;trans=0;chol=0;na=170;fiber=3;sugar=0;addsugar=0;k=120;ca=10;fe=1.4;vd=0
+Triscuit Thin Crisps Original|15 crackers (30 g)|30|130|3|21|4.5|brand=Triscuit;sat=0;trans=0;na=170;sugar=0;k=122;ca=11;fe=1.5;vd=0
+Triscuit Rosemary & Olive Oil|6 crackers (28 g)|28|120|3|20|4|brand=Triscuit;sat=0;trans=0;na=130;sugar=0;k=114;ca=11;fe=1.4;vd=0
+Cheez-It Original|27 crackers (30 g)|30|153|3.5|17.1|7.9|brand=Cheez-It;sat=1.8;trans=0.1;chol=0;na=230;fiber=0.6;sugar=0.1;k=33;poly=3.9;mono=2.1;ca=40;fe=1.2
+Cheez-It White Cheddar|25 crackers (30 g)|30|151|2.5|18.7|7.5|brand=Cheez-It;sat=1.8;trans=0.1;chol=2;na=208;fiber=0.7;sugar=0.3;k=31;poly=3.5;mono=1.8;ca=14;fe=1.2
+Cheez-It Reduced Fat|27 crackers (30 g)|30|134|3.9|20.2|4.3|brand=Cheez-It;sat=1.1;trans=0.1;chol=0;na=247;fiber=0.6;sugar=0.2;k=35;poly=2;mono=1.2;ca=39;fe=1.3
+Goldfish Cheddar Crackers|30 g|30|140|3|20|5|brand=Pepperidge Farm;sat=1;trans=0;chol=5;na=250;fiber=1;sugar=0;addsugar=0;k=50;ca=30;fe=1.3;vd=0
+Goldfish Pretzel|30 g|30|120|3|24|2|brand=Pepperidge Farm;sat=0;trans=0;chol=0;na=280;fiber=1;sugar=1;addsugar=0;k=40;ca=10;fe=1.3;vd=0
+Goldfish Colors Cheddar|30 g|30|140|3|20|5|brand=Pepperidge Farm;sat=1;trans=0;chol=5;na=240;fiber=1;sugar=0;addsugar=0;k=50;ca=20;fe=1.2;vd=0
+Goldfish Flavor Blasted Xtra Cheddar|30 g|30|140|4|19|5|brand=Pepperidge Farm;sat=1;trans=0;chol=5;na=260;fiber=1;sugar=0;addsugar=0;k=50;poly=1.5;mono=2.5;ca=40;fe=1.3;vd=0
+Wheat Thins Original|16 pieces (31 g)|31|140|2|22|5|brand=Nabisco;sat=0;trans=0;chol=0;na=200;fiber=3;sugar=5;addsugar=4;k=90;ca=30;fe=0.9;vd=0
+Wheat Thins Ranch|15 pieces (30 g)|30|140|2|21|5|brand=Nabisco;sat=0;trans=0;chol=0;na=170;fiber=2;sugar=5;addsugar=4;k=100;ca=30;fe=0.8;vd=0
+Wheat Thins Reduced Fat|16 pieces (29 g)|29|120|2|22|3.5|brand=Nabisco;sat=0.5;trans=0;na=200;sugar=4;k=90;ca=30;fe=0.9;vd=0
+Club Crackers Original|4 crackers (14 g)|14|70|1|9|3|brand=Keebler;sat=0;trans=0;chol=0;na=125;fiber=0;sugar=1;addsugar=1;k=10;poly=2;mono=0.5;ca=0;fe=0.4;vd=0
+Town House Crackers|5 crackers (16 g)|16|85|0.8|9.4|5|brand=Keebler;sat=0.8;trans=0.1;chol=0;na=145;fiber=0.3;sugar=1.4;addsugar=1.3;k=16;poly=3;mono=1.2;ca=5;fe=0.5;vd=0
+Honey Maid Graham Crackers|30 g|30|130|2|24|3|brand=Nabisco;sat=0;trans=0;chol=0;na=130;fiber=1;sugar=8;addsugar=8;k=50;ca=10;fe=0.9;vd=0
+Teddy Grahams Honey|23 pieces (30 g)|30|130|2|22|4|brand=Nabisco;sat=0;trans=0;na=90;sugar=7;k=49;ca=130;fe=0.8;vd=0
+Barnum's Animal Crackers|1 pack (28 g)|28|130|1|21|4|brand=Nabisco;sat=1;trans=0;chol=0;na=140;fiber=0;sugar=6;k=20;ca=3;fe=1.4
+Chicken in a Biskit|12 crackers (31 g)|31|160|2|19|8|brand=Nabisco;sat=0.5;trans=0;na=230;sugar=2;k=24;ca=3;fe=1.1;vd=0
 # Cookies & biscuits
-Oreo Double Stuf|2 cookies (29 g)|29|140|1|21|7|brand=Nabisco;sat=2.5;trans=0;chol=0;na=85;fiber=1;sugar=13;addsugar=13;k=30
-Oreo Thins|4 cookies (29 g)|29|140|1|21|6|brand=Nabisco;sat=2;trans=0;na=95;fiber=1;sugar=12;k=40
-Oreo Golden|1 pack (22 g)|22|110|1|16|4.5|brand=Nabisco;sat=1.5;trans=0;chol=0;na=75;fiber=0;sugar=8;addsugar=8;k=10
-Chips Ahoy! Original|3 cookies (33 g)|33|160|2|22|8|brand=Nabisco;sat=3;trans=0;chol=0;na=105;fiber=1;sugar=10;addsugar=10;k=50
-Chips Ahoy! Chewy|2 cookies (31 g)|31|140|1|21|6|brand=Nabisco;sat=3;trans=0;na=85;sugar=11;k=26
-Nutter Butter Peanut Butter Sandwich Cookies|1 pack (49 g)|49|240|3|34|10|brand=Nabisco;sat=2.5;trans=0;chol=0;na=200;fiber=1;sugar=15;k=80
-Nilla Wafers|8 wafers (30 g)|30|140|1|21|6|brand=Nabisco;sat=1.5;trans=0;chol=5;na=115;fiber=0;sugar=11;addsugar=10;k=30
-Newtons Fat Free Fig Cookies|2 cookies (29 g)|29|90|1|23|0|brand=Nabisco;sat=0;trans=0;na=90;fiber=1;sugar=13;k=75
+Oreo Double Stuf|2 cookies (29 g)|29|140|1|21|7|brand=Nabisco;sat=2.5;trans=0;chol=0;na=85;fiber=1;sugar=13;addsugar=13;k=30;ca=0;fe=0.6;vd=0
+Oreo Thins|4 cookies (29 g)|29|140|1|21|6|brand=Nabisco;sat=2;trans=0;na=95;fiber=1;sugar=12;k=40;ca=3;fe=1.4
+Oreo Golden|1 pack (22 g)|22|110|1|16|4.5|brand=Nabisco;sat=1.5;trans=0;chol=0;na=75;fiber=0;sugar=8;addsugar=8;k=10;ca=0;fe=0.5;vd=0
+Chips Ahoy! Original|3 cookies (33 g)|33|160|2|22|8|brand=Nabisco;sat=3;trans=0;chol=0;na=105;fiber=1;sugar=10;addsugar=10;k=50;ca=10;fe=1.4;vd=0
+Chips Ahoy! Chewy|2 cookies (31 g)|31|140|1|21|6|brand=Nabisco;sat=3;trans=0;na=85;sugar=11;k=26;ca=2;fe=0.8
+Nutter Butter Peanut Butter Sandwich Cookies|1 pack (49 g)|49|240|3|34|10|brand=Nabisco;sat=2.5;trans=0;chol=0;na=200;fiber=1;sugar=15;k=80;ca=18;fe=1.3
+Nilla Wafers|8 wafers (30 g)|30|140|1|21|6|brand=Nabisco;sat=1.5;trans=0;chol=5;na=115;fiber=0;sugar=11;addsugar=10;k=30;ca=20;vd=0
+Newtons Fat Free Fig Cookies|2 cookies (29 g)|29|90|1|23|0|brand=Nabisco;sat=0;trans=0;na=90;fiber=1;sugar=13;k=75;ca=29;fe=0.7
 Lorna Doone Shortbread Cookies|4 cookies (29 g)|29|140|1|20|7|brand=Keebler;sat=2;trans=0;chol=0;na=150;fiber=0;sugar=6;k=25
-Lotus Biscoff Cookies|2 cookies (25 g)|25|120|1|18|5|brand=Lotus;sat=2;trans=0;chol=0;na=95;fiber=0;sugar=10;addsugar=9;k=0
-McVitie's Original Digestive Biscuits|2 biscuits (30 g)|30|140|2|20|6|brand=McVitie's;sat=3;trans=0;chol=0;na=160;fiber=1;sugar=5
-McVitie's Milk Chocolate Digestive Biscuits|1 cookie (17 g)|17|90|1|11|4|brand=McVitie's;sat=2;trans=0;chol=0;na=70;fiber=1;sugar=5
-Keebler Fudge Stripes|2 cookies (28 g)|28|140|1|19|7|brand=Keebler;sat=4;trans=0;chol=0;na=70;fiber=1;sugar=9;addsugar=9;k=60
-Pepperidge Farm Chessmen Butter Cookies|26 g|26|120|2|18|5|brand=Pepperidge Farm;sat=3;trans=0;chol=20;na=80;fiber=1;sugar=5;addsugar=5;k=20
-Oreo Chocolate Sandwich Cookies|3 cookies (34 g)|34|160|1|25|7|brand=Oreo;sat=2;trans=0;chol=0;na=135;fiber=1;sugar=14;k=55
+Lotus Biscoff Cookies|2 cookies (25 g)|25|120|1|18|5|brand=Lotus;sat=2;trans=0;chol=0;na=95;fiber=0;sugar=10;addsugar=9;k=0;ca=0;fe=0;vd=0
+McVitie's Original Digestive Biscuits|2 biscuits (30 g)|30|140|2|20|6|brand=McVitie's;sat=3;trans=0;chol=0;na=160;fiber=1;sugar=5;poly=0.5;mono=2.5;ca=20;fe=0
+McVitie's Milk Chocolate Digestive Biscuits|1 cookie (17 g)|17|90|1|11|4|brand=McVitie's;sat=2;trans=0;chol=0;na=70;fiber=1;sugar=5;poly=0;mono=1.5;ca=0;fe=0
+Keebler Fudge Stripes|2 cookies (28 g)|28|140|1|19|7|brand=Keebler;sat=4;trans=0;chol=0;na=70;fiber=1;sugar=9;addsugar=9;k=60;ca=0;fe=0.7;vd=0
+Pepperidge Farm Chessmen Butter Cookies|26 g|26|120|2|18|5|brand=Pepperidge Farm;sat=3;trans=0;chol=20;na=80;fiber=1;sugar=5;addsugar=5;k=20;ca=10;fe=1;vd=0
+Oreo Chocolate Sandwich Cookies|3 cookies (34 g)|34|160|1|25|7|brand=Oreo;sat=2;trans=0;chol=0;na=135;fiber=1;sugar=14;k=55;ca=16;fe=1.4
 # Sliders & small burgers
-White Castle Original Slider (2 sandwiches)|2 sandwiches (90 g)|90|270|12|27|13|brand=White Castle;sat=5;trans=0.5;chol=25;na=340;fiber=2;sugar=3
-White Castle Jalapeno Cheeseburger Sliders (2)|2 sandwiches (104 g)|104|330|15|28|17|brand=White Castle;sat=8;trans=1;chol=40;na=560;fiber=2;sugar=3
-White Castle Chicken Breast Sandwiches (frozen)|1 package (148 g)|148|360|19|46|11|brand=White Castle;sat=2;trans=0;chol=36;na=950;fiber=3;sugar=4
-Chicken Slider Patty, breaded (Brakebush)|1 piece (54 g)|54|130|8|7|7|brand=Brakebush;sat=1.5;trans=0;chol=25;na=280;fiber=1;sugar=1;addsugar=1;k=261
+White Castle Original Slider (2 sandwiches)|2 sandwiches (90 g)|90|270|12|27|13|brand=White Castle;sat=5;trans=0.5;chol=25;na=340;fiber=2;sugar=3;ca=40;fe=2.7
+White Castle Jalapeno Cheeseburger Sliders (2)|2 sandwiches (104 g)|104|330|15|28|17|brand=White Castle;sat=8;trans=1;chol=40;na=560;fiber=2;sugar=3;ca=100;fe=2.7
+White Castle Chicken Breast Sandwiches (frozen)|1 package (148 g)|148|360|19|46|11|brand=White Castle;sat=2;trans=0;chol=36;na=950;fiber=3;sugar=4;ca=40;fe=3.6
+Chicken Slider Patty, breaded (Brakebush)|1 piece (54 g)|54|130|8|7|7|brand=Brakebush;sat=1.5;trans=0;chol=25;na=280;fiber=1;sugar=1;addsugar=1;k=261;ca=6;fe=1;vd=0
 # Ramen & instant noodles
-Nissin Cup Noodles Beef|1 cup (64 g)|64|290|7|41|11|brand=Nissin;sat=5;trans=0;chol=0;na=1100;fiber=3;sugar=2
-Nissin Top Ramen Chicken|1/2 block (1.5 oz) (42 g)|42|190|5|26|7|brand=Nissin;sat=3.5;trans=0;chol=0;na=910;fiber=2;sugar=1
-Nongshim Shin Ramyun|1/2 bag (60 g)|60|250|5|40|8|brand=Nongshim;sat=4;trans=0;chol=0;na=920;fiber=2;sugar=2
-Nongshim Shin Black Premium|1 container (101 g)|101|430|11|70|12|brand=Nongshim;sat=6;trans=0;chol=0;na=1310;fiber=2;sugar=3;addsugar=1;k=230
-Nongshim Neoguri Spicy Seafood|1/2 bag (60 g)|60|260|4|44|7|brand=Nongshim;sat=3.5;trans=0;chol=0;na=930;fiber=1;sugar=3;addsugar=1;k=100
-Nongshim Soon Veggie Noodle Soup (cup)|1 cup (75 g)|75|340|6|43|16|brand=Nongshim;sat=7;trans=0;chol=0;na=1300;fiber=2;sugar=2
-Nongshim Ansungtangmyun|1/2 bag (63 g)|63|270|6|42|9|brand=Nongshim;sat=4.5;trans=0;chol=0;na=940;fiber=1;sugar=3;addsugar=1;k=150
-Nissin Cup Noodles Chicken|1 cup (64 g)|64|280|7|40|11|brand=Nissin;sat=5;trans=0;chol=0;na=1430;fiber=2;sugar=2
-Maruchan Ramen Noodle Soup Chicken Flavor (1/2 block)|1/2 block with seasoning (43 g)|43|190|4|26|7|brand=Maruchan;sat=3.5;trans=0;chol=0;na=830;fiber=1;sugar=1
-Maruchan Ramen Noodle Soup Beef Flavor (1/2 block)|1/2 block with seasoning (43 g)|43|190|4|26|7|brand=Maruchan;sat=3.5;trans=0;chol=0;na=790;fiber=1;sugar=1
-Maruchan Ramen Noodle Soup Oriental (1/2 block)|1/2 block with seasoning (43 g)|43|190|5|26|7|brand=Maruchan;sat=3.5;trans=0;chol=0;na=890;fiber=1;sugar=1
-Maruchan Instant Lunch Chicken Flavor Cup|1 cup (64 g)|64|290|7|39|12|brand=Maruchan;sat=6;trans=0;chol=0;na=1190;fiber=2;sugar=2
-Maruchan Instant Lunch Beef Flavor Cup|1 cup (64 g)|64|290|7|38|12|brand=Maruchan;sat=6;trans=0;chol=0;na=1200;fiber=2;sugar=2
-Maruchan Instant Lunch Shrimp|1 container (64 g)|64|290|7|39|12|brand=Maruchan;sat=6;trans=0;chol=10;na=1120;fiber=2;sugar=2
+Nissin Cup Noodles Beef|1 cup (64 g)|64|290|7|41|11|brand=Nissin;sat=5;trans=0;chol=0;na=1100;fiber=3;sugar=2;ca=20;fe=2.7
+Nissin Top Ramen Chicken|1/2 block (1.5 oz) (42 g)|42|190|5|26|7|brand=Nissin;sat=3.5;trans=0;chol=0;na=910;fiber=2;sugar=1;poly=0;mono=3;ca=0;fe=1.8
+Nongshim Shin Ramyun|1/2 bag (60 g)|60|250|5|40|8|brand=Nongshim;sat=4;trans=0;chol=0;na=920;fiber=2;sugar=2;poly=1;mono=3;ca=0;fe=1.8
+Nongshim Shin Black Premium|1 container (101 g)|101|430|11|70|12|brand=Nongshim;sat=6;trans=0;chol=0;na=1310;fiber=2;sugar=3;addsugar=1;k=230;ca=20;fe=1.8;vd=0
+Nongshim Neoguri Spicy Seafood|1/2 bag (60 g)|60|260|4|44|7|brand=Nongshim;sat=3.5;trans=0;chol=0;na=930;fiber=1;sugar=3;addsugar=1;k=100;poly=0.5;mono=3;ca=0;fe=1;vd=0
+Nongshim Soon Veggie Noodle Soup (cup)|1 cup (75 g)|75|340|6|43|16|brand=Nongshim;sat=7;trans=0;chol=0;na=1300;fiber=2;sugar=2;poly=2;mono=7;ca=0;fe=2.7
+Nongshim Ansungtangmyun|1/2 bag (63 g)|63|270|6|42|9|brand=Nongshim;sat=4.5;trans=0;chol=0;na=940;fiber=1;sugar=3;addsugar=1;k=150;poly=1;mono=3.5;ca=0;fe=2.1;vd=0
+Nissin Cup Noodles Chicken|1 cup (64 g)|64|280|7|40|11|brand=Nissin;sat=5;trans=0;chol=0;na=1430;fiber=2;sugar=2;poly=1.5;mono=4;ca=20;fe=2.7
+Maruchan Ramen Noodle Soup Chicken Flavor (1/2 block)|1/2 block with seasoning (43 g)|43|190|4|26|7|brand=Maruchan;sat=3.5;trans=0;chol=0;na=830;fiber=1;sugar=1;ca=20;fe=1.8
+Maruchan Ramen Noodle Soup Beef Flavor (1/2 block)|1/2 block with seasoning (43 g)|43|190|4|26|7|brand=Maruchan;sat=3.5;trans=0;chol=0;na=790;fiber=1;sugar=1;ca=20;fe=1.4
+Maruchan Ramen Noodle Soup Oriental (1/2 block)|1/2 block with seasoning (43 g)|43|190|5|26|7|brand=Maruchan;sat=3.5;trans=0;chol=0;na=890;fiber=1;sugar=1;ca=20;fe=1.8
+Maruchan Instant Lunch Chicken Flavor Cup|1 cup (64 g)|64|290|7|39|12|brand=Maruchan;sat=6;trans=0;chol=0;na=1190;fiber=2;sugar=2;fe=2.7
+Maruchan Instant Lunch Beef Flavor Cup|1 cup (64 g)|64|290|7|38|12|brand=Maruchan;sat=6;trans=0;chol=0;na=1200;fiber=2;sugar=2;fe=2.7
+Maruchan Instant Lunch Shrimp|1 container (64 g)|64|290|7|39|12|brand=Maruchan;sat=6;trans=0;chol=10;na=1120;fiber=2;sugar=2;ca=20;fe=2.7
 # Vegetables
-Broccoli, raw|1 cup chopped (91 g)|91|31|2.6|6|0.3|sat=0.1;trans=0;chol=0;na=30;fiber=2.4;sugar=1.6;k=288
-Broccoli, cooked|1/2 cup, chopped (78 g)|78|27|1.9|5.6|0.3|sat=0.1;trans=0;chol=0;na=32;fiber=2.6;sugar=1.1;k=229
-Spinach, raw|1 cup (30 g)|30|7|0.9|1.1|0.1|sat=0;trans=0;chol=0;na=24;fiber=0.7;sugar=0.1;k=167
-Spinach, cooked|1 cup (180 g)|180|41|5.3|6.8|0.5|sat=0.1;trans=0;chol=0;na=126;fiber=4.3;sugar=0.8;k=839
-Carrot|1 medium (61 g)|61|25|0.6|5.8|0.1|sat=0;trans=0;chol=0;na=42;fiber=1.7;sugar=2.9;k=195
-Carrot, cooked|1/2 cup slices (78 g)|78|27|0.6|6.4|0.1|sat=0;trans=0;chol=0;na=45;fiber=2.3;sugar=2.7;k=183
-Baby carrots, raw|1 serving (85 g)|85|30|0.5|7|0.1|sat=0;trans=0;chol=0;na=66;fiber=2.5;sugar=4;k=201
-Cabbage, raw|1 cup, shredded (70 g)|70|18|0.9|4.1|0.1|sat=0;trans=0;chol=0;na=13;fiber=1.8;sugar=2.2;k=119
-Cabbage, cooked|1/2 cup, shredded (75 g)|75|17|0.9|4.1|0|sat=0;trans=0;chol=0;na=6;fiber=1.4;sugar=2.1;k=147
-Red cabbage, raw|1 cup, shredded (70 g)|70|22|1|5.2|0.1|sat=0;trans=0;chol=0;na=19;fiber=1.5;sugar=2.7;k=170
-Napa cabbage, raw|1 cup, shredded (76 g)|76|12|0.9|2.5|0.1|sat=0;trans=0;chol=0;na=7;fiber=0.9;sugar=1.1;k=181
-Napa cabbage, cooked|1 cup (109 g)|109|13|1.2|2.4|0.2|trans=0;chol=0;na=12;k=95
-Bok choy, raw|1 cup, shredded (70 g)|70|9|1.1|1.5|0.1|sat=0;trans=0;chol=0;na=46;fiber=0.7;sugar=0.8;k=176
-Bok choy, cooked|1 cup, shredded (170 g)|170|20|2.6|3|0.3|sat=0;trans=0;chol=0;na=58;fiber=1.7;sugar=1.4;k=631
-Tomato|1 large whole (182 g)|182|33|1.6|7.1|0.4|sat=0.1;trans=0;chol=0;na=9;fiber=2.2;sugar=4.8;k=431
-Cherry tomatoes|1 cup cherry tomatoes (149 g)|149|27|1.3|5.8|0.3|sat=0;trans=0;chol=0;na=7;fiber=1.8;sugar=3.9;k=353
-Cucumber|1 cucumber (301 g)|301|45|2|10.9|0.3|sat=0.1;trans=0;chol=0;na=6;fiber=1.5;sugar=5;k=442
-Mushrooms, raw|1 cup, pieces or slices (70 g)|70|15|2.2|2.3|0.2|sat=0;trans=0;chol=0;na=4;fiber=0.7;sugar=1.4;k=223
-Mushrooms, cooked|1 cup pieces (156 g)|156|44|3.4|8.2|0.7|sat=0.1;trans=0;chol=0;na=3;fiber=3.4;sugar=3.6;k=555
-Shiitake mushrooms, cooked|1 cup pieces (145 g)|145|81|2.3|20.9|0.3|sat=0.1;trans=0;chol=0;na=6;fiber=3;sugar=5.6;k=170
-Portabella mushrooms, raw|1 piece whole (84 g)|84|18|1.8|3.2|0.3|sat=0;trans=0;chol=0;na=8;fiber=1.1;sugar=2.1;k=306
-Enoki mushrooms, raw|1 cup whole (64 g)|64|24|1.7|5|0.2|sat=0;trans=0;chol=0;na=2;fiber=1.7;sugar=0.1;k=230
-Zucchini, raw|1 medium (196 g)|196|33|2.4|6.1|0.6|sat=0.2;trans=0;chol=0;na=16;fiber=2;sugar=4.9;k=512
-Zucchini, cooked|1 cup, sliced (180 g)|180|27|2|4.8|0.7|sat=0.1;trans=0;chol=0;na=5;fiber=1.8;sugar=3.1;k=475
-Eggplant, raw|1 cup, cubes (82 g)|82|20|0.8|4.8|0.1|sat=0;trans=0;chol=0;na=2;fiber=2.5;sugar=2.9;k=188
-Eggplant, cooked|1 cup (99 g)|99|35|0.8|8.6|0.2|sat=0;trans=0;chol=0;na=1;fiber=2.5;sugar=3.2;k=122
-Bell pepper|1 large (164 g)|164|43|1.6|9.9|0.5|sat=0.1;trans=0;chol=0;na=7;fiber=3.4;sugar=6.9;k=346
-Green bell pepper, raw|1 large (164 g)|164|33|1.4|7.6|0.3|sat=0.1;trans=0;chol=0;na=5;fiber=2.8;sugar=3.9;k=287
-Red bell pepper, cooked|1 cup, strips (135 g)|135|38|1.2|9.1|0.3|sat=0;trans=0;chol=0;na=3;fiber=1.6;sugar=5.9;k=224
-Jalapeno pepper, raw|1 pepper (14 g)|14|4|0.1|0.9|0.1|sat=0;trans=0;chol=0;na=0;fiber=0.4;sugar=0.6;k=35
-Corn on the cob|1 ear medium (103 g)|103|99|3.5|21.6|1.5|sat=0.2;trans=0;chol=0;na=261;fiber=2.5;sugar=4.7;k=225
-Sweet corn kernels, raw|1 cup (145 g)|145|125|4.7|27.1|2|sat=0.5;trans=0;chol=0;na=22;fiber=2.9;sugar=9.1;k=392
-Green peas, raw|1 cup (145 g)|145|117|7.9|20.9|0.6|sat=0.1;trans=0;chol=0;na=7;fiber=8.3;sugar=8.2;k=354
-Green peas, cooked|1 cup (160 g)|160|134|8.6|25|0.3|sat=0.1;trans=0;chol=0;na=5;fiber=8.8;sugar=9.5;k=434
-Green beans, raw|1 cup 1/2" pieces (100 g)|100|31|1.8|7|0.2|sat=0.1;trans=0;chol=0;na=6;fiber=2.7;sugar=3.3;k=211
-Green beans, cooked|1 cup (125 g)|125|44|2.4|9.8|0.3|sat=0.1;trans=0;chol=0;na=1;fiber=4;sugar=4.5;k=182
-Kale, raw|1 cup (21 g)|21|7|0.6|0.9|0.3|sat=0;trans=0;chol=0;na=11;fiber=0.9;sugar=0.2;k=73
-Kale, cooked|1 cup (118 g)|118|42|3.5|6.2|1.4|sat=0.2;trans=0;chol=0;na=19;fiber=4.7;sugar=1.4;k=170
-Romaine lettuce|1 cup shredded (47 g)|47|8|0.6|1.6|0.1|sat=0;trans=0;chol=0;na=4;fiber=1;sugar=0.6;k=116
-Iceberg lettuce|1 cup shredded (72 g)|72|10|0.7|2.1|0.1|sat=0;trans=0;chol=0;na=7;fiber=0.9;sugar=1.4;k=102
-Green leaf lettuce|1 cup shredded (36 g)|36|5|0.5|1|0.1|sat=0;trans=0;chol=0;na=10;fiber=0.5;sugar=0.3;k=70
-Butterhead lettuce|1 cup, shredded or chopped (55 g)|55|7|0.7|1.2|0.1|sat=0;trans=0;chol=0;na=3;fiber=0.6;sugar=0.5;k=131
-Onion|1 medium (110 g)|110|44|1.2|10.3|0.1|sat=0.1;trans=0;chol=0;na=4;fiber=1.9;sugar=4.7;k=161
-Onion, cooked|1 cup (210 g)|210|92|2.9|21.3|0.4|sat=0.1;trans=0;chol=0;na=6;fiber=2.9;sugar=9.9;k=349
-Leek, raw|1 leek (89 g)|89|54|1.3|12.6|0.3|sat=0;trans=0;chol=0;na=18;fiber=1.6;sugar=3.5;k=160
-Garlic, raw|1 clove (3 g)|3|4|0.2|1|0|sat=0;trans=0;chol=0;na=1;fiber=0.1;sugar=0;k=12
-Ginger root, raw|1 tsp (2 g)|2|2|0|0.4|0|sat=0;trans=0;chol=0;na=0;fiber=0;sugar=0;k=8
-Potato, baked|1 potato medium (173 g)|173|161|4.3|36.6|0.2|sat=0.1;trans=0;chol=0;na=17;fiber=3.8;sugar=2;k=926
-Potato, boiled|1 medium (167 g)|167|144|2.9|33.4|0.2|sat=0;trans=0;chol=0;na=8;fiber=3;sugar=1.5;k=548
-Russet potato, raw|1 potato medium (213 g)|213|168|4.6|38.5|0.2|sat=0.1;trans=0;chol=0;na=11;fiber=2.8;sugar=1.3;k=888
-Sweet potato, baked|1 medium (114 g)|114|103|2.3|23.6|0.2|sat=0.1;trans=0;chol=0;na=41;fiber=3.8;sugar=7.4;k=542
-Sweet potato, boiled|1 medium (151 g)|151|115|2.1|26.8|0.2|sat=0.1;trans=0;chol=0;na=41;fiber=3.8;sugar=8.7;k=347
-Hash browns, home-prepared|1 cup (156 g)|156|413|4.7|54.8|19.5|sat=2.9;chol=0;na=534;fiber=5;sugar=2.3;k=899
-Cauliflower|1 cup chopped (107 g)|107|27|2|5.3|0.3|sat=0.1;trans=0;chol=0;na=32;fiber=2.1;sugar=2;k=320
-Cauliflower, cooked|1/2 cup (62 g)|62|14|1.1|2.5|0.3|sat=0;trans=0;chol=0;na=9;fiber=1.4;sugar=1.3;k=88
-Asparagus|1 spear, medium (16 g)|16|3|0.3|0.6|0|sat=0;trans=0;chol=0;na=0;fiber=0.3;sugar=0.3;k=32
-Asparagus, cooked|4 spears (60 g)|60|13|1.4|2.5|0.1|sat=0;trans=0;chol=0;na=8;fiber=1.2;sugar=0.8;k=134
-Brussels sprouts, raw|1 cup (88 g)|88|38|3|7.9|0.3|sat=0.1;trans=0;chol=0;na=22;fiber=3.3;sugar=1.9;k=342
-Brussels sprouts, cooked|1/2 cup (78 g)|78|28|2|5.5|0.4|sat=0.1;trans=0;chol=0;na=16;fiber=2;sugar=1.4;k=247
-Celery, raw|1 stalk, medium (40 g)|40|6|0.3|1.2|0.1|sat=0;trans=0;chol=0;na=32;fiber=0.6;sugar=0.5;k=104
-Beets, raw|1 beet (82 g)|82|35|1.3|7.8|0.1|sat=0;trans=0;chol=0;na=64;fiber=2.3;sugar=5.5;k=266
-Beets, cooked|1/2 cup slices (85 g)|85|37|1.4|8.5|0.1|sat=0;trans=0;chol=0;na=65;fiber=1.7;sugar=6.8;k=259
-Radish, raw|1 cup slices (116 g)|116|19|0.8|3.9|0.1|sat=0;trans=0;chol=0;na=45;fiber=1.9;sugar=2.2;k=270
-Daikon radish, raw|1 cup slices (116 g)|116|21|0.7|4.8|0.1|sat=0;trans=0;chol=0;na=24;fiber=1.9;sugar=2.9;k=263
-Butternut squash, baked|1 cup, cubes (205 g)|205|82|1.8|21.5|0.2|sat=0;trans=0;chol=0;na=8;fiber=6.6;sugar=4;k=582
-Pumpkin, cooked|1 cup, mashed (245 g)|245|49|1.8|12|0.2|sat=0.1;trans=0;chol=0;na=2;fiber=2.7;sugar=5.1;k=564
-Okra, cooked|1/2 cup slices (80 g)|80|18|1.5|3.6|0.2|sat=0;trans=0;chol=0;na=5;fiber=2;sugar=1.9;k=108
-Edamame, shelled, prepared|1 cup (155 g)|155|188|18.5|13.8|8.1|sat=1;trans=0;chol=0;na=9;fiber=8.1;sugar=3.4;k=676
-Turnip, raw|1 medium (122 g)|122|34|1.1|7.8|0.1|sat=0;trans=0;chol=0;na=82;fiber=2.2;sugar=4.6;k=233
-Bamboo shoots, raw|1/2 cup (76 g)|76|21|2|4|0.2|sat=0.1;trans=0;chol=0;na=3;fiber=1.7;sugar=2.3;k=405
-Lotus root, raw|10 slices (81 g)|81|60|2.1|14|0.1|sat=0;trans=0;chol=0;na=32;fiber=4;k=450
-Avocado|1 avocado (201 g)|201|322|4|17.1|29.5|sat=4.3;trans=0;chol=0;na=14;fiber=13.5;sugar=1.3;k=975
+Broccoli, raw|1 cup chopped (91 g)|91|31|2.6|6|0.3|sat=0.1;trans=0;chol=0;na=30;fiber=2.4;sugar=1.6;k=288;poly=0.1;mono=0;ca=43;fe=0.7;vd=0
+Broccoli, cooked|1/2 cup, chopped (78 g)|78|27|1.9|5.6|0.3|sat=0.1;trans=0;chol=0;na=32;fiber=2.6;sugar=1.1;k=229;poly=0.1;mono=0;ca=31;fe=0.5;vd=0
+Spinach, raw|1 cup (30 g)|30|7|0.9|1.1|0.1|sat=0;trans=0;chol=0;na=24;fiber=0.7;sugar=0.1;k=167;poly=0;mono=0;ca=30;fe=0.8;vd=0
+Spinach, cooked|1 cup (180 g)|180|41|5.3|6.8|0.5|sat=0.1;trans=0;chol=0;na=126;fiber=4.3;sugar=0.8;k=839;poly=0.2;mono=0;ca=245;fe=6.4;vd=0
+Carrot|1 medium (61 g)|61|25|0.6|5.8|0.1|sat=0;trans=0;chol=0;na=42;fiber=1.7;sugar=2.9;k=195;poly=0.1;mono=0;ca=20;fe=0.2;vd=0
+Carrot, cooked|1/2 cup slices (78 g)|78|27|0.6|6.4|0.1|sat=0;trans=0;chol=0;na=45;fiber=2.3;sugar=2.7;k=183;poly=0.1;mono=0;ca=23;fe=0.3;vd=0
+Baby carrots, raw|1 serving (85 g)|85|30|0.5|7|0.1|sat=0;trans=0;chol=0;na=66;fiber=2.5;sugar=4;k=201;poly=0.1;mono=0;ca=27;fe=0.8;vd=0
+Cabbage, raw|1 cup, shredded (70 g)|70|18|0.9|4.1|0.1|sat=0;trans=0;chol=0;na=13;fiber=1.8;sugar=2.2;k=119;poly=0;mono=0;ca=28;fe=0.3;vd=0
+Cabbage, cooked|1/2 cup, shredded (75 g)|75|17|0.9|4.1|0|sat=0;trans=0;chol=0;na=6;fiber=1.4;sugar=2.1;k=147;poly=0;mono=0;ca=36;fe=0.1;vd=0
+Red cabbage, raw|1 cup, shredded (70 g)|70|22|1|5.2|0.1|sat=0;trans=0;chol=0;na=19;fiber=1.5;sugar=2.7;k=170;poly=0.1;mono=0;ca=31;fe=0.6;vd=0
+Napa cabbage, raw|1 cup, shredded (76 g)|76|12|0.9|2.5|0.1|sat=0;trans=0;chol=0;na=7;fiber=0.9;sugar=1.1;k=181;poly=0.1;mono=0;ca=59;fe=0.2;vd=0
+Napa cabbage, cooked|1 cup (109 g)|109|13|1.2|2.4|0.2|trans=0;chol=0;na=12;k=95;ca=32;fe=0.8;vd=0
+Bok choy, raw|1 cup, shredded (70 g)|70|9|1.1|1.5|0.1|sat=0;trans=0;chol=0;na=46;fiber=0.7;sugar=0.8;k=176;poly=0.1;mono=0;ca=74;fe=0.6;vd=0
+Bok choy, cooked|1 cup, shredded (170 g)|170|20|2.6|3|0.3|sat=0;trans=0;chol=0;na=58;fiber=1.7;sugar=1.4;k=631;poly=0.1;mono=0;ca=158;fe=1.8;vd=0
+Tomato|1 large whole (182 g)|182|33|1.6|7.1|0.4|sat=0.1;trans=0;chol=0;na=9;fiber=2.2;sugar=4.8;k=431;poly=0.2;mono=0.1;ca=18;fe=0.5;vd=0
+Cherry tomatoes|1 cup cherry tomatoes (149 g)|149|27|1.3|5.8|0.3|sat=0;trans=0;chol=0;na=7;fiber=1.8;sugar=3.9;k=353;poly=0.1;mono=0;ca=15;fe=0.4;vd=0
+Cucumber|1 cucumber (301 g)|301|45|2|10.9|0.3|sat=0.1;trans=0;chol=0;na=6;fiber=1.5;sugar=5;k=442;poly=0.1;mono=0;ca=48;fe=0.8;vd=0
+Mushrooms, raw|1 cup, pieces or slices (70 g)|70|15|2.2|2.3|0.2|sat=0;trans=0;chol=0;na=4;fiber=0.7;sugar=1.4;k=223;poly=0.1;mono=0;ca=2;fe=0.3;vd=0.1
+Mushrooms, cooked|1 cup pieces (156 g)|156|44|3.4|8.2|0.7|sat=0.1;trans=0;chol=0;na=3;fiber=3.4;sugar=3.6;k=555;poly=0.3;mono=0;ca=9;fe=2.7;vd=0.3
+Shiitake mushrooms, cooked|1 cup pieces (145 g)|145|81|2.3|20.9|0.3|sat=0.1;trans=0;chol=0;na=6;fiber=3;sugar=5.6;k=170;poly=0;mono=0.1;ca=4;fe=0.6;vd=1
+Portabella mushrooms, raw|1 piece whole (84 g)|84|18|1.8|3.2|0.3|sat=0;trans=0;chol=0;na=8;fiber=1.1;sugar=2.1;k=306;poly=0.2;mono=0;ca=3;fe=0.3;vd=0.3
+Enoki mushrooms, raw|1 cup whole (64 g)|64|24|1.7|5|0.2|sat=0;trans=0;chol=0;na=2;fiber=1.7;sugar=0.1;k=230;poly=0.1;mono=0;ca=0;fe=0.7;vd=0.1
+Zucchini, raw|1 medium (196 g)|196|33|2.4|6.1|0.6|sat=0.2;trans=0;chol=0;na=16;fiber=2;sugar=4.9;k=512;poly=0.2;mono=0;ca=31;fe=0.7;vd=0
+Zucchini, cooked|1 cup, sliced (180 g)|180|27|2|4.8|0.7|sat=0.1;trans=0;chol=0;na=5;fiber=1.8;sugar=3.1;k=475;poly=0.3;mono=0.1;ca=32;fe=0.7;vd=0
+Eggplant, raw|1 cup, cubes (82 g)|82|20|0.8|4.8|0.1|sat=0;trans=0;chol=0;na=2;fiber=2.5;sugar=2.9;k=188;poly=0.1;mono=0;ca=7;fe=0.2;vd=0
+Eggplant, cooked|1 cup (99 g)|99|35|0.8|8.6|0.2|sat=0;trans=0;chol=0;na=1;fiber=2.5;sugar=3.2;k=122;poly=0.1;mono=0;ca=6;fe=0.2;vd=0
+Bell pepper|1 large (164 g)|164|43|1.6|9.9|0.5|sat=0.1;trans=0;chol=0;na=7;fiber=3.4;sugar=6.9;k=346;poly=0.3;mono=0;ca=11;fe=0.7;vd=0
+Green bell pepper, raw|1 large (164 g)|164|33|1.4|7.6|0.3|sat=0.1;trans=0;chol=0;na=5;fiber=2.8;sugar=3.9;k=287;poly=0.1;mono=0;ca=16;fe=0.6;vd=0
+Red bell pepper, cooked|1 cup, strips (135 g)|135|38|1.2|9.1|0.3|sat=0;trans=0;chol=0;na=3;fiber=1.6;sugar=5.9;k=224;poly=0.1;mono=0;ca=12;fe=0.6;vd=0
+Jalapeno pepper, raw|1 pepper (14 g)|14|4|0.1|0.9|0.1|sat=0;trans=0;chol=0;na=0;fiber=0.4;sugar=0.6;k=35;poly=0;mono=0;ca=2;fe=0;vd=0
+Corn on the cob|1 ear medium (103 g)|103|99|3.5|21.6|1.5|sat=0.2;trans=0;chol=0;na=261;fiber=2.5;sugar=4.7;k=225;poly=0.6;mono=0.4;ca=3;fe=0.5;vd=0
+Sweet corn kernels, raw|1 cup (145 g)|145|125|4.7|27.1|2|sat=0.5;trans=0;chol=0;na=22;fiber=2.9;sugar=9.1;k=392;poly=0.7;mono=0.6;ca=3;fe=0.8;vd=0
+Green peas, raw|1 cup (145 g)|145|117|7.9|20.9|0.6|sat=0.1;trans=0;chol=0;na=7;fiber=8.3;sugar=8.2;k=354;poly=0.3;mono=0.1;ca=36;fe=2.1;vd=0
+Green peas, cooked|1 cup (160 g)|160|134|8.6|25|0.3|sat=0.1;trans=0;chol=0;na=5;fiber=8.8;sugar=9.5;k=434;poly=0.2;mono=0;ca=43;fe=2.5;vd=0
+Green beans, raw|1 cup 1/2" pieces (100 g)|100|31|1.8|7|0.2|sat=0.1;trans=0;chol=0;na=6;fiber=2.7;sugar=3.3;k=211;poly=0.1;mono=0;ca=37;fe=1;vd=0
+Green beans, cooked|1 cup (125 g)|125|44|2.4|9.8|0.3|sat=0.1;trans=0;chol=0;na=1;fiber=4;sugar=4.5;k=182;poly=0.2;mono=0;ca=55;fe=0.8;vd=0
+Kale, raw|1 cup (21 g)|21|7|0.6|0.9|0.3|sat=0;trans=0;chol=0;na=11;fiber=0.9;sugar=0.2;k=73;poly=0.1;mono=0;ca=53;fe=0.3;vd=0
+Kale, cooked|1 cup (118 g)|118|42|3.5|6.2|1.4|sat=0.2;trans=0;chol=0;na=19;fiber=4.7;sugar=1.4;k=170;poly=0.8;mono=0.1;ca=177;fe=1;vd=0
+Romaine lettuce|1 cup shredded (47 g)|47|8|0.6|1.6|0.1|sat=0;trans=0;chol=0;na=4;fiber=1;sugar=0.6;k=116;poly=0.1;mono=0;ca=16;fe=0.5;vd=0
+Iceberg lettuce|1 cup shredded (72 g)|72|10|0.7|2.1|0.1|sat=0;trans=0;chol=0;na=7;fiber=0.9;sugar=1.4;k=102;poly=0.1;mono=0;ca=13;fe=0.3;vd=0
+Green leaf lettuce|1 cup shredded (36 g)|36|5|0.5|1|0.1|sat=0;trans=0;chol=0;na=10;fiber=0.5;sugar=0.3;k=70;poly=0;mono=0;ca=13;fe=0.3;vd=0
+Butterhead lettuce|1 cup, shredded or chopped (55 g)|55|7|0.7|1.2|0.1|sat=0;trans=0;chol=0;na=3;fiber=0.6;sugar=0.5;k=131;poly=0.1;mono=0;ca=19;fe=0.7;vd=0
+Onion|1 medium (110 g)|110|44|1.2|10.3|0.1|sat=0.1;trans=0;chol=0;na=4;fiber=1.9;sugar=4.7;k=161;poly=0;mono=0;ca=25;fe=0.2;vd=0
+Onion, cooked|1 cup (210 g)|210|92|2.9|21.3|0.4|sat=0.1;trans=0;chol=0;na=6;fiber=2.9;sugar=9.9;k=349;poly=0.2;mono=0.1;ca=46;fe=0.5;vd=0
+Leek, raw|1 leek (89 g)|89|54|1.3|12.6|0.3|sat=0;trans=0;chol=0;na=18;fiber=1.6;sugar=3.5;k=160;poly=0.1;mono=0;ca=53;fe=1.9;vd=0
+Garlic, raw|1 clove (3 g)|3|4|0.2|1|0|sat=0;trans=0;chol=0;na=1;fiber=0.1;sugar=0;k=12;poly=0;mono=0;ca=5;fe=0.1;vd=0
+Ginger root, raw|1 tsp (2 g)|2|2|0|0.4|0|sat=0;trans=0;chol=0;na=0;fiber=0;sugar=0;k=8;poly=0;mono=0;ca=0;fe=0;vd=0
+Potato, baked|1 potato medium (173 g)|173|161|4.3|36.6|0.2|sat=0.1;trans=0;chol=0;na=17;fiber=3.8;sugar=2;k=926;poly=0.1;mono=0;ca=26;fe=1.9;vd=0
+Potato, boiled|1 medium (167 g)|167|144|2.9|33.4|0.2|sat=0;trans=0;chol=0;na=8;fiber=3;sugar=1.5;k=548;poly=0.1;mono=0;ca=13;fe=0.5;vd=0
+Russet potato, raw|1 potato medium (213 g)|213|168|4.6|38.5|0.2|sat=0.1;trans=0;chol=0;na=11;fiber=2.8;sugar=1.3;k=888;poly=0.1;mono=0;ca=28;fe=1.8;vd=0
+Sweet potato, baked|1 medium (114 g)|114|103|2.3|23.6|0.2|sat=0.1;trans=0;chol=0;na=41;fiber=3.8;sugar=7.4;k=542;poly=0.1;mono=0;ca=43;fe=0.8;vd=0
+Sweet potato, boiled|1 medium (151 g)|151|115|2.1|26.8|0.2|sat=0.1;trans=0;chol=0;na=41;fiber=3.8;sugar=8.7;k=347;poly=0.1;mono=0;ca=41;fe=1.1;vd=0
+Hash browns, home-prepared|1 cup (156 g)|156|413|4.7|54.8|19.5|sat=2.9;chol=0;na=534;fiber=5;sugar=2.3;k=899;poly=7.3;mono=8.3;ca=22;fe=0.9;vd=0
+Cauliflower|1 cup chopped (107 g)|107|27|2|5.3|0.3|sat=0.1;trans=0;chol=0;na=32;fiber=2.1;sugar=2;k=320;poly=0;mono=0;ca=24;fe=0.4;vd=0
+Cauliflower, cooked|1/2 cup (62 g)|62|14|1.1|2.5|0.3|sat=0;trans=0;chol=0;na=9;fiber=1.4;sugar=1.3;k=88;poly=0.1;mono=0;ca=10;fe=0.2;vd=0
+Asparagus|1 spear, medium (16 g)|16|3|0.3|0.6|0|sat=0;trans=0;chol=0;na=0;fiber=0.3;sugar=0.3;k=32;poly=0;mono=0;ca=4;fe=0.3;vd=0
+Asparagus, cooked|4 spears (60 g)|60|13|1.4|2.5|0.1|sat=0;trans=0;chol=0;na=8;fiber=1.2;sugar=0.8;k=134;poly=0.1;mono=0;ca=14;fe=0.5;vd=0
+Brussels sprouts, raw|1 cup (88 g)|88|38|3|7.9|0.3|sat=0.1;trans=0;chol=0;na=22;fiber=3.3;sugar=1.9;k=342;poly=0.1;mono=0;ca=37;fe=1.2;vd=0
+Brussels sprouts, cooked|1/2 cup (78 g)|78|28|2|5.5|0.4|sat=0.1;trans=0;chol=0;na=16;fiber=2;sugar=1.4;k=247;poly=0.2;mono=0;ca=28;fe=0.9;vd=0
+Celery, raw|1 stalk, medium (40 g)|40|6|0.3|1.2|0.1|sat=0;trans=0;chol=0;na=32;fiber=0.6;sugar=0.5;k=104;poly=0;mono=0;ca=16;fe=0.1;vd=0
+Beets, raw|1 beet (82 g)|82|35|1.3|7.8|0.1|sat=0;trans=0;chol=0;na=64;fiber=2.3;sugar=5.5;k=266;poly=0;mono=0;ca=13;fe=0.7;vd=0
+Beets, cooked|1/2 cup slices (85 g)|85|37|1.4|8.5|0.1|sat=0;trans=0;chol=0;na=65;fiber=1.7;sugar=6.8;k=259;poly=0.1;mono=0;ca=14;fe=0.7;vd=0
+Radish, raw|1 cup slices (116 g)|116|19|0.8|3.9|0.1|sat=0;trans=0;chol=0;na=45;fiber=1.9;sugar=2.2;k=270;poly=0.1;mono=0;ca=29;fe=0.4;vd=0
+Daikon radish, raw|1 cup slices (116 g)|116|21|0.7|4.8|0.1|sat=0;trans=0;chol=0;na=24;fiber=1.9;sugar=2.9;k=263;poly=0.1;mono=0;ca=31;fe=0.5;vd=0
+Butternut squash, baked|1 cup, cubes (205 g)|205|82|1.8|21.5|0.2|sat=0;trans=0;chol=0;na=8;fiber=6.6;sugar=4;k=582;poly=0.1;mono=0;ca=84;fe=1.2;vd=0
+Pumpkin, cooked|1 cup, mashed (245 g)|245|49|1.8|12|0.2|sat=0.1;trans=0;chol=0;na=2;fiber=2.7;sugar=5.1;k=564;poly=0;mono=0;ca=37;fe=1.4;vd=0
+Okra, cooked|1/2 cup slices (80 g)|80|18|1.5|3.6|0.2|sat=0;trans=0;chol=0;na=5;fiber=2;sugar=1.9;k=108;poly=0;mono=0;ca=62;fe=0.2;vd=0
+Edamame, shelled, prepared|1 cup (155 g)|155|188|18.5|13.8|8.1|sat=1;trans=0;chol=0;na=9;fiber=8.1;sugar=3.4;k=676;poly=3.3;mono=2;ca=98;fe=3.5;vd=0
+Turnip, raw|1 medium (122 g)|122|34|1.1|7.8|0.1|sat=0;trans=0;chol=0;na=82;fiber=2.2;sugar=4.6;k=233;poly=0.1;mono=0;ca=37;fe=0.4;vd=0
+Bamboo shoots, raw|1/2 cup (76 g)|76|21|2|4|0.2|sat=0.1;trans=0;chol=0;na=3;fiber=1.7;sugar=2.3;k=405;poly=0.1;mono=0;ca=10;fe=0.4;vd=0
+Lotus root, raw|10 slices (81 g)|81|60|2.1|14|0.1|sat=0;trans=0;chol=0;na=32;fiber=4;k=450;poly=0;mono=0;ca=36;fe=0.9;vd=0
+Avocado|1 avocado (201 g)|201|322|4|17.1|29.5|sat=4.3;trans=0;chol=0;na=14;fiber=13.5;sugar=1.3;k=975;poly=3.7;mono=19.7;ca=24;fe=1.1;vd=0
 # Snacks & sweets
-Lay's Classic Potato Chips|28 g|28|160|2|15|10|brand=Lay's;sat=1.5;trans=0;chol=0;na=170;fiber=1;sugar=1;k=350
-Lay's Barbecue Potato Chips|28 g|28|160|2|15|10|brand=Lay's;sat=1.5;trans=0;chol=0;na=150;fiber=1;sugar=2;k=320
-Lay's Sour Cream & Onion Potato Chips|31.8 g|31.8|180|2|17|11|brand=Lay's;sat=1.5;trans=0;chol=0;na=180;fiber=1;sugar=1;k=380
-Lay's Baked Original Potato Crisps|about 17 crisps (28 g)|28|120|2|22|3.5|brand=Lay's;sat=0;trans=0;chol=0;na=160;fiber=1;sugar=2;k=230
-Lay's Salt & Vinegar Potato Chips|1 package (31.8 g)|31.8|180|2|17|11|brand=Lay's;sat=1.5;trans=0;chol=0;na=250;fiber=1;sugar=1;k=360
-Ruffles Original Potato Chips|about 12 chips (28 g)|28|160|2|15|10|brand=Ruffles;sat=1.5;trans=0;chol=0;na=150;fiber=1;sugar=1;k=350
-Ruffles Cheddar & Sour Cream|28.3 g|28.3|160|2|15|10|brand=Ruffles;sat=1.5;trans=0;chol=0;na=180;fiber=1;sugar=1;k=330
-Doritos Nacho Cheese|28 g|28|140|2|16|8|brand=Doritos;sat=1;trans=0;chol=0;na=210;fiber=1;sugar=0
-Doritos Cool Ranch|28 g|28|150|2|18|8|brand=Doritos;sat=1;trans=0;chol=0;na=180;fiber=2;sugar=1
-Pringles Original|about 15 crisps (28 g)|28|150|1|16|9|brand=Pringles;sat=2.5;trans=0;chol=0;na=150;fiber=1;sugar=0;addsugar=0;k=110
-Cheetos Crunchy|about 21 pieces (28 g)|28|160|2|15|10|brand=Cheetos;sat=1.5;trans=0;chol=0;na=250;fiber=1;sugar=1;k=53
-Cheetos Puffs|28 g|28|150|2|13|10|brand=Cheetos;sat=1.5;trans=0;chol=0;na=300;fiber=1;sugar=1
-Flamin' Hot Cheetos Crunchy|28 g|28|160|1|13|11|brand=Cheetos;sat=1.5;trans=0;chol=0;na=250;fiber=1;sugar=0
-Fritos Original Corn Chips|1 package (28 g)|28|160|2|16|10|brand=Fritos;sat=1.5;trans=0;chol=0;na=170;fiber=1;sugar=0;k=35
-Tostitos Scoops|28 g|28|140|2|19|7|brand=Tostitos;sat=1;trans=0;chol=0;na=120;fiber=1;sugar=0
-Tostitos Restaurant Style Tortilla Chips|about 7 chips (28 g)|28|140|2|19|7|brand=Tostitos;sat=1;trans=0;chol=0;na=115;fiber=1;sugar=0;k=40
-Funyuns Onion Flavored Rings|28 g|28|150|2|15|9|brand=Funyuns;sat=1.5;trans=0;chol=0;na=200;fiber=1;sugar=1;k=340
-Smartfood White Cheddar Popcorn|1 oz (28 g)|28|160|3|14|10|brand=Smartfood;sat=2;trans=0;chol=5;na=290;fiber=2;sugar=2;k=100
-Orville Redenbacher's Butter Microwave Popcorn|35 g|35|170|2|17|12|brand=Orville Redenbacher's;sat=6;trans=0;chol=0;na=310;fiber=2;sugar=0;addsugar=0;k=0
-Boom Chicka Pop Sea Salt Popcorn|3 3/4 cups (28 g)|28|150|2|16|9|brand=Angie's;sat=1;trans=0;chol=0;na=150;fiber=2;sugar=0;addsugar=0;k=0
-Rold Gold Tiny Twists Pretzels|1 oz (28 g)|28|110|2|23|1|brand=Rold Gold;sat=0;trans=0;chol=0;na=490;fiber=1;sugar=1
-Snyder's of Hanover Mini Pretzels|28 g|28|110|3|23|1|brand=Snyder's;sat=0;trans=0;chol=0;na=280;fiber=1;sugar=1;addsugar=1;k=0
-Gimme Organic Roasted Seaweed Sea Salt|1 package (5 g)|5|30|1|1|2|brand=Gimme;sat=0;trans=0;chol=0;na=40;fiber=1;sugar=0;addsugar=0;k=70
-Gimme Organic Roasted Seaweed Teriyaki|1 package (5 g)|5|30|1|2|2|brand=Gimme;sat=0;trans=0;chol=0;na=50;fiber=1;sugar=0.5;addsugar=0.5;k=70
-Sea Castle Spicy Roasted Seaweed|6 sheets (3 g)|3|20|1|1|1.5|brand=Sea Castle;sat=0;trans=0;chol=0;na=35;fiber=1;sugar=0;addsugar=0;k=20
-Lay's Kettle Cooked Original|28 g|28|160|2|16|9|brand=Lay's;sat=1.5;trans=0;chol=0;na=90;fiber=1;sugar=1;k=370
-Lay's Wavy Original|28 g|28|160|2|15|10|brand=Lay's;sat=1.5;trans=0;chol=0;na=140;fiber=1;sugar=1;k=340
-Cheetos Cheese Flavored Puffs Flamin' Hot|28 g|28|150|1|13|10|brand=Cheetos;sat=1.5;trans=0;chol=0;na=300;fiber=1;sugar=1
-Tostitos Bite Size Rounds|about 24 chips (28 g)|28|150|2|18|7|brand=Tostitos;sat=1;trans=0;chol=0;na=115;fiber=1;sugar=0;k=40
-Stacy's Pita Chips Simply Naked|1.25 oz (35.4 g)|35.4|170|4|24|6|brand=Stacy's;sat=0.5;trans=0;chol=0;na=340;fiber=1;sugar=1
-Bugles Original (1 bag)|1 bag (70 g)|70|360|4|45|19|brand=Bugles;sat=16;trans=0;chol=0;na=750;fiber=1;sugar=4;addsugar=2;k=0
-Quaker Rice Cakes Lightly Salted|1 cake (9 g)|9|35|0.8|7.4|0.4|brand=Quaker;sat=0.1;trans=0;chol=0;na=13;fiber=0.2;sugar=0.1
-Chex Mix Traditional|1 pouch (49 g)|49|210|4|37|6|brand=Chex Mix;sat=1.5;trans=0;chol=0;na=430;fiber=2;sugar=4;addsugar=3;k=100
-Clif Bar Coconut Chocolate Chip|1 bar (68 g)|68|240|10|43|6|brand=Clif;sat=2.5;trans=0;chol=0;na=180;fiber=5;sugar=22;k=210
-Kind Nuts & Spices Dark Chocolate Nuts & Sea Salt Bar|1 bar (40 g)|40|200|6|16|15|brand=Kind;sat=3.5;trans=0;chol=0;na=125;fiber=7;sugar=5;k=210
+Lay's Classic Potato Chips|28 g|28|160|2|15|10|brand=Lay's;sat=1.5;trans=0;chol=0;na=170;fiber=1;sugar=1;k=350;ca=0;fe=0.4
+Lay's Barbecue Potato Chips|28 g|28|160|2|15|10|brand=Lay's;sat=1.5;trans=0;chol=0;na=150;fiber=1;sugar=2;k=320;ca=0;fe=0.4
+Lay's Sour Cream & Onion Potato Chips|31.8 g|31.8|180|2|17|11|brand=Lay's;sat=1.5;trans=0;chol=0;na=180;fiber=1;sugar=1;k=380;ca=20;fe=0.4
+Lay's Baked Original Potato Crisps|about 17 crisps (28 g)|28|120|2|22|3.5|brand=Lay's;sat=0;trans=0;chol=0;na=160;fiber=1;sugar=2;k=230;poly=2;mono=1;ca=10;fe=0.3;vd=0
+Lay's Salt & Vinegar Potato Chips|1 package (31.8 g)|31.8|180|2|17|11|brand=Lay's;sat=1.5;trans=0;chol=0;na=250;fiber=1;sugar=1;k=360;ca=0;fe=0.4
+Ruffles Original Potato Chips|about 12 chips (28 g)|28|160|2|15|10|brand=Ruffles;sat=1.5;trans=0;chol=0;na=150;fiber=1;sugar=1;k=350;ca=10;fe=0.6;vd=0
+Ruffles Cheddar & Sour Cream|28.3 g|28.3|160|2|15|10|brand=Ruffles;sat=1.5;trans=0;chol=0;na=180;fiber=1;sugar=1;k=330;ca=0;fe=0.4
+Doritos Nacho Cheese|28 g|28|140|2|16|8|brand=Doritos;sat=1;trans=0;chol=0;na=210;fiber=1;sugar=0;ca=0;fe=0
+Doritos Cool Ranch|28 g|28|150|2|18|8|brand=Doritos;sat=1;trans=0;chol=0;na=180;fiber=2;sugar=1;ca=20;fe=0
+Pringles Original|about 15 crisps (28 g)|28|150|1|16|9|brand=Pringles;sat=2.5;trans=0;chol=0;na=150;fiber=1;sugar=0;addsugar=0;k=110;ca=0;fe=0.1;vd=0
+Cheetos Crunchy|about 21 pieces (28 g)|28|160|2|15|10|brand=Cheetos;sat=1.5;trans=0;chol=0;na=250;fiber=1;sugar=1;k=53;ca=15;fe=0.4;vd=0
+Cheetos Puffs|28 g|28|150|2|13|10|brand=Cheetos;sat=1.5;trans=0;chol=0;na=300;fiber=1;sugar=1;ca=20;fe=0.4
+Flamin' Hot Cheetos Crunchy|28 g|28|160|1|13|11|brand=Cheetos;sat=1.5;trans=0;chol=0;na=250;fiber=1;sugar=0;ca=0;fe=0.4
+Fritos Original Corn Chips|1 package (28 g)|28|160|2|16|10|brand=Fritos;sat=1.5;trans=0;chol=0;na=170;fiber=1;sugar=0;k=35;ca=27;fe=0;vd=0
+Tostitos Scoops|28 g|28|140|2|19|7|brand=Tostitos;sat=1;trans=0;chol=0;na=120;fiber=1;sugar=0;ca=20;fe=0
+Tostitos Restaurant Style Tortilla Chips|about 7 chips (28 g)|28|140|2|19|7|brand=Tostitos;sat=1;trans=0;chol=0;na=115;fiber=1;sugar=0;k=40;ca=30;fe=0.3;vd=0
+Funyuns Onion Flavored Rings|28 g|28|150|2|15|9|brand=Funyuns;sat=1.5;trans=0;chol=0;na=200;fiber=1;sugar=1;k=340;ca=10;fe=0.5;vd=0
+Smartfood White Cheddar Popcorn|1 oz (28 g)|28|160|3|14|10|brand=Smartfood;sat=2;trans=0;chol=5;na=290;fiber=2;sugar=2;k=100;ca=60;fe=0.4
+Orville Redenbacher's Butter Microwave Popcorn|35 g|35|170|2|17|12|brand=Orville Redenbacher's;sat=6;trans=0;chol=0;na=310;fiber=2;sugar=0;addsugar=0;k=0;poly=1.5;mono=4.5;ca=0;fe=0.6;vd=0
+Boom Chicka Pop Sea Salt Popcorn|3 3/4 cups (28 g)|28|150|2|16|9|brand=Angie's;sat=1;trans=0;chol=0;na=150;fiber=2;sugar=0;addsugar=0;k=0;poly=2;mono=5;ca=0;fe=0.4;vd=0
+Rold Gold Tiny Twists Pretzels|1 oz (28 g)|28|110|2|23|1|brand=Rold Gold;sat=0;trans=0;chol=0;na=490;fiber=1;sugar=1;ca=0;fe=1.4
+Snyder's of Hanover Mini Pretzels|28 g|28|110|3|23|1|brand=Snyder's;sat=0;trans=0;chol=0;na=280;fiber=1;sugar=1;addsugar=1;k=0;poly=0;mono=0;ca=0;fe=1;vd=0
+Gimme Organic Roasted Seaweed Sea Salt|1 package (5 g)|5|30|1|1|2|brand=Gimme;sat=0;trans=0;chol=0;na=40;fiber=1;sugar=0;addsugar=0;k=70;ca=0;fe=0.3;vd=0
+Gimme Organic Roasted Seaweed Teriyaki|1 package (5 g)|5|30|1|2|2|brand=Gimme;sat=0;trans=0;chol=0;na=50;fiber=1;sugar=0.5;addsugar=0.5;k=70;ca=0;fe=0.3;vd=0
+Sea Castle Spicy Roasted Seaweed|6 sheets (3 g)|3|20|1|1|1.5|brand=Sea Castle;sat=0;trans=0;chol=0;na=35;fiber=1;sugar=0;addsugar=0;k=20;ca=4;fe=0.2;vd=0
+Lay's Kettle Cooked Original|28 g|28|160|2|16|9|brand=Lay's;sat=1.5;trans=0;chol=0;na=90;fiber=1;sugar=1;k=370;ca=0;fe=0.4
+Lay's Wavy Original|28 g|28|160|2|15|10|brand=Lay's;sat=1.5;trans=0;chol=0;na=140;fiber=1;sugar=1;k=340;ca=0;fe=0.4
+Cheetos Cheese Flavored Puffs Flamin' Hot|28 g|28|150|1|13|10|brand=Cheetos;sat=1.5;trans=0;chol=0;na=300;fiber=1;sugar=1;ca=0;fe=0.7
+Tostitos Bite Size Rounds|about 24 chips (28 g)|28|150|2|18|7|brand=Tostitos;sat=1;trans=0;chol=0;na=115;fiber=1;sugar=0;k=40;ca=24;fe=0;vd=0
+Stacy's Pita Chips Simply Naked|1.25 oz (35.4 g)|35.4|170|4|24|6|brand=Stacy's;sat=0.5;trans=0;chol=0;na=340;fiber=1;sugar=1;poly=1;mono=4.5;ca=0;fe=1.1
+Bugles Original (1 bag)|1 bag (70 g)|70|360|4|45|19|brand=Bugles;sat=16;trans=0;chol=0;na=750;fiber=1;sugar=4;addsugar=2;k=0;ca=0;fe=0.5;vd=0
+Quaker Rice Cakes Lightly Salted|1 cake (9 g)|9|35|0.8|7.4|0.4|brand=Quaker;sat=0.1;trans=0;chol=0;na=13;fiber=0.2;sugar=0.1;poly=0.1;mono=0.1;ca=1;fe=0.1
+Chex Mix Traditional|1 pouch (49 g)|49|210|4|37|6|brand=Chex Mix;sat=1.5;trans=0;chol=0;na=430;fiber=2;sugar=4;addsugar=3;k=100;ca=0;fe=1.3;vd=0
+Clif Bar Coconut Chocolate Chip|1 bar (68 g)|68|240|10|43|6|brand=Clif;sat=2.5;trans=0;chol=0;na=180;fiber=5;sugar=22;k=210;ca=250;fe=1.8;vd=1
+Kind Nuts & Spices Dark Chocolate Nuts & Sea Salt Bar|1 bar (40 g)|40|200|6|16|15|brand=Kind;sat=3.5;trans=0;chol=0;na=125;fiber=7;sugar=5;k=210;ca=60;fe=1.4
 # Sweets & candy
-Hershey's Milk Chocolate Bar (1 bar)|1 bar (43 g)|43|210|3|26|13|brand=Hershey's;sat=8;trans=0;chol=10;na=35;fiber=1;sugar=25;addsugar=21;k=150
-Reese's Peanut Butter Cups (1 package, 2 cups)|1 package (42 g)|42|210|4|24|12|brand=Hershey's;sat=4.5;trans=0;chol=5;na=135;fiber=2;sugar=22;addsugar=21;k=150
+Hershey's Milk Chocolate Bar (1 bar)|1 bar (43 g)|43|210|3|26|13|brand=Hershey's;sat=8;trans=0;chol=10;na=35;fiber=1;sugar=25;addsugar=21;k=150;ca=80;fe=1.6;vd=0
+Reese's Peanut Butter Cups (1 package, 2 cups)|1 package (42 g)|42|210|4|24|12|brand=Hershey's;sat=4.5;trans=0;chol=5;na=135;fiber=2;sugar=22;addsugar=21;k=150;ca=40;fe=1.2;vd=0
 Haribo Goldbears Gummy Bears|30 g|30|100|2|23|0|brand=Haribo;na=5;sugar=14;addsugar=14
-Cadbury Dairy Milk Chocolate|5 blocks (28 g)|28|150|2|16|8|brand=Cadbury;sat=5;trans=0;chol=5;na=25;fiber=0;sugar=16;addsugar=16;k=70
-Twizzlers Strawberry Twists|4 pieces (45 g)|45|150|1|35|0.5|brand=Hershey's;sat=0;trans=0;chol=0;na=210;fiber=0;sugar=18
+Cadbury Dairy Milk Chocolate|5 blocks (28 g)|28|150|2|16|8|brand=Cadbury;sat=5;trans=0;chol=5;na=25;fiber=0;sugar=16;addsugar=16;k=70;ca=60;fe=0;vd=0
+Twizzlers Strawberry Twists|4 pieces (45 g)|45|150|1|35|0.5|brand=Hershey's;sat=0;trans=0;chol=0;na=210;fiber=0;sugar=18;ca=0;fe=0.4
 Tootsie Roll Midgees|5 pieces (33 g)|33|120|0|23|2.5|brand=Tootsie;sat=1.5;na=10;sugar=17;addsugar=16
-Ferrero Rocher Hazelnut Chocolates|1 package (38 g)|38|230|3|18|16|brand=Ferrero;sat=5;trans=0;chol=5;na=25;fiber=1;sugar=15
-Lindt Lindor Milk Chocolate Truffles|3 balls (36 g)|36|220|2|16|17|brand=Lindt;sat=13;trans=0;chol=5;na=25;fiber=0;sugar=14;addsugar=12;k=60
+Ferrero Rocher Hazelnut Chocolates|1 package (38 g)|38|230|3|18|16|brand=Ferrero;sat=5;trans=0;chol=5;na=25;fiber=1;sugar=15;ca=40;fe=0.7
+Lindt Lindor Milk Chocolate Truffles|3 balls (36 g)|36|220|2|16|17|brand=Lindt;sat=13;trans=0;chol=5;na=25;fiber=0;sugar=14;addsugar=12;k=60;ca=58;fe=0;vd=0
 Swedish Fish|1 bag (56 g)|56|200|0|50|0|brand=Mondelez;na=25;sugar=43
-Hershey's Kisses Milk Chocolate (7 pieces)|7 pieces (32 g)|32|160|2|19|9|brand=Hershey's;sat=6;trans=0;chol=5;na=25;fiber=1;sugar=18;addsugar=16;k=105
-Rolo Caramels in Milk Chocolate|7 pieces (42 g)|42|190|2|29|9|brand=Hershey's;sat=6;trans=0;chol=5;na=70;fiber=0;sugar=26
-Junior Mints|12 pieces (30 g)|30|130|0|26|2.5|brand=Tootsie;sat=1.5;na=0;sugar=25;addsugar=25
+Hershey's Kisses Milk Chocolate (7 pieces)|7 pieces (32 g)|32|160|2|19|9|brand=Hershey's;sat=6;trans=0;chol=5;na=25;fiber=1;sugar=18;addsugar=16;k=105;ca=60;fe=1.1;vd=0
+Rolo Caramels in Milk Chocolate|7 pieces (42 g)|42|190|2|29|9|brand=Hershey's;sat=6;trans=0;chol=5;na=70;fiber=0;sugar=26;ca=60;fe=0.4
+Junior Mints|12 pieces (30 g)|30|130|0|26|2.5|brand=Tootsie;sat=1.5;na=0;sugar=25;addsugar=25;fe=1
 Haribo Twin Snakes|5 pieces (43 g)|43|160|3|38|0|brand=Haribo;na=0;sugar=19
 Haribo Sour Gold-Bears|16 pieces (41 g)|41|150|3|34|0|brand=Haribo;na=15;sugar=22
-Fruit Gushers|1 pouch (53 g)|53|190|0|42|2.5|brand=General Mills;sat=1.5;trans=0;chol=0;na=95;fiber=0;sugar=23;addsugar=23;k=0
-Kit Kat Milk Chocolate Wafer Bar (4-finger bar)|1 four-piece bar (42 g)|42|210|3|27|11|brand=Kit Kat;sat=7;trans=0;chol=5;na=30;fiber=1;sugar=21
-Kit Kat Miniatures (5 pieces)|5 pieces (43 g)|43|210|3|28|11|brand=Kit Kat;sat=7;trans=0;chol=5;na=30;fiber=1;sugar=21
-Skittles Original Bite Size Candies (1 package)|1 package (56.7 g)|56.7|230|0|52|2.5|brand=Skittles;sat=2.5;trans=0;chol=0;na=20;fiber=0;sugar=42
+Fruit Gushers|1 pouch (53 g)|53|190|0|42|2.5|brand=General Mills;sat=1.5;trans=0;chol=0;na=95;fiber=0;sugar=23;addsugar=23;k=0;ca=0;fe=0;vd=0
+Kit Kat Milk Chocolate Wafer Bar (4-finger bar)|1 four-piece bar (42 g)|42|210|3|27|11|brand=Kit Kat;sat=7;trans=0;chol=5;na=30;fiber=1;sugar=21;ca=60;fe=0.4
+Kit Kat Miniatures (5 pieces)|5 pieces (43 g)|43|210|3|28|11|brand=Kit Kat;sat=7;trans=0;chol=5;na=30;fiber=1;sugar=21;ca=60;fe=0.4
+Skittles Original Bite Size Candies (1 package)|1 package (56.7 g)|56.7|230|0|52|2.5|brand=Skittles;sat=2.5;trans=0;chol=0;na=20;fiber=0;sugar=42;ca=0;fe=0
 # Dairy & alternatives
-Chobani Nonfat Plain Greek Yogurt|1 cup (227 g)|227|120|22|9|0|brand=Chobani;sat=0;trans=0;chol=9;na=84;fiber=0;sugar=6;k=320
-Yoplait Original Strawberry Mango Yogurt|1 container (170 g)|170|139|5|26|1.5|brand=Yoplait;sat=1;trans=0;chol=5;na=85;fiber=0;sugar=18;addsugar=12.9;k=260
-Yoplait Light Strawberry Yogurt|1 container (113 g)|113|51|3.7|8.8|0.1|brand=Yoplait;sat=0.1;trans=0.1;chol=2;na=57;fiber=0;sugar=3.6;addsugar=0.7;k=173
-Dannon Light & Fit Vanilla Greek Yogurt|1 container (150 g)|150|70|5|13|0|brand=Dannon;sat=0;trans=0;chol=4;na=75;sugar=9;k=210
-Fage Nonfat Plain Greek Yogurt|1 cup (227 g)|227|129|23|9|0|brand=Fage;sat=0;trans=0;chol=0;na=84;fiber=0;sugar=9
-Philadelphia Cream Cheese Spread|2 tbsp (32 g)|32|60|4|2|3.5|brand=Philadelphia;sat=2;trans=0;chol=15;na=110;fiber=0;sugar=1
-Babybel Original Semisoft Cheese|1 piece (21 g)|21|70|5|0|6|brand=Babybel;sat=4;trans=0;chol=20;na=160;fiber=0;sugar=0
-Kraft Singles American Cheese Slices|1 slice (19 g)|19|50|3|2|3.5|brand=Kraft;sat=2;trans=0;chol=10;na=220;fiber=0;sugar=1;addsugar=0;k=0
-Sargento String Cheese Mozzarella|1 piece (28 g)|28|80|8|1|6|brand=Sargento;sat=3.5;trans=0;chol=15;na=210;fiber=0;sugar=0
-Tillamook Medium Cheddar Cheese|0.75 oz (21 g)|21|90|5|0|7|brand=Tillamook;sat=4.5;trans=0;chol=20;na=125;fiber=0;sugar=0
-Dannon Activia Strawberry Yogurt|1 container (113 g)|113|60|4|10|0|brand=Dannon;sat=0;chol=5;na=75;fiber=2;sugar=7
-Dannon Plain Lowfat Yogurt|1 container (170 g)|170|100|8|12|2.5|brand=Dannon;sat=1.5;trans=0;chol=10;na=110;fiber=0;sugar=12;k=381
-Tillamook Extra Sharp Cheddar Cheese|1 oz (28 g)|28|110|7|0|9|brand=Tillamook;sat=6;trans=0;chol=25;na=170;fiber=0;sugar=0
-Cabot Seriously Sharp Cheddar|1 oz (28 g)|28|110|7|1|9|brand=Cabot;sat=6;trans=0;chol=30;na=180;fiber=0;sugar=0
-Horizon Organic Whole Milk|1 cup (240 ml)|240ml|170|8|14|9|brand=Horizon;sat=5;trans=0;chol=36;na=139;fiber=1;sugar=12;k=430
-Milk, whole|1 cup (244 g)|244|149|7.7|11.7|7.9|sat=4.5;chol=24;na=105;fiber=0;sugar=12.3;k=322
-Milk, 2%|1 cup (244 g)|244|122|8.1|11.7|4.8|sat=3.1;trans=0.2;chol=20;na=115;fiber=0;sugar=12.3;k=342
-Milk, 1%|1 cup (244 g)|244|102|8.2|12.2|2.4|sat=1.5;chol=12;na=107;fiber=0;sugar=12.7;k=366
-Milk, skim|1 cup (245 g)|245|83|8.3|12.2|0.2|sat=0.1;chol=5;na=103;fiber=0;sugar=12.5;k=382
-Soy milk, original|1 cup (243 g)|243|104|6.3|12|3.6|sat=0.5;trans=0;chol=0;na=114;fiber=0.5;sugar=8.9;k=296
-Almond milk, unsweetened|1 cup (262 g)|262|39|1.1|3.4|2.5|sat=0.2;trans=0;chol=0;na=189;fiber=0.5;sugar=2.1;k=176
-Plain whole milk yogurt|1 container (170 g)|170|104|5.9|7.9|5.5|sat=3.6;chol=22;na=78;fiber=0;sugar=7.9;k=264
-Plain low-fat yogurt|1 container (170 g)|170|107|8.9|12|2.6|sat=1.7;chol=10;na=119;fiber=0;sugar=12;k=398
-Greek yogurt, plain nonfat|1 container (170 g)|170|100|17.3|6.1|0.7|sat=0.2;trans=0;chol=8;na=61;fiber=0;sugar=5.5;k=240
-Greek yogurt, plain 2%|1 container (200 g)|200|146|19.9|7.9|3.8|sat=2.5;trans=0.1;chol=20;na=68;fiber=0;sugar=7.1;k=282
-Cheddar cheese|1 slice (28 g)|28|115|6.8|0.6|9.5|sat=5.4;trans=0.3;chol=28;na=180;fiber=0;sugar=0.1;k=21
-Mozzarella cheese, part skim|1 oz (28.35 g)|28.35|72|6.9|0.8|4.5|sat=2.9;chol=18;na=175;fiber=0;sugar=0.3;k=24
-Mozzarella cheese, whole milk|1 oz (28.35 g)|28.35|85|6.3|0.7|6.3|sat=3.9;chol=22;na=138;fiber=0;sugar=0;k=22
-Parmesan cheese, hard|1 oz (28.35 g)|28.35|111|10.1|0.9|7.1|sat=4.2;chol=19;na=333;fiber=0;sugar=0;k=26
-Cream cheese|1 oz (28.35 g)|28.35|99|1.7|1.6|9.8|sat=5.7;trans=0.3;chol=29;na=89;fiber=0;sugar=1.1;k=37
-Cottage cheese, 2%|4 oz (113 g)|113|92|11.8|5.4|2.6|sat=1.4;trans=0.1;chol=14;na=348;fiber=0;sugar=4.5;k=141
-Feta cheese|1 oz (28.35 g)|28.35|75|4|1.1|6.1|sat=3.8;chol=25;na=323;fiber=0;sugar=0;k=18
-Provolone cheese|1 slice (28 g)|28|98|7.2|0.6|7.5|sat=4.8;chol=19;na=204;fiber=0;sugar=0.2;k=39
-Monterey Jack cheese|1 oz (28.35 g)|28.35|106|6.9|0.2|8.6|sat=5.4;chol=25;na=170;fiber=0;sugar=0.1;k=23
-Swiss cheese, low fat|1 slice (28 g)|28|50|8|0.9|1.4|sat=0.9;chol=10;na=56;fiber=0;sugar=0.4;k=31
-Ricotta cheese, whole milk|1/2 cup (124 g)|124|186|9.3|9|12.6|sat=8;trans=0.4;chol=61;na=136;fiber=0;sugar=0.3;k=272
-Brie cheese|1 oz (28.35 g)|28.35|95|5.9|0.1|7.8|sat=4.9;chol=28;na=178;fiber=0;sugar=0.1;k=43
-Gouda cheese|1 oz (28.35 g)|28.35|101|7.1|0.6|7.8|sat=5;chol=32;na=232;fiber=0;sugar=0.6;k=34
-Butter, salted|1 tbsp (14.2 g)|14.2|102|0.1|0|11.5|sat=7.3;trans=0.5;chol=31;na=91;fiber=0;sugar=0;k=3
-Half and half|1 tbsp (15 g)|15|20|0.5|0.6|1.7|sat=1.1;trans=0.1;chol=5;na=9;fiber=0;sugar=0.6;k=20
-Heavy whipping cream|1 tbsp (15 g)|15|51|0.4|0.4|5.4|sat=3.5;trans=0.2;chol=17;na=4;fiber=0;sugar=0.4;k=14
-Sour cream, light|1 tablespoon (12 g)|12|16|0.4|0.8|1.3|sat=0.8;chol=4;na=10;fiber=0;sugar=0;k=25
+Chobani Nonfat Plain Greek Yogurt|1 cup (227 g)|227|120|22|9|0|brand=Chobani;sat=0;trans=0;chol=9;na=84;fiber=0;sugar=6;k=320;ca=250;fe=0
+Yoplait Original Strawberry Mango Yogurt|1 container (170 g)|170|139|5|26|1.5|brand=Yoplait;sat=1;trans=0;chol=5;na=85;fiber=0;sugar=18;addsugar=12.9;k=260;ca=201;fe=0;vd=3.4
+Yoplait Light Strawberry Yogurt|1 container (113 g)|113|51|3.7|8.8|0.1|brand=Yoplait;sat=0.1;trans=0.1;chol=2;na=57;fiber=0;sugar=3.6;addsugar=0.7;k=173;ca=130;fe=0;vd=2
+Dannon Light & Fit Vanilla Greek Yogurt|1 container (150 g)|150|70|5|13|0|brand=Dannon;sat=0;trans=0;chol=4;na=75;sugar=9;k=210;ca=150;fe=0;vd=3
+Fage Nonfat Plain Greek Yogurt|1 cup (227 g)|227|129|23|9|0|brand=Fage;sat=0;trans=0;chol=0;na=84;fiber=0;sugar=9;ca=250;fe=0
+Philadelphia Cream Cheese Spread|2 tbsp (32 g)|32|60|4|2|3.5|brand=Philadelphia;sat=2;trans=0;chol=15;na=110;fiber=0;sugar=1;ca=80;fe=0
+Babybel Original Semisoft Cheese|1 piece (21 g)|21|70|5|0|6|brand=Babybel;sat=4;trans=0;chol=20;na=160;fiber=0;sugar=0;ca=150;fe=0
+Kraft Singles American Cheese Slices|1 slice (19 g)|19|50|3|2|3.5|brand=Kraft;sat=2;trans=0;chol=10;na=220;fiber=0;sugar=1;addsugar=0;k=0;ca=330;fe=0;vd=0.9
+Sargento String Cheese Mozzarella|1 piece (28 g)|28|80|8|1|6|brand=Sargento;sat=3.5;trans=0;chol=15;na=210;fiber=0;sugar=0;ca=200;fe=0
+Tillamook Medium Cheddar Cheese|0.75 oz (21 g)|21|90|5|0|7|brand=Tillamook;sat=4.5;trans=0;chol=20;na=125;fiber=0;sugar=0;ca=150;fe=0
+Dannon Activia Strawberry Yogurt|1 container (113 g)|113|60|4|10|0|brand=Dannon;sat=0;chol=5;na=75;fiber=2;sugar=7;ca=150
+Dannon Plain Lowfat Yogurt|1 container (170 g)|170|100|8|12|2.5|brand=Dannon;sat=1.5;trans=0;chol=10;na=110;fiber=0;sugar=12;k=381;ca=299;fe=0
+Tillamook Extra Sharp Cheddar Cheese|1 oz (28 g)|28|110|7|0|9|brand=Tillamook;sat=6;trans=0;chol=25;na=170;fiber=0;sugar=0;ca=200;fe=0.4
+Cabot Seriously Sharp Cheddar|1 oz (28 g)|28|110|7|1|9|brand=Cabot;sat=6;trans=0;chol=30;na=180;fiber=0;sugar=0;ca=200;fe=0
+Horizon Organic Whole Milk|1 cup (240 ml)|240ml|170|8|14|9|brand=Horizon;sat=5;trans=0;chol=36;na=139;fiber=1;sugar=12;k=430;poly=0;mono=2.5;ca=310;fe=0
+Milk, whole|1 cup (244 g)|244|149|7.7|11.7|7.9|sat=4.5;chol=24;na=105;fiber=0;sugar=12.3;k=322;poly=0.5;mono=2;ca=276;fe=0.1;vd=3.2
+Milk, 2%|1 cup (244 g)|244|122|8.1|11.7|4.8|sat=3.1;trans=0.2;chol=20;na=115;fiber=0;sugar=12.3;k=342;poly=0.2;mono=1.4;ca=293;fe=0;vd=2.9
+Milk, 1%|1 cup (244 g)|244|102|8.2|12.2|2.4|sat=1.5;chol=12;na=107;fiber=0;sugar=12.7;k=366;poly=0.1;mono=0.7;ca=305;fe=0.1;vd=2.9
+Milk, skim|1 cup (245 g)|245|83|8.3|12.2|0.2|sat=0.1;chol=5;na=103;fiber=0;sugar=12.5;k=382;poly=0;mono=0.1;ca=299;fe=0.1;vd=2.9
+Soy milk, original|1 cup (243 g)|243|104|6.3|12|3.6|sat=0.5;trans=0;chol=0;na=114;fiber=0.5;sugar=8.9;k=296;poly=2.1;mono=0.9;ca=299;fe=1;vd=2.7
+Almond milk, unsweetened|1 cup (262 g)|262|39|1.1|3.4|2.5|sat=0.2;trans=0;chol=0;na=189;fiber=0.5;sugar=2.1;k=176;poly=0.6;mono=1.5;ca=482;fe=0.7;vd=2.6
+Plain whole milk yogurt|1 container (170 g)|170|104|5.9|7.9|5.5|sat=3.6;chol=22;na=78;fiber=0;sugar=7.9;k=264;poly=0.2;mono=1.5;ca=206;fe=0.1;vd=0.2
+Plain low-fat yogurt|1 container (170 g)|170|107|8.9|12|2.6|sat=1.7;chol=10;na=119;fiber=0;sugar=12;k=398;poly=0.1;mono=0.7;ca=311;fe=0.1;vd=0
+Greek yogurt, plain nonfat|1 container (170 g)|170|100|17.3|6.1|0.7|sat=0.2;trans=0;chol=8;na=61;fiber=0;sugar=5.5;k=240;poly=0;mono=0.1;ca=187;fe=0.1;vd=0
+Greek yogurt, plain 2%|1 container (200 g)|200|146|19.9|7.9|3.8|sat=2.5;trans=0.1;chol=20;na=68;fiber=0;sugar=7.1;k=282;poly=0.2;mono=1;ca=230;fe=0.1;vd=0
+Cheddar cheese|1 slice (28 g)|28|115|6.8|0.6|9.5|sat=5.4;trans=0.3;chol=28;na=180;fiber=0;sugar=0.1;k=21;poly=0.4;mono=2.4;ca=199;fe=0;vd=0.3
+Mozzarella cheese, part skim|1 oz (28.35 g)|28.35|72|6.9|0.8|4.5|sat=2.9;chol=18;na=175;fiber=0;sugar=0.3;k=24;poly=0.1;mono=1.3;ca=222;fe=0.1;vd=0.1
+Mozzarella cheese, whole milk|1 oz (28.35 g)|28.35|85|6.3|0.7|6.3|sat=3.9;chol=22;na=138;fiber=0;sugar=0;k=22;poly=0.2;mono=1.9;ca=143;fe=0.1;vd=0.1
+Parmesan cheese, hard|1 oz (28.35 g)|28.35|111|10.1|0.9|7.1|sat=4.2;chol=19;na=333;fiber=0;sugar=0;k=26;poly=0.2;mono=2.1;ca=336;fe=0.2;vd=0.1
+Cream cheese|1 oz (28.35 g)|28.35|99|1.7|1.6|9.8|sat=5.7;trans=0.3;chol=29;na=89;fiber=0;sugar=1.1;k=37;poly=0.4;mono=2.5;ca=27;fe=0;vd=0
+Cottage cheese, 2%|4 oz (113 g)|113|92|11.8|5.4|2.6|sat=1.4;trans=0.1;chol=14;na=348;fiber=0;sugar=4.5;k=141;poly=0.1;mono=0.6;ca=125;fe=0.1;vd=0
+Feta cheese|1 oz (28.35 g)|28.35|75|4|1.1|6.1|sat=3.8;chol=25;na=323;fiber=0;sugar=0;k=18;poly=0.2;mono=1.3;ca=140;fe=0.2;vd=0.1
+Provolone cheese|1 slice (28 g)|28|98|7.2|0.6|7.5|sat=4.8;chol=19;na=204;fiber=0;sugar=0.2;k=39;poly=0.2;mono=2.1;ca=212;fe=0.1;vd=0.1
+Monterey Jack cheese|1 oz (28.35 g)|28.35|106|6.9|0.2|8.6|sat=5.4;chol=25;na=170;fiber=0;sugar=0.1;k=23;poly=0.3;mono=2.5;ca=211;fe=0.2;vd=0.2
+Swiss cheese, low fat|1 slice (28 g)|28|50|8|0.9|1.4|sat=0.9;chol=10;na=56;fiber=0;sugar=0.4;k=31;poly=0.1;mono=0.4;ca=269;fe=0;vd=0
+Ricotta cheese, whole milk|1/2 cup (124 g)|124|186|9.3|9|12.6|sat=8;trans=0.4;chol=61;na=136;fiber=0;sugar=0.3;k=272;poly=0.6;mono=3.3;ca=255;fe=0.2;vd=0.2
+Brie cheese|1 oz (28.35 g)|28.35|95|5.9|0.1|7.8|sat=4.9;chol=28;na=178;fiber=0;sugar=0.1;k=43;poly=0.2;mono=2.3;ca=52;fe=0.1;vd=0.1
+Gouda cheese|1 oz (28.35 g)|28.35|101|7.1|0.6|7.8|sat=5;chol=32;na=232;fiber=0;sugar=0.6;k=34;poly=0.2;mono=2.2;ca=198;fe=0.1;vd=0.1
+Butter, salted|1 tbsp (14.2 g)|14.2|102|0.1|0|11.5|sat=7.3;trans=0.5;chol=31;na=91;fiber=0;sugar=0;k=3;poly=0.4;mono=3;ca=3;fe=0;vd=0
+Half and half|1 tbsp (15 g)|15|20|0.5|0.6|1.7|sat=1.1;trans=0.1;chol=5;na=9;fiber=0;sugar=0.6;k=20;poly=0.1;mono=0.5;ca=16;fe=0;vd=0
+Heavy whipping cream|1 tbsp (15 g)|15|51|0.4|0.4|5.4|sat=3.5;trans=0.2;chol=17;na=4;fiber=0;sugar=0.4;k=14;poly=0.2;mono=1.4;ca=10;fe=0;vd=0.2
+Sour cream, light|1 tablespoon (12 g)|12|16|0.4|0.8|1.3|sat=0.8;chol=4;na=10;fiber=0;sugar=0;k=25;poly=0;mono=0.4;ca=17;fe=0;vd=0
 # Snacks & sweets
-Pringles Sour Cream & Onion|about 14 crisps (28 g)|28|150|1|16|9|brand=Pringles;sat=2.5;trans=0;chol=0;na=160;fiber=1;sugar=1;addsugar=0;k=110
-Pringles Cheddar & Sour Cream|about 14 crisps (28 g)|28|150|1|16|9|brand=Pringles;sat=2.5;trans=0;chol=0;na=170;fiber=1;sugar=1;addsugar=0;k=110
-Takis Fuego Tortilla Chips (1 package)|1 package (28 g)|28|140|2|16|8|brand=Takis;sat=2.5;trans=0;chol=0;na=390;fiber=2;sugar=0
-SkinnyPop Original Popcorn|about 3 3/4 cups (28 g)|28|150|2|15|10|brand=SkinnyPop;sat=1;trans=0;chol=0;na=75;fiber=3;sugar=0;addsugar=0;k=40
-Nature Valley Crunchy Oats 'n Honey Granola Bar (1 bar)|1 bar (21 g)|21|100|2|15|3.5|brand=Nature Valley;sat=0;trans=0;chol=0;na=70;fiber=1;sugar=6;addsugar=6;k=0
+Pringles Sour Cream & Onion|about 14 crisps (28 g)|28|150|1|16|9|brand=Pringles;sat=2.5;trans=0;chol=0;na=160;fiber=1;sugar=1;addsugar=0;k=110;ca=0;fe=0.1;vd=0
+Pringles Cheddar & Sour Cream|about 14 crisps (28 g)|28|150|1|16|9|brand=Pringles;sat=2.5;trans=0;chol=0;na=170;fiber=1;sugar=1;addsugar=0;k=110;ca=10;fe=0.1;vd=0
+Takis Fuego Tortilla Chips (1 package)|1 package (28 g)|28|140|2|16|8|brand=Takis;sat=2.5;trans=0;chol=0;na=390;fiber=2;sugar=0;ca=40;fe=0.4
+SkinnyPop Original Popcorn|about 3 3/4 cups (28 g)|28|150|2|15|10|brand=SkinnyPop;sat=1;trans=0;chol=0;na=75;fiber=3;sugar=0;addsugar=0;k=40;ca=0;fe=0.4;vd=0
+Nature Valley Crunchy Oats 'n Honey Granola Bar (1 bar)|1 bar (21 g)|21|100|2|15|3.5|brand=Nature Valley;sat=0;trans=0;chol=0;na=70;fiber=1;sugar=6;addsugar=6;k=0;ca=0;fe=0.5;vd=0
 # Sweets & candy
-Sour Patch Kids Soft Candy (16 pieces)|16 pieces (40 g)|40|150|0|37|0|brand=Sour Patch Kids;sat=0;trans=0;chol=0;na=25;fiber=0;sugar=26
-Sour Patch Kids Tropical Soft Candy (12 pieces)|12 pieces (30 g)|30|110|0|27|0|brand=Sour Patch Kids;sat=0;trans=0;chol=0;na=25;fiber=0;sugar=23;addsugar=23;k=0
+Sour Patch Kids Soft Candy (16 pieces)|16 pieces (40 g)|40|150|0|37|0|brand=Sour Patch Kids;sat=0;trans=0;chol=0;na=25;fiber=0;sugar=26;ca=0;fe=0
+Sour Patch Kids Tropical Soft Candy (12 pieces)|12 pieces (30 g)|30|110|0|27|0|brand=Sour Patch Kids;sat=0;trans=0;chol=0;na=25;fiber=0;sugar=23;addsugar=23;k=0;ca=0;fe=0.1;vd=0
 # Dairy & alternatives
-Oikos Nonfat Plain Greek Yogurt (1 container)|1 container (150 g)|150|80|15|6|0|brand=Oikos;sat=0;trans=0;chol=4;na=60;fiber=0;sugar=6;k=170
-Daisy Sour Cream (2 tbsp)|2 tbsp (30 g)|30|60|1|1|5|brand=Daisy;sat=3.5;trans=0;chol=20;na=15;fiber=0;sugar=1;addsugar=0;k=40
-Daisy Light Sour Cream (2 tbsp)|2 tbsp (30 g)|30|40|2|2|2.5|brand=Daisy;sat=2;trans=0;chol=10;na=25;fiber=0;sugar=2
-fairlife 2% Ultra-Filtered Milk (1 cup)|1 cup (240 ml)|240ml|120|13|6|4.5|brand=fairlife;sat=3;trans=0;chol=19;na=120;fiber=0;sugar=6;k=401
-fairlife Whole Ultra-Filtered Milk (1 cup)|1 cup (240 ml)|240ml|149|13|6|8|brand=fairlife;sat=5;trans=0;chol=29;na=120;fiber=0;sugar=6;addsugar=0;k=401
-Philadelphia Original Cream Cheese Spread (2 tbsp)|2 tbsp (31 g)|31|80|2|2|7|brand=Philadelphia;sat=4.5;trans=0;chol=20;na=125;fiber=0;sugar=1
+Oikos Nonfat Plain Greek Yogurt (1 container)|1 container (150 g)|150|80|15|6|0|brand=Oikos;sat=0;trans=0;chol=4;na=60;fiber=0;sugar=6;k=170;ca=150;fe=0
+Daisy Sour Cream (2 tbsp)|2 tbsp (30 g)|30|60|1|1|5|brand=Daisy;sat=3.5;trans=0;chol=20;na=15;fiber=0;sugar=1;addsugar=0;k=40;ca=30;fe=0;vd=0
+Daisy Light Sour Cream (2 tbsp)|2 tbsp (30 g)|30|40|2|2|2.5|brand=Daisy;sat=2;trans=0;chol=10;na=25;fiber=0;sugar=2;ca=40;fe=0
+fairlife 2% Ultra-Filtered Milk (1 cup)|1 cup (240 ml)|240ml|120|13|6|4.5|brand=fairlife;sat=3;trans=0;chol=19;na=120;fiber=0;sugar=6;k=401;ca=401;vd=4.8
+fairlife Whole Ultra-Filtered Milk (1 cup)|1 cup (240 ml)|240ml|149|13|6|8|brand=fairlife;sat=5;trans=0;chol=29;na=120;fiber=0;sugar=6;addsugar=0;k=401;ca=379;vd=4.8
+Philadelphia Original Cream Cheese Spread (2 tbsp)|2 tbsp (31 g)|31|80|2|2|7|brand=Philadelphia;sat=4.5;trans=0;chol=20;na=125;fiber=0;sugar=1;ca=40;fe=0
 Kerrygold Pure Irish Butter (1 tbsp)|1 tbsp (14 g)|14|100|0|0|11|brand=Kerrygold;sat=7;trans=0;chol=40;na=65
 Kerrygold Reduced Fat Irish Butter (1 tbsp)|1 tbsp (14 g)|14|80|0|0|8|brand=Kerrygold;sat=5;trans=0;chol=30;na=45
 # Bread, bagels & tortillas
-Wonder Classic White Bread (2 slices)|2 slices (57 g)|57|140|4|29|1.5|brand=Wonder;sat=0;trans=0;chol=0;na=180;fiber=2;sugar=5;addsugar=5;k=0
-Wonder Texas Toast Enriched Bread (1 slice)|1 slice (33 g)|33|90|3|17|1|brand=Wonder;sat=0;trans=0;chol=0;na=180;fiber=1;sugar=2
-Dave's Killer Bread 21 Whole Grains and Seeds (1 slice)|1 slice (45 g)|45|120|5|22|2|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=180;fiber=5;sugar=5;k=115
-Dave's Killer Bread White Bread Done Right (1 slice)|1 slice (40 g)|40|110|3|21|2|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=190;fiber=2;sugar=2;k=40
-Dave's Killer Bread Good Seed (1 slice)|1 slice (45g/1.6oz)|45|120|5|23|3|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=160;fiber=3;sugar=5;addsugar=5;k=0
-Dave's Killer Bread Good Seed Thin-Sliced (1 slice)|1 slice (28 g)|28|70|3|13|2|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=115;fiber=3;sugar=2;k=75
-Dave's Killer Bread Powerseed (1 slice)|1 slice (45 g)|45|110|5|18|2|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=150;fiber=6;sugar=2;k=140
-Dave's Killer Bread Rockin' Rye (1 slice)|1 slice (45 g)|45|120|5|24|2|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=170;fiber=4;sugar=4;k=100
-Dave's Killer Bread 100% Whole Wheat (1 slice)|1 slice (42 g)|42|100|4|22|1|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=160;fiber=3;sugar=4;k=95
-Dave's Killer Bread Epic Everything (1 slice)|1 slice (34 g)|34|90|4|16|2.5|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=180;fiber=2;sugar=2;addsugar=2;k=70
-Dave's Killer Bread Righteous Rye (1 slice)|1 slice (45g/1.6oz)|45|110|5|22|2|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=220;fiber=3;sugar=4;addsugar=4;k=90
-Dave's Killer Bread Thin-Sliced 21 Whole Grains (1 slice)|1 slice (28 g)|28|60|3|12|1|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=100;fiber=3;sugar=3;k=65
-Thomas' Plain Bagel (1 bagel)|1 bagel (95 g)|95|260|9|53|1.5|brand=Thomas';sat=0.5;trans=0;chol=0;na=410;fiber=3;sugar=6;addsugar=6;k=120
-Thomas' Everything Bagel (1 bagel)|1 bagel (95 g)|95|290|9|53|3.5|brand=Thomas';sat=0.5;trans=0;chol=0;na=410;fiber=2;sugar=6;addsugar=5;k=110
-Thomas' Blueberry Bagel (1 bagel)|1 bagel (95 g)|95|280|9|55|2|brand=Thomas';sat=1;trans=0;chol=0;na=390;fiber=2;sugar=8;addsugar=8;k=80
-Thomas' Cinnamon Swirl Bagel (1 bagel)|1 bagel (95 g)|95|280|9|55|2|brand=Thomas';sat=0.5;trans=0;chol=0;na=390;fiber=2;sugar=10;addsugar=9;k=80
-Thomas' Cranberry Bagel (1 bagel)|1 bagel (90 g)|90|260|9|52|1.5|brand=Thomas';sat=0;trans=0;chol=0;na=420;fiber=2;sugar=10;addsugar=9;k=90
-Thomas' 100% Whole Wheat Bagel (1 bagel)|1 bagel (95 g)|95|250|11|51|2|brand=Thomas';sat=0.5;trans=0;chol=0;na=350;fiber=7;sugar=7;addsugar=6;k=220
-Thomas' Original English Muffin (1 muffin)|1 muffin (61 g)|61|150|5|28|1|brand=Thomas';sat=0;trans=0;chol=0;na=240;fiber=1;sugar=1;addsugar=0;k=40
-Thomas' 100% Whole Wheat English Muffin (1 muffin)|1 muffin (57 g)|57|120|5|23|1|brand=Thomas';sat=0.5;trans=0;chol=0;na=220;fiber=3;sugar=1;addsugar=0;k=90
-Thomas' Blueberry English Muffin (1 muffin)|1 muffin (61 g)|61|160|5|31|1.5|brand=Thomas';sat=0;trans=0;chol=0;na=230;fiber=1;sugar=4;addsugar=4;k=40
-Pepperidge Farm Farmhouse Thin-Sliced Sourdough (2 slices)|2 slices (50 g)|50|130|5|25|1.5|brand=Pepperidge Farm;sat=0;trans=0;chol=0;na=270;fiber=1;sugar=3;addsugar=3;k=60
-Pepperidge Farm Farmhouse Thin-Sliced Butter Bread (2 slices)|2 slices (50 g)|50|140|5|26|1.5|brand=Pepperidge Farm;sat=0.5;trans=0;chol=0;na=250;fiber=1;sugar=5;addsugar=5;k=50
-Pepperidge Farm Thin-Sliced 15 Grain Bread (2 slices)|2 slices (50 g)|50|140|6|23|3|brand=Pepperidge Farm;sat=0.5;trans=0;chol=0;na=170;fiber=4;sugar=4;addsugar=4;k=110
-Pepperidge Farm Thin-Sliced 100% Whole Wheat (2 slices)|2 slices (50 g)|50|140|6|25|2|brand=Pepperidge Farm;sat=0.5;trans=0;chol=0;na=160;fiber=4;sugar=4;addsugar=4;k=130
-Pepperidge Farm 100% Whole Wheat Bread (1 serving)|1 slice (43 g)|43|120|5|21|1.5|brand=Pepperidge Farm;sat=0;trans=0;chol=0;na=135;fiber=3;sugar=4;addsugar=3;k=120
-Pepperidge Farm Raisin Cinnamon Swirl Bread (1 slice)|1 slice (33 g)|33|100|2|20|1.5|brand=Pepperidge Farm;sat=0;trans=0;chol=0;na=105;fiber=1;sugar=9;addsugar=5;k=80
-Pepperidge Farm Farmhouse Hearty White Hamburger Bun|1 bun (71 g)|71|210|9|34|4|brand=Pepperidge Farm;sat=1;trans=0;chol=0;na=330;fiber=2;sugar=4;addsugar=3;k=50
-Pepperidge Farm Farmhouse Butter Hamburger Bun|1 bun (64 g)|64|170|6|33|1.5|brand=Pepperidge Farm;sat=1;trans=0;chol=0;na=290;fiber=1;sugar=6;addsugar=5;k=40
-Sara Lee Soft White Bread (2 slices)|2 slices (43 g)|43|90|5|18|1|brand=Sara Lee;sat=0;trans=0;chol=0;na=200;fiber=6;sugar=2;addsugar=1;k=45
-Sara Lee Butter Bread (1 slice)|1 slice (26 g)|26|70|2|13|0.5|brand=Sara Lee;sat=0;trans=0;chol=0;na=110;fiber=0;sugar=1;addsugar=1;k=20
-Sara Lee 100% Whole Wheat Bread (1 slice)|1 slice (26 g)|26|60|3|12|1|brand=Sara Lee;sat=0;trans=0;chol=0;na=120;fiber=2;sugar=1;addsugar=1;k=60
-Sara Lee Honey Whole Wheat Bread (2 slices)|2 slices (44 g)|44|90|5|19|1|brand=Sara Lee;sat=0;trans=0;chol=0;na=220;fiber=4;sugar=2;addsugar=2;k=80
-Sara Lee Healthy Multi-Grain Bread (2 slices)|2 slices (44 g)|44|90|5|19|1|brand=Sara Lee;sat=0;trans=0;chol=0;na=190;fiber=5;sugar=2;addsugar=1;k=80
-Sara Lee Soft & Smooth Wheat Bread (2 slices)|2 slices (43 g)|43|90|5|19|1|brand=Sara Lee;sat=0;trans=0;chol=0;na=200;fiber=7;sugar=0;addsugar=0;k=70
-Sara Lee Brioche Bakery Bread (1 slice)|1 slice (38 g)|38|110|4|20|1.5|brand=Sara Lee;sat=0;trans=0;chol=0;na=200;fiber=1;sugar=3;addsugar=3;k=35
-Sara Lee Classic White Bread (1 slice)|1 slice (26 g)|26|70|2|14|1|brand=Sara Lee;sat=0;trans=0;chol=0;na=140;fiber=0;sugar=2;addsugar=2;k=0
-Sara Lee Golden Wheat Bakery Bread (1 slice)|1 slice (38 g)|38|100|4|19|1.5|brand=Sara Lee;sat=0;trans=0;chol=0;na=190;fiber=1;sugar=3;addsugar=2;k=45
-Sara Lee Cinnamon Bakery Bread (1 slice)|1 slice (38 g)|38|110|4|19|1.5|brand=Sara Lee;sat=0;trans=0;chol=0;na=170;fiber=1;sugar=4;addsugar=4;k=35
-King's Hawaiian Original Sweet Roll (1 roll)|1 roll (28 g)|28|90|3|16|2|brand=King's Hawaiian;sat=1;trans=0;chol=15;na=80;fiber=0;sugar=5;addsugar=5;k=40
-King's Hawaiian Sweet Slider Bun (1 bun)|1 bun (31 g)|31|90|3|15|2|brand=King's Hawaiian;sat=1;trans=0;chol=15;na=105;fiber=0;sugar=5;addsugar=5;k=35
-King's Hawaiian Sliced Sweet Bread (1 slice)|1 slice (33 g)|33|100|3|16|2.5|brand=King's Hawaiian;sat=1.5;trans=0;chol=15;na=95;fiber=1;sugar=6;addsugar=5;k=51
-King's Hawaiian Savory Butter Roll (1 roll)|1 roll (28 g)|28|100|3|16|2.5|brand=King's Hawaiian;sat=1.5;trans=0;chol=15;na=125;fiber=1;sugar=4
-King's Hawaiian Honey Wheat Roll (1 roll)|1 roll (28 g)|28|90|3|15|2|brand=King's Hawaiian;sat=1;trans=0;chol=10;na=70;fiber=1;sugar=5;addsugar=5;k=50
-Mission Fajita Flour Tortilla (1 tortilla)|1 tortilla (33 g)|33|100|3|16|2|brand=Mission;sat=1;trans=0;chol=0;na=270;fiber=0;sugar=1;addsugar=1;k=30
-Mission Soft Taco Whole Wheat Flour Tortilla (1 tortilla)|1 tortilla (45 g)|45|130|4|22|3|brand=Mission;sat=1;trans=0;chol=0;na=290;fiber=3;sugar=2
-Mission Yellow Corn Tortilla (1 tortilla)|1 tortilla (30 g)|30|60|1|13|0.5|brand=Mission;sat=0;trans=0;chol=0;na=15;fiber=2;sugar=1;addsugar=0;k=50
-Old El Paso Flour Tortilla for Burritos (1 tortilla)|1 tortilla (46 g)|46|150|3|25|4|brand=Old El Paso;sat=2;trans=0;chol=0;na=270;fiber=1;sugar=0;addsugar=0
-Old El Paso Soft Flour Tortillas for Tacos (2 tortillas)|2 tortillas (46 g)|46|150|3|25|4|brand=Old El Paso;sat=2;trans=0;chol=0;na=270;fiber=1;sugar=0;addsugar=0
-Old El Paso Grande Flour Tortilla (1 tortilla)|1 tortilla (102 g)|102|330|7|52|10|brand=Old El Paso;sat=5;trans=0;chol=0;na=620;fiber=2;sugar=2;addsugar=2;k=110
+Wonder Classic White Bread (2 slices)|2 slices (57 g)|57|140|4|29|1.5|brand=Wonder;sat=0;trans=0;chol=0;na=180;fiber=2;sugar=5;addsugar=5;k=0;poly=0.5;mono=0;ca=360;fe=2.3;vd=3.4
+Wonder Texas Toast Enriched Bread (1 slice)|1 slice (33 g)|33|90|3|17|1|brand=Wonder;sat=0;trans=0;chol=0;na=180;fiber=1;sugar=2;poly=0.5;mono=0;ca=0;fe=1.1
+Dave's Killer Bread 21 Whole Grains and Seeds (1 slice)|1 slice (45 g)|45|120|5|22|2|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=180;fiber=5;sugar=5;k=115;ca=20;fe=1.4
+Dave's Killer Bread White Bread Done Right (1 slice)|1 slice (40 g)|40|110|3|21|2|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=190;fiber=2;sugar=2;k=40;ca=20;fe=0.7
+Dave's Killer Bread Good Seed (1 slice)|1 slice (45g/1.6oz)|45|120|5|23|3|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=160;fiber=3;sugar=5;addsugar=5;k=0;poly=1.5;mono=1;ca=0;fe=1;vd=0
+Dave's Killer Bread Good Seed Thin-Sliced (1 slice)|1 slice (28 g)|28|70|3|13|2|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=115;fiber=3;sugar=2;k=75;ca=20;fe=0.7
+Dave's Killer Bread Powerseed (1 slice)|1 slice (45 g)|45|110|5|18|2|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=150;fiber=6;sugar=2;k=140;ca=20;fe=1.4
+Dave's Killer Bread Rockin' Rye (1 slice)|1 slice (45 g)|45|120|5|24|2|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=170;fiber=4;sugar=4;k=100;ca=20;fe=1.1
+Dave's Killer Bread 100% Whole Wheat (1 slice)|1 slice (42 g)|42|100|4|22|1|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=160;fiber=3;sugar=4;k=95;ca=0;fe=1.1
+Dave's Killer Bread Epic Everything (1 slice)|1 slice (34 g)|34|90|4|16|2.5|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=180;fiber=2;sugar=2;addsugar=2;k=70;poly=1;mono=1;ca=50;fe=1.4;vd=0
+Dave's Killer Bread Righteous Rye (1 slice)|1 slice (45g/1.6oz)|45|110|5|22|2|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=220;fiber=3;sugar=4;addsugar=4;k=90;poly=1;mono=0.5;ca=50;fe=1.6;vd=0
+Dave's Killer Bread Thin-Sliced 21 Whole Grains (1 slice)|1 slice (28 g)|28|60|3|12|1|brand=Dave's Killer Bread;sat=0;trans=0;chol=0;na=100;fiber=3;sugar=3;k=65;ca=0;fe=0.7
+Thomas' Plain Bagel (1 bagel)|1 bagel (95 g)|95|260|9|53|1.5|brand=Thomas';sat=0.5;trans=0;chol=0;na=410;fiber=3;sugar=6;addsugar=6;k=120;poly=0.5;mono=0;ca=15;fe=2.7;vd=0
+Thomas' Everything Bagel (1 bagel)|1 bagel (95 g)|95|290|9|53|3.5|brand=Thomas';sat=0.5;trans=0;chol=0;na=410;fiber=2;sugar=6;addsugar=5;k=110;poly=1.5;mono=1;ca=20;fe=3.1;vd=0
+Thomas' Blueberry Bagel (1 bagel)|1 bagel (95 g)|95|280|9|55|2|brand=Thomas';sat=1;trans=0;chol=0;na=390;fiber=2;sugar=8;addsugar=8;k=80;poly=0.5;mono=0;ca=15;fe=2.8;vd=0
+Thomas' Cinnamon Swirl Bagel (1 bagel)|1 bagel (95 g)|95|280|9|55|2|brand=Thomas';sat=0.5;trans=0;chol=0;na=390;fiber=2;sugar=10;addsugar=9;k=80;poly=0.5;mono=0;ca=20;fe=2.8;vd=0
+Thomas' Cranberry Bagel (1 bagel)|1 bagel (90 g)|90|260|9|52|1.5|brand=Thomas';sat=0;trans=0;chol=0;na=420;fiber=2;sugar=10;addsugar=9;k=90;poly=0.5;mono=0;ca=15;fe=2.5;vd=0
+Thomas' 100% Whole Wheat Bagel (1 bagel)|1 bagel (95 g)|95|250|11|51|2|brand=Thomas';sat=0.5;trans=0;chol=0;na=350;fiber=7;sugar=7;addsugar=6;k=220;poly=1;mono=0;ca=20;fe=2.2;vd=0
+Thomas' Original English Muffin (1 muffin)|1 muffin (61 g)|61|150|5|28|1|brand=Thomas';sat=0;trans=0;chol=0;na=240;fiber=1;sugar=1;addsugar=0;k=40;poly=0.5;mono=0;ca=90;fe=1.6;vd=0
+Thomas' 100% Whole Wheat English Muffin (1 muffin)|1 muffin (57 g)|57|120|5|23|1|brand=Thomas';sat=0.5;trans=0;chol=0;na=220;fiber=3;sugar=1;addsugar=0;k=90;poly=0;mono=0;ca=90;fe=1.5;vd=0
+Thomas' Blueberry English Muffin (1 muffin)|1 muffin (61 g)|61|160|5|31|1.5|brand=Thomas';sat=0;trans=0;chol=0;na=230;fiber=1;sugar=4;addsugar=4;k=40;poly=0.5;mono=0;ca=45;fe=1.5;vd=0
+Pepperidge Farm Farmhouse Thin-Sliced Sourdough (2 slices)|2 slices (50 g)|50|130|5|25|1.5|brand=Pepperidge Farm;sat=0;trans=0;chol=0;na=270;fiber=1;sugar=3;addsugar=3;k=60;poly=0.5;mono=0;ca=20;fe=1.5;vd=0
+Pepperidge Farm Farmhouse Thin-Sliced Butter Bread (2 slices)|2 slices (50 g)|50|140|5|26|1.5|brand=Pepperidge Farm;sat=0.5;trans=0;chol=0;na=250;fiber=1;sugar=5;addsugar=5;k=50;poly=0;mono=0;ca=40;fe=1.6;vd=0
+Pepperidge Farm Thin-Sliced 15 Grain Bread (2 slices)|2 slices (50 g)|50|140|6|23|3|brand=Pepperidge Farm;sat=0.5;trans=0;chol=0;na=170;fiber=4;sugar=4;addsugar=4;k=110;poly=1.5;mono=1;ca=50;fe=1.4;vd=0
+Pepperidge Farm Thin-Sliced 100% Whole Wheat (2 slices)|2 slices (50 g)|50|140|6|25|2|brand=Pepperidge Farm;sat=0.5;trans=0;chol=0;na=160;fiber=4;sugar=4;addsugar=4;k=130;poly=0.5;mono=0.5;ca=40;fe=1.4;vd=0
+Pepperidge Farm 100% Whole Wheat Bread (1 serving)|1 slice (43 g)|43|120|5|21|1.5|brand=Pepperidge Farm;sat=0;trans=0;chol=0;na=135;fiber=3;sugar=4;addsugar=3;k=120;poly=0.5;mono=0;ca=40;fe=1.2;vd=0
+Pepperidge Farm Raisin Cinnamon Swirl Bread (1 slice)|1 slice (33 g)|33|100|2|20|1.5|brand=Pepperidge Farm;sat=0;trans=0;chol=0;na=105;fiber=1;sugar=9;addsugar=5;k=80;poly=1;mono=0;ca=20;fe=0.8;vd=0
+Pepperidge Farm Farmhouse Hearty White Hamburger Bun|1 bun (71 g)|71|210|9|34|4|brand=Pepperidge Farm;sat=1;trans=0;chol=0;na=330;fiber=2;sugar=4;addsugar=3;k=50;poly=1.5;mono=1;ca=20;fe=2.5;vd=0
+Pepperidge Farm Farmhouse Butter Hamburger Bun|1 bun (64 g)|64|170|6|33|1.5|brand=Pepperidge Farm;sat=1;trans=0;chol=0;na=290;fiber=1;sugar=6;addsugar=5;k=40;poly=0;mono=0;ca=50;fe=2.2;vd=0
+Sara Lee Soft White Bread (2 slices)|2 slices (43 g)|43|90|5|18|1|brand=Sara Lee;sat=0;trans=0;chol=0;na=200;fiber=6;sugar=2;addsugar=1;k=45;poly=0;mono=0;ca=50;fe=0.8;vd=0
+Sara Lee Butter Bread (1 slice)|1 slice (26 g)|26|70|2|13|0.5|brand=Sara Lee;sat=0;trans=0;chol=0;na=110;fiber=0;sugar=1;addsugar=1;k=20;poly=0;mono=0;ca=30;fe=0.7;vd=0
+Sara Lee 100% Whole Wheat Bread (1 slice)|1 slice (26 g)|26|60|3|12|1|brand=Sara Lee;sat=0;trans=0;chol=0;na=120;fiber=2;sugar=1;addsugar=1;k=60;poly=0;mono=0;ca=30;fe=0.5;vd=0
+Sara Lee Honey Whole Wheat Bread (2 slices)|2 slices (44 g)|44|90|5|19|1|brand=Sara Lee;sat=0;trans=0;chol=0;na=220;fiber=4;sugar=2;addsugar=2;k=80;poly=0;mono=0;ca=50;fe=0.8;vd=0
+Sara Lee Healthy Multi-Grain Bread (2 slices)|2 slices (44 g)|44|90|5|19|1|brand=Sara Lee;sat=0;trans=0;chol=0;na=190;fiber=5;sugar=2;addsugar=1;k=80;poly=0;mono=0;ca=50;fe=0.8;vd=0
+Sara Lee Soft & Smooth Wheat Bread (2 slices)|2 slices (43 g)|43|90|5|19|1|brand=Sara Lee;sat=0;trans=0;chol=0;na=200;fiber=7;sugar=0;addsugar=0;k=70;poly=0.5;mono=0;ca=45;fe=0.8;vd=0
+Sara Lee Brioche Bakery Bread (1 slice)|1 slice (38 g)|38|110|4|20|1.5|brand=Sara Lee;sat=0;trans=0;chol=0;na=200;fiber=1;sugar=3;addsugar=3;k=35;poly=0.5;mono=0;ca=10;fe=1;vd=0
+Sara Lee Classic White Bread (1 slice)|1 slice (26 g)|26|70|2|14|1|brand=Sara Lee;sat=0;trans=0;chol=0;na=140;fiber=0;sugar=2;addsugar=2;k=0;poly=0;mono=0;ca=0;fe=0.8;vd=0
+Sara Lee Golden Wheat Bakery Bread (1 slice)|1 slice (38 g)|38|100|4|19|1.5|brand=Sara Lee;sat=0;trans=0;chol=0;na=190;fiber=1;sugar=3;addsugar=2;k=45;poly=0.5;mono=0;ca=10;fe=1;vd=0
+Sara Lee Cinnamon Bakery Bread (1 slice)|1 slice (38 g)|38|110|4|19|1.5|brand=Sara Lee;sat=0;trans=0;chol=0;na=170;fiber=1;sugar=4;addsugar=4;k=35;poly=0.5;mono=0;ca=15;fe=1;vd=0
+King's Hawaiian Original Sweet Roll (1 roll)|1 roll (28 g)|28|90|3|16|2|brand=King's Hawaiian;sat=1;trans=0;chol=15;na=80;fiber=0;sugar=5;addsugar=5;k=40;ca=20;fe=0.8;vd=0
+King's Hawaiian Sweet Slider Bun (1 bun)|1 bun (31 g)|31|90|3|15|2|brand=King's Hawaiian;sat=1;trans=0;chol=15;na=105;fiber=0;sugar=5;addsugar=5;k=35;ca=30;fe=1;vd=0.9
+King's Hawaiian Sliced Sweet Bread (1 slice)|1 slice (33 g)|33|100|3|16|2.5|brand=King's Hawaiian;sat=1.5;trans=0;chol=15;na=95;fiber=1;sugar=6;addsugar=5;k=51;ca=14;fe=1;vd=0
+King's Hawaiian Savory Butter Roll (1 roll)|1 roll (28 g)|28|100|3|16|2.5|brand=King's Hawaiian;sat=1.5;trans=0;chol=15;na=125;fiber=1;sugar=4;ca=20;fe=0.7
+King's Hawaiian Honey Wheat Roll (1 roll)|1 roll (28 g)|28|90|3|15|2|brand=King's Hawaiian;sat=1;trans=0;chol=10;na=70;fiber=1;sugar=5;addsugar=5;k=50;ca=10;fe=0.6;vd=0
+Mission Fajita Flour Tortilla (1 tortilla)|1 tortilla (33 g)|33|100|3|16|2|brand=Mission;sat=1;trans=0;chol=0;na=270;fiber=0;sugar=1;addsugar=1;k=30;ca=60;fe=1.2;vd=0
+Mission Soft Taco Whole Wheat Flour Tortilla (1 tortilla)|1 tortilla (45 g)|45|130|4|22|3|brand=Mission;sat=1;trans=0;chol=0;na=290;fiber=3;sugar=2;poly=1;mono=0.5;ca=80;fe=1.4
+Mission Yellow Corn Tortilla (1 tortilla)|1 tortilla (30 g)|30|60|1|13|0.5|brand=Mission;sat=0;trans=0;chol=0;na=15;fiber=2;sugar=1;addsugar=0;k=50;poly=0;mono=0;ca=10;fe=0.2;vd=0
+Old El Paso Flour Tortilla for Burritos (1 tortilla)|1 tortilla (46 g)|46|150|3|25|4|brand=Old El Paso;sat=2;trans=0;chol=0;na=270;fiber=1;sugar=0;addsugar=0;ca=50;fe=1.6
+Old El Paso Soft Flour Tortillas for Tacos (2 tortillas)|2 tortillas (46 g)|46|150|3|25|4|brand=Old El Paso;sat=2;trans=0;chol=0;na=270;fiber=1;sugar=0;addsugar=0;ca=50;fe=1.6
+Old El Paso Grande Flour Tortilla (1 tortilla)|1 tortilla (102 g)|102|330|7|52|10|brand=Old El Paso;sat=5;trans=0;chol=0;na=620;fiber=2;sugar=2;addsugar=2;k=110;ca=90;fe=3.5;vd=0
 # Rice, pasta & grains
-Ben's Original Ready Rice Whole Grain Brown (1 cup)|1 cup (140 g)|140|200|4|40|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=0;fiber=1;sugar=0;addsugar=0;k=70
-Ben's Original Ready Rice Long Grain White (1 cup)|1 cup (140 g)|140|200|4|39|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=0;fiber=1;sugar=0;addsugar=0;k=80
-Ben's Original Ready Rice Roasted Chicken (1 cup)|1 cup (144 g)|144|210|5|41|3.5|brand=Ben's Original;sat=0;trans=0;chol=0;na=380;fiber=1;sugar=0;addsugar=0;k=140
-Ben's Original Ready Rice Long Grain & Wild (1 cup)|1 cup (136 g)|136|200|5|39|2.5|brand=Ben's Original;sat=0;trans=0;chol=0;na=460;fiber=0.9;sugar=1;addsugar=0;k=160
-Ben's Original Ready Rice Spanish Style (1 cup)|1 cup (144 g)|144|210|4|40|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=431;fiber=1;sugar=2;addsugar=1;k=200
-Ben's Original Ready Rice Garden Vegetable (1 cup)|1 cup (145 g)|145|200|4|40|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=621;fiber=1;sugar=1;addsugar=1;k=130
-Ben's Original Ready Rice Pilaf (1 cup)|1 cup (138 g)|138|200|5|38|2.5|brand=Ben's Original;sat=0;trans=0;chol=0;na=570;fiber=1;sugar=1;addsugar=0;k=280
-Ben's Original Ready Rice Butter & Garlic (1 cup)|1 cup (150 g)|150|220|5|42|3.5|brand=Ben's Original;sat=1;trans=0;chol=0;na=400;fiber=1.1;sugar=1;addsugar=1.1;k=130
-Ben's Original Ready Rice Jasmine (1 cup)|1 cup (143 g)|143|250|6|51|2.5|brand=Ben's Original;sat=0;trans=0;chol=0;na=0;fiber=1;sugar=0;addsugar=0;k=90
-Ben's Original Ready Rice Basmati (1 cup)|1 cup (133 g)|133|219|5|44|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=0;fiber=1.1;sugar=0;addsugar=0;k=100
-Ben's Original Ready Rice Red Beans & Rice (1 cup)|1 cup (147 g)|147|200|6|37|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=460;fiber=2.9;sugar=2;addsugar=1;k=581
-Ben's Original Ready Rice Fried Rice (1 cup)|1 cup (143 g)|143|220|5|42|4|brand=Ben's Original;sat=0;trans=0;chol=0;na=450;fiber=2;sugar=1;addsugar=1;k=380
-Ben's Original Ready Rice Brown Basmati (1 cup)|1 cup (141 g)|141|240|6|41|5|brand=Ben's Original;sat=1;trans=0;chol=0;na=0;fiber=2;sugar=1;addsugar=0;k=220
-Ben's Original Ready Rice Cilantro Lime (1 cup)|1 cup (143 g)|143|240|4|41|6|brand=Ben's Original;sat=2;trans=0;chol=0;na=280;fiber=1;sugar=2;addsugar=2;k=130
-Ben's Original Ready Rice Brown & Wild Medley (1 cup)|1 cup (140 g)|140|200|5|39|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=470;fiber=1;sugar=1;addsugar=0;k=140
-Minute Ready to Serve Long Grain White Rice (1 cup)|1 cup (125 g)|125|190|4|42|1.5|brand=Minute;sat=0;trans=0;chol=0;na=170;fiber=2;sugar=0;k=55
-Minute Ready to Serve Whole Grain Brown Rice (1 cup)|1 cup (125 g)|125|240|4|46|3.5|brand=Minute;sat=0.5;trans=0;chol=0;na=160;fiber=4;sugar=1;k=150
-Minute Ready to Serve Jasmine Rice (1 cup)|1 cup (125 g)|125|240|5|48|3.5|brand=Minute;sat=0.5;trans=0;chol=0;na=210;fiber=1;sugar=0;addsugar=0;k=0
-Minute Ready to Serve Brown Rice & Quinoa (1 cup)|1 cup (125 g)|125|220|5|42|4|brand=Minute;sat=0.5;trans=0;chol=0;na=190;fiber=4;sugar=1;addsugar=0;k=188
-Minute Instant White Rice (dry, 1/4 cup)|1/4 cup dry (45 g)|45|170|3|36|0|brand=Minute;sat=0;trans=0;chol=0;na=0;fiber=1;sugar=0
-Quaker Old Fashioned Oats (dry, 1/2 cup)|1/2 cup dry (40 g)|40|150|5|27|3|brand=Quaker;sat=0.5;trans=0;chol=0;na=0;fiber=4;sugar=1;addsugar=0;k=150
-Quaker Steel Cut Oats (dry, 1/4 cup)|1/4 cup dry (40 g)|40|150|5|27|3|brand=Quaker;sat=0.5;trans=0;chol=0;na=0;fiber=4;sugar=1;addsugar=0;k=150
-Quaker Quick 1-Minute Oats (dry, 1/2 cup)|1/2 cup dry (40 g)|40|150|5|27|3|brand=Quaker;sat=0.5;trans=0;chol=0;na=0;fiber=4;sugar=1;addsugar=0;k=150
-Quaker Instant Oatmeal Original (1 packet)|1 packet (28 g)|28|100|4|18|2|brand=Quaker;sat=0.5;trans=0;chol=0;na=75;fiber=3;sugar=0;addsugar=0;k=100
-Quaker Instant Oatmeal Maple & Brown Sugar (1 packet)|1 packet (43 g)|43|160|4|33|2|brand=Quaker;sat=0.5;trans=0;chol=0;na=260;fiber=3;sugar=12;addsugar=12;k=110
-Quaker Instant Oatmeal Apples & Cinnamon (1 packet)|1 packet (43 g)|43|160|4|33|2|brand=Quaker;sat=0.5;trans=0;chol=0;na=160;fiber=4;sugar=11;addsugar=8;k=150
-Quaker Instant Oatmeal Raisin Date & Walnut (1 packet)|1 packet (37 g)|37|140|3|27|2.5|brand=Quaker;sat=0.5;trans=0;chol=0;na=180;fiber=3;sugar=11;addsugar=7;k=140
-Quaker Instant Oatmeal Lower Sugar Maple & Brown Sugar (1 packet)|1 packet (34 g)|34|120|4|24|2|brand=Quaker;sat=0.5;trans=0;chol=0;na=240;fiber=3;sugar=4;addsugar=4;k=110
-Barilla Spaghetti (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118
-Barilla Penne (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118
-Barilla Rotini (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118
-Barilla Elbows (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118
-Barilla Fettuccine (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118
-Barilla Linguine (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=2;sugar=2
-Barilla Angel Hair (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118
-Barilla Orzo (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118
-Barilla Farfalle (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118
-Barilla Jumbo Shells (5 pieces)|5 pieces (50 g)|50|170|7|37|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=105
-Barilla Whole Grain Penne (2 oz dry)|2 oz dry (56 g)|56|180|8|39|1.5|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=6;sugar=2
-Barilla Whole Grain Elbows (2 oz dry)|2 oz dry (56 g)|56|180|8|39|1.5|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=7;sugar=1;k=274
-Barilla Whole Grain Thin Spaghetti (2 oz dry)|2 oz dry (56 g)|56|180|8|39|1.5|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=6;sugar=2
-Barilla Protein+ Spaghetti (2 oz dry)|2 oz dry (56 g)|56|190|10|38|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=5;sugar=2;k=261
-Barilla Protein+ Penne (2 oz dry)|2 oz dry (56 g)|56|190|10|38|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=5;sugar=2;k=261
-Barilla Collezione Rigatoni (2 oz dry)|2 oz dry (56 g)|56|200|8|41|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118
-White rice, long-grain, cooked|1 cup (158 g)|158|205|4.2|44.5|0.4|sat=0.1;chol=0;na=2;fiber=0.6;sugar=0.1;k=55
-Brown rice, long-grain, cooked|1 cup (202 g)|202|248|5.5|51.7|2|sat=0.5;trans=0;chol=0;na=8;fiber=3.2;sugar=0.5;k=174
-White rice, short-grain, cooked|1 cup (186 g)|186|242|4.4|53.4|0.3|sat=0.1;chol=0;na=0;k=48
-Sticky rice (glutinous), cooked|1 cup (174 g)|174|169|3.5|36.7|0.3|sat=0.1;chol=0;na=9;fiber=1.7;sugar=0.1;k=17
-Wild rice, cooked|1 cup (164 g)|164|166|6.5|35|0.6|sat=0.1;chol=0;na=5;fiber=3;sugar=1.2;k=166
-Pasta, cooked (enriched)|1 cup (124 g)|124|196|7.2|38.3|1.1|sat=0.2;trans=0;chol=0;na=1;fiber=2.2;sugar=0.7;k=55
-Whole-wheat pasta, cooked|1 cup (117 g)|117|174|7|35.2|2|sat=0.3;trans=0;chol=0;na=5;fiber=4.6;sugar=0.9;k=112
-Egg noodles, cooked|1 cup (160 g)|160|221|7.3|40.3|3.3|sat=0.7;trans=0.1;chol=46;na=8;fiber=1.9;sugar=0.6;k=61
-Rice noodles, cooked|1 cup (176 g)|176|190|3.1|42.3|0.3|sat=0;chol=0;na=33;fiber=1.8;sugar=0.1;k=7
-Quinoa, cooked|1 cup (185 g)|185|222|8.1|39.4|3.5|sat=0.4;chol=0;na=13;fiber=5.2;sugar=1.6;k=318
-Couscous, cooked|1 cup (157 g)|157|176|6|36.5|0.2|sat=0.1;chol=0;na=8;fiber=2.2;sugar=0.2;k=91
-Bulgur, cooked|1 cup (182 g)|182|151|5.6|33.8|0.4|sat=0.1;chol=0;na=9;fiber=8.2;sugar=0.2;k=124
-Barley, pearled, cooked|1 cup (157 g)|157|193|3.5|44.3|0.7|sat=0.1;chol=0;na=5;fiber=6;sugar=0.4;k=146
-Oatmeal, cooked|1 cup (234 g)|234|166|5.9|28.1|3.6|sat=0.7;trans=0;chol=0;na=9;fiber=4;sugar=0.6;k=164
+Ben's Original Ready Rice Whole Grain Brown (1 cup)|1 cup (140 g)|140|200|4|40|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=0;fiber=1;sugar=0;addsugar=0;k=70;poly=1;mono=1.5;ca=80;fe=0.4;vd=0
+Ben's Original Ready Rice Long Grain White (1 cup)|1 cup (140 g)|140|200|4|39|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=0;fiber=1;sugar=0;addsugar=0;k=80;poly=1;mono=1.5;ca=41;fe=2.1;vd=0
+Ben's Original Ready Rice Roasted Chicken (1 cup)|1 cup (144 g)|144|210|5|41|3.5|brand=Ben's Original;sat=0;trans=0;chol=0;na=380;fiber=1;sugar=0;addsugar=0;k=140;poly=1;mono=2;ca=40;fe=2;vd=0
+Ben's Original Ready Rice Long Grain & Wild (1 cup)|1 cup (136 g)|136|200|5|39|2.5|brand=Ben's Original;sat=0;trans=0;chol=0;na=460;fiber=0.9;sugar=1;addsugar=0;k=160;poly=0.5;mono=1.5;ca=39;fe=2;vd=0
+Ben's Original Ready Rice Spanish Style (1 cup)|1 cup (144 g)|144|210|4|40|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=431;fiber=1;sugar=2;addsugar=1;k=200;poly=1;mono=1.5;ca=50;fe=2.4;vd=0
+Ben's Original Ready Rice Garden Vegetable (1 cup)|1 cup (145 g)|145|200|4|40|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=621;fiber=1;sugar=1;addsugar=1;k=130;poly=1;mono=1.5;ca=41;fe=1.8;vd=0
+Ben's Original Ready Rice Pilaf (1 cup)|1 cup (138 g)|138|200|5|38|2.5|brand=Ben's Original;sat=0;trans=0;chol=0;na=570;fiber=1;sugar=1;addsugar=0;k=280;poly=1;mono=1.5;ca=40;fe=1.8;vd=0
+Ben's Original Ready Rice Butter & Garlic (1 cup)|1 cup (150 g)|150|220|5|42|3.5|brand=Ben's Original;sat=1;trans=0;chol=0;na=400;fiber=1.1;sugar=1;addsugar=1.1;k=130;ca=40;fe=2.1;vd=0
+Ben's Original Ready Rice Jasmine (1 cup)|1 cup (143 g)|143|250|6|51|2.5|brand=Ben's Original;sat=0;trans=0;chol=0;na=0;fiber=1;sugar=0;addsugar=0;k=90;ca=20;fe=0.5;vd=0
+Ben's Original Ready Rice Basmati (1 cup)|1 cup (133 g)|133|219|5|44|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=0;fiber=1.1;sugar=0;addsugar=0;k=100;ca=20;fe=0.2;vd=0
+Ben's Original Ready Rice Red Beans & Rice (1 cup)|1 cup (147 g)|147|200|6|37|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=460;fiber=2.9;sugar=2;addsugar=1;k=581;poly=1;mono=1.5;ca=50;fe=2.2;vd=0
+Ben's Original Ready Rice Fried Rice (1 cup)|1 cup (143 g)|143|220|5|42|4|brand=Ben's Original;sat=0;trans=0;chol=0;na=450;fiber=2;sugar=1;addsugar=1;k=380;poly=1;mono=2.5;ca=50;fe=2;vd=0
+Ben's Original Ready Rice Brown Basmati (1 cup)|1 cup (141 g)|141|240|6|41|5|brand=Ben's Original;sat=1;trans=0;chol=0;na=0;fiber=2;sugar=1;addsugar=0;k=220;ca=10;fe=1.7;vd=0
+Ben's Original Ready Rice Cilantro Lime (1 cup)|1 cup (143 g)|143|240|4|41|6|brand=Ben's Original;sat=2;trans=0;chol=0;na=280;fiber=1;sugar=2;addsugar=2;k=130;ca=50;fe=1.9;vd=0
+Ben's Original Ready Rice Brown & Wild Medley (1 cup)|1 cup (140 g)|140|200|5|39|3|brand=Ben's Original;sat=0;trans=0;chol=0;na=470;fiber=1;sugar=1;addsugar=0;k=140;poly=1;mono=1.5;ca=80;fe=0.7;vd=0
+Minute Ready to Serve Long Grain White Rice (1 cup)|1 cup (125 g)|125|190|4|42|1.5|brand=Minute;sat=0;trans=0;chol=0;na=170;fiber=2;sugar=0;k=55;ca=20;fe=0.4
+Minute Ready to Serve Whole Grain Brown Rice (1 cup)|1 cup (125 g)|125|240|4|46|3.5|brand=Minute;sat=0.5;trans=0;chol=0;na=160;fiber=4;sugar=1;k=150;ca=0;fe=0.7
+Minute Ready to Serve Jasmine Rice (1 cup)|1 cup (125 g)|125|240|5|48|3.5|brand=Minute;sat=0.5;trans=0;chol=0;na=210;fiber=1;sugar=0;addsugar=0;k=0;ca=0;fe=0;vd=0
+Minute Ready to Serve Brown Rice & Quinoa (1 cup)|1 cup (125 g)|125|220|5|42|4|brand=Minute;sat=0.5;trans=0;chol=0;na=190;fiber=4;sugar=1;addsugar=0;k=188;ca=0;fe=1;vd=0
+Minute Instant White Rice (dry, 1/4 cup)|1/4 cup dry (45 g)|45|170|3|36|0|brand=Minute;sat=0;trans=0;chol=0;na=0;fiber=1;sugar=0;ca=0;fe=1
+Quaker Old Fashioned Oats (dry, 1/2 cup)|1/2 cup dry (40 g)|40|150|5|27|3|brand=Quaker;sat=0.5;trans=0;chol=0;na=0;fiber=4;sugar=1;addsugar=0;k=150;poly=1;mono=1;ca=20;fe=1.5;vd=0
+Quaker Steel Cut Oats (dry, 1/4 cup)|1/4 cup dry (40 g)|40|150|5|27|3|brand=Quaker;sat=0.5;trans=0;chol=0;na=0;fiber=4;sugar=1;addsugar=0;k=150;poly=1;mono=1;ca=20;fe=1.5;vd=0
+Quaker Quick 1-Minute Oats (dry, 1/2 cup)|1/2 cup dry (40 g)|40|150|5|27|3|brand=Quaker;sat=0.5;trans=0;chol=0;na=0;fiber=4;sugar=1;addsugar=0;k=150;poly=1;mono=1;ca=20;fe=1.5;vd=0
+Quaker Instant Oatmeal Original (1 packet)|1 packet (28 g)|28|100|4|18|2|brand=Quaker;sat=0.5;trans=0;chol=0;na=75;fiber=3;sugar=0;addsugar=0;k=100;poly=0.5;mono=0.5;ca=120;fe=7.8;vd=0
+Quaker Instant Oatmeal Maple & Brown Sugar (1 packet)|1 packet (43 g)|43|160|4|33|2|brand=Quaker;sat=0.5;trans=0;chol=0;na=260;fiber=3;sugar=12;addsugar=12;k=110;poly=0.5;mono=1;ca=20;fe=1.1;vd=0
+Quaker Instant Oatmeal Apples & Cinnamon (1 packet)|1 packet (43 g)|43|160|4|33|2|brand=Quaker;sat=0.5;trans=0;chol=0;na=160;fiber=4;sugar=11;addsugar=8;k=150;poly=0.5;mono=1;ca=20;fe=1.2;vd=0
+Quaker Instant Oatmeal Raisin Date & Walnut (1 packet)|1 packet (37 g)|37|140|3|27|2.5|brand=Quaker;sat=0.5;trans=0;chol=0;na=180;fiber=3;sugar=11;addsugar=7;k=140;poly=1;mono=0.5;ca=20;fe=1;vd=0
+Quaker Instant Oatmeal Lower Sugar Maple & Brown Sugar (1 packet)|1 packet (34 g)|34|120|4|24|2|brand=Quaker;sat=0.5;trans=0;chol=0;na=240;fiber=3;sugar=4;addsugar=4;k=110;poly=0.5;mono=1;ca=20;fe=1.1;vd=0
+Barilla Spaghetti (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118;ca=12;fe=2;vd=0
+Barilla Penne (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118;ca=12;fe=2;vd=0
+Barilla Rotini (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118;ca=12;fe=2;vd=0
+Barilla Elbows (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118;ca=12;fe=2;vd=0
+Barilla Fettuccine (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118;ca=12;fe=2;vd=0
+Barilla Linguine (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=2;sugar=2;ca=0;fe=1.8
+Barilla Angel Hair (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118;ca=12;fe=2;vd=0
+Barilla Orzo (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118;ca=12;fe=2;vd=0
+Barilla Farfalle (2 oz dry)|2 oz dry (56 g)|56|200|7|42|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118;ca=12;fe=2;vd=0
+Barilla Jumbo Shells (5 pieces)|5 pieces (50 g)|50|170|7|37|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=105;ca=11;fe=1;vd=0
+Barilla Whole Grain Penne (2 oz dry)|2 oz dry (56 g)|56|180|8|39|1.5|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=6;sugar=2;fe=3.6
+Barilla Whole Grain Elbows (2 oz dry)|2 oz dry (56 g)|56|180|8|39|1.5|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=7;sugar=1;k=274;ca=17;fe=2;vd=0
+Barilla Whole Grain Thin Spaghetti (2 oz dry)|2 oz dry (56 g)|56|180|8|39|1.5|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=6;sugar=2;fe=3.6
+Barilla Protein+ Spaghetti (2 oz dry)|2 oz dry (56 g)|56|190|10|38|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=5;sugar=2;k=261;ca=16;fe=2;vd=0
+Barilla Protein+ Penne (2 oz dry)|2 oz dry (56 g)|56|190|10|38|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=5;sugar=2;k=261;ca=16;fe=2;vd=0
+Barilla Collezione Rigatoni (2 oz dry)|2 oz dry (56 g)|56|200|8|41|1|brand=Barilla;sat=0;trans=0;chol=0;na=0;fiber=3;sugar=1;k=118;ca=12;fe=2;vd=0
+White rice, long-grain, cooked|1 cup (158 g)|158|205|4.2|44.5|0.4|sat=0.1;chol=0;na=2;fiber=0.6;sugar=0.1;k=55;poly=0.1;mono=0.1;ca=16;fe=1.9;vd=0
+Brown rice, long-grain, cooked|1 cup (202 g)|202|248|5.5|51.7|2|sat=0.5;trans=0;chol=0;na=8;fiber=3.2;sugar=0.5;k=174;poly=0.7;mono=0.7;ca=6;fe=1.1;vd=0
+White rice, short-grain, cooked|1 cup (186 g)|186|242|4.4|53.4|0.3|sat=0.1;chol=0;na=0;k=48;poly=0.1;mono=0.1;ca=2;fe=2.7;vd=0
+Sticky rice (glutinous), cooked|1 cup (174 g)|174|169|3.5|36.7|0.3|sat=0.1;chol=0;na=9;fiber=1.7;sugar=0.1;k=17;poly=0.1;mono=0.1;ca=3;fe=0.2;vd=0
+Wild rice, cooked|1 cup (164 g)|164|166|6.5|35|0.6|sat=0.1;chol=0;na=5;fiber=3;sugar=1.2;k=166;poly=0.3;mono=0.1;ca=5;fe=1;vd=0
+Pasta, cooked (enriched)|1 cup (124 g)|124|196|7.2|38.3|1.1|sat=0.2;trans=0;chol=0;na=1;fiber=2.2;sugar=0.7;k=55;poly=0.4;mono=0.2;ca=9;fe=1.6;vd=0
+Whole-wheat pasta, cooked|1 cup (117 g)|117|174|7|35.2|2|sat=0.3;trans=0;chol=0;na=5;fiber=4.6;sugar=0.9;k=112;poly=0.7;mono=0.2;ca=15;fe=2;vd=0
+Egg noodles, cooked|1 cup (160 g)|160|221|7.3|40.3|3.3|sat=0.7;trans=0.1;chol=46;na=8;fiber=1.9;sugar=0.6;k=61;poly=0.9;mono=0.9;ca=19;fe=2.4;vd=0.2
+Rice noodles, cooked|1 cup (176 g)|176|190|3.1|42.3|0.3|sat=0;chol=0;na=33;fiber=1.8;sugar=0.1;k=7;poly=0;mono=0;ca=7;fe=0.2;vd=0
+Quinoa, cooked|1 cup (185 g)|185|222|8.1|39.4|3.5|sat=0.4;chol=0;na=13;fiber=5.2;sugar=1.6;k=318;poly=2;mono=1;ca=31;fe=2.8;vd=0
+Couscous, cooked|1 cup (157 g)|157|176|6|36.5|0.2|sat=0.1;chol=0;na=8;fiber=2.2;sugar=0.2;k=91;poly=0.1;mono=0;ca=13;fe=0.6;vd=0
+Bulgur, cooked|1 cup (182 g)|182|151|5.6|33.8|0.4|sat=0.1;chol=0;na=9;fiber=8.2;sugar=0.2;k=124;poly=0.2;mono=0.1;ca=18;fe=1.7;vd=0
+Barley, pearled, cooked|1 cup (157 g)|157|193|3.5|44.3|0.7|sat=0.1;chol=0;na=5;fiber=6;sugar=0.4;k=146;poly=0.3;mono=0.1;ca=17;fe=2.1;vd=0
+Oatmeal, cooked|1 cup (234 g)|234|166|5.9|28.1|3.6|sat=0.7;trans=0;chol=0;na=9;fiber=4;sugar=0.6;k=164;poly=1.3;mono=1;ca=21;fe=2.1;vd=0
 # Breakfast cereal
-Cheerios (1 1/2 cup)|1 1/2 cup (39 g)|39|140|5|29|2.5|brand=Cheerios;sat=0.5;trans=0;chol=0;na=190;fiber=4;sugar=2;addsugar=1;k=250
-Honey Nut Cheerios (1 cup)|1 cup (37 g)|37|140|3|30|2|brand=Cheerios;sat=0;trans=0;chol=0;na=210;fiber=3;sugar=12;addsugar=12;k=150
-Multi Grain Cheerios (1 1/3 cup)|1 1/3 cup (39 g)|39|149|3.2|31.8|1.6|brand=Cheerios;sat=0.3;trans=0;chol=0;na=149;fiber=3.2;sugar=8;addsugar=8;k=180
-Cinnamon Toast Crunch (1 cup)|1 cup (41 g)|41|170|2|33|4|brand=General Mills;sat=0;trans=0;chol=0;na=230;fiber=3;sugar=12;addsugar=12;k=0
-Lucky Charms (1 cup)|1 cup (36 g)|36|140|3|30|1.5|brand=General Mills;sat=0;trans=0;chol=0;na=220;fiber=2;sugar=12;addsugar=12;k=0
-Cocoa Puffs (1 cup)|1 cup (36 g)|36|140|2|31|2|brand=General Mills;sat=0;trans=0;chol=0;na=130;fiber=2;sugar=12;addsugar=12;k=100
-Reese's Puffs (1 cup)|1 cup (39 g)|39|160|3|30|4.5|brand=General Mills;sat=0.5;trans=0;chol=0;na=220;fiber=2;sugar=12;addsugar=12;k=90
-Cookie Crisp (1 cup)|1 cup (36 g)|36|140|2|31|1.5|brand=General Mills;sat=0;trans=0;chol=0;na=190;fiber=2;sugar=12;addsugar=12;k=100
-Trix (1 1/4 cup)|1 1/4 cup (39 g)|39|160|2|33|2|brand=General Mills;sat=0;trans=0;chol=0;na=180;fiber=1;sugar=12;addsugar=12;k=0
-Golden Grahams (1 cup)|1 cup (40 g)|40|150|2|34|2|brand=General Mills;sat=0;trans=0;chol=0;na=290;fiber=2;sugar=12;addsugar=12;k=0
-Kix (1 1/2 cup)|1 1/2 cup (40 g)|40|160|2.8|33.6|1.2|brand=General Mills;sat=0.2;trans=0;chol=0;na=224;fiber=2.8;sugar=4;addsugar=4;k=92
-Rice Chex (1 1/3 cup)|1 1/3 cup (40 g)|40|150|3|35|1|brand=Chex;sat=0;trans=0;chol=0;na=310;fiber=2;sugar=3;addsugar=3;k=0
-Corn Chex (1 1/4 cup)|1 1/4 cup (39 g)|39|150|3|33|1|brand=Chex;sat=0;trans=0;chol=0;na=280;fiber=2;sugar=4;addsugar=4;k=0
-Wheat Chex (1 cup)|1 cup (59 g)|59|210|6|51|1|brand=Chex;sat=0;trans=0;chol=0;na=340;fiber=8;sugar=7;addsugar=6;k=230
-Honey Nut Chex (1 cup)|1 cup (43 g)|43|160|2|38|1|brand=Chex;sat=0;trans=0;chol=0;na=250;fiber=2;sugar=12;addsugar=12;k=0
-Chocolate Chex (1 cup)|1 cup (43 g)|43|180|2|35|3.5|brand=Chex;sat=0;trans=0;chol=0;na=250;fiber=2;sugar=11;addsugar=11;k=0
-Wheaties (1 cup)|1 cup (38 g)|38|130|3|32|0.5|brand=General Mills;sat=0;trans=0;chol=0;na=220;fiber=4;sugar=5;addsugar=5;k=140
-Oatmeal Crisp Crunchy Almond (1 cup)|1 cup (60 g)|60|233|6.2|47.2|4.2|brand=General Mills;sat=0.6;trans=0;chol=0;na=127;fiber=6;sugar=13.6;addsugar=12.9;k=200
-Kellogg's Frosted Flakes (1 cup)|1 cup (37 g)|37|135|1.6|32.7|0.1|brand=Kellogg's;sat=0;trans=0;chol=0;na=188;fiber=1.1;sugar=12.2;addsugar=11.9;k=38
-Kellogg's Corn Flakes (1 1/2 cup)|1 1/2 cup (42 g)|42|152|2.6|35.6|0.2|brand=Kellogg's;sat=0;trans=0;chol=0;na=302;fiber=1.4;sugar=4.2;addsugar=3.8;k=62
-Kellogg's Special K Original (1 1/4 cup)|1 1/4 cup (39 g)|39|148|7.2|28.7|0.7|brand=Kellogg's;sat=0.2;trans=0;chol=0;na=273;fiber=0.6;sugar=4.8;addsugar=4.4;k=17
-Kellogg's Special K Red Berries (1 cup)|1 cup (39 g)|39|141|2.8|33.5|0.6|brand=Kellogg's;sat=0.1;trans=0;chol=0;na=245;fiber=2.9;sugar=11.3;addsugar=10.2;k=83
-Kellogg's Rice Krispies (1 1/2 cup)|1 1/2 cup (40 g)|40|155|2.6|35.8|0.2|brand=Kellogg's;sat=0.1;trans=0;chol=0;na=201;fiber=0.3;sugar=4.3;addsugar=4.2;k=36
-Kellogg's Froot Loops (1 1/3 cup)|1 1/3 cup (39 g)|39|146|2.2|34.1|1.5|brand=Kellogg's;sat=0.7;trans=0;chol=0;na=206;fiber=2.2;sugar=12.2;addsugar=12;k=60
-Kellogg's Apple Jacks (1 1/3 cup)|1 1/3 cup (39 g)|39|147|2.1|34.2|1.5|brand=Kellogg's;sat=0.7;trans=0;chol=0;na=206;fiber=2.2;sugar=13.4;addsugar=13.2;k=58
-Kellogg's Corn Pops (1 1/3 cup)|1 1/3 cup (40 g)|40|154|1.5|36.2|0.4|brand=Kellogg's;sat=0.2;trans=0;chol=0;na=158;fiber=0.3;sugar=15.2;addsugar=15;k=39
-Kellogg's Raisin Bran (1 cup)|1 cup (59 g)|59|192|4.7|47|1.1|brand=Kellogg's;sat=0.2;trans=0;chol=0;na=201;fiber=7.3;sugar=16.9;addsugar=8.8;k=282
-Kellogg's Raisin Bran Crunch (1 cup)|1 cup (55 g)|55|193|3.7|46.4|1|brand=Kellogg's;sat=0.2;trans=0;chol=0;na=201;fiber=4.5;sugar=18.9;addsugar=13.3;k=282
-Kellogg's Frosted Mini-Wheats (25 biscuits)|25 biscuits (60 g)|60|212|4.8|50.6|1.3|brand=Kellogg's;sat=0.2;trans=0;chol=0;na=10;fiber=5.8;sugar=12.5;addsugar=12.1;k=162
-Kellogg's Krave Chocolate (1 cup)|1 cup (41 g)|41|171|2.7|31.6|4.5|brand=Kellogg's;sat=0.9;trans=0;chol=0;na=139;fiber=2.2;sugar=15.2;addsugar=14.3;k=110
-Kellogg's Cracklin' Oat Bran (3/4 cup)|3/4 cup (56 g)|56|234|4.2|41.1|8|brand=Kellogg's;sat=3.5;trans=0.1;chol=0;na=66;fiber=6.9;sugar=15.7;addsugar=15.3;k=211
-Kellogg's All-Bran Original (2/3 cup)|2/3 cup (41 g)|41|123|5.1|32|2|brand=Kellogg's;sat=0.4;trans=0;chol=0;na=96;fiber=12.3;sugar=8.7;addsugar=8.4;k=339
-Honey Bunches of Oats with Almonds (1 cup)|1 cup (42 g)|42|170|3|34|3|brand=Post;sat=0;trans=0;chol=0;na=180;fiber=2;sugar=9;addsugar=8;k=80
-Grape-Nuts (1/2 cup)|1/2 cup (58 g)|58|200|6|47|1|brand=Post;trans=0;na=280;fiber=7;sugar=5;k=260
-Fruity Pebbles (1 cup)|1 cup (36 g)|36|140|1|31|1.5|brand=Post;sat=0;trans=0;chol=0;na=190;fiber=0;sugar=12;addsugar=12;k=20
-Cocoa Pebbles (1 cup)|1 cup (36 g)|36|140|2|31|1.5|brand=Post;sat=0;trans=0;chol=0;na=220;fiber=1;sugar=12;addsugar=12;k=60
-Post Shredded Wheat Big Biscuit (2 biscuits)|2 biscuits (51 g)|51|170|6|41|1|brand=Post;sat=0;trans=0;chol=0;na=0;fiber=7;sugar=0;addsugar=0;k=170
-Quaker Life Cinnamon (3/4 cup)|3/4 cup (32 g)|32|120|2.9|25.2|1.3|brand=Quaker;sat=0.2;trans=0;chol=0;na=150;fiber=2;sugar=7.5;k=78
-Cap'n Crunch Original (3/4 cup)|3/4 cup (27 g)|27|110|1|23|1.5|brand=Quaker;sat=1;trans=0;chol=0;na=220;fiber=1;sugar=12;k=50
-Quaker Oatmeal Squares Brown Sugar (1 cup)|1 cup (56 g)|56|210|6|44|2.5|brand=Quaker;sat=0.5;trans=0;chol=0;na=190;fiber=5;sugar=9;addsugar=9;k=200
-Kashi GO Crunch (3/4 cup)|3/4 cup (53 g)|53|193|9|37.9|3.2|brand=Kashi;sat=0.4;trans=0;chol=0;na=99;fiber=8.6;sugar=12;addsugar=10.3;k=353
-Kashi GO Peanut Butter Crunch (3/4 cup)|3/4 cup (53 g)|53|222|10|31.1|9|brand=Kashi;sat=1.2;trans=0;chol=0;na=130;fiber=8;sugar=10.1;addsugar=8.6;k=380
-Nature Valley Oats 'n Honey Granola (1/4 cup)|1/4 cup (27 g)|27|126|2.2|18.8|4.7|brand=Nature Valley;sat=0.5;trans=0;chol=0;na=96;fiber=1.5;sugar=7;addsugar=7;k=56
-Bear Naked Fruit & Nut Granola (1/2 cup)|1/2 cup (60 g)|60|272|6.2|38.6|12.1|brand=Bear Naked;sat=2.9;trans=0;chol=0;na=4;fiber=5.1;sugar=13.3;addsugar=10.3;k=199
-Bear Naked Vanilla Almond Granola (1/2 cup)|1/2 cup (52 g)|52|219|6.5|35.6|7.6|brand=Bear Naked;sat=0.8;trans=0.1;chol=0;na=150;fiber=5.2;sugar=7.2;addsugar=6.7;k=184
-Bob's Red Mill Old Country Style Muesli (1/4 cup)|1/4 cup (35 g)|35|140|4|23|3|brand=Bob's Red Mill;sat=0;trans=0;chol=0;na=0;fiber=4;sugar=5;addsugar=0;k=195
-Nature's Path Heritage Flakes (1 cup)|1 cup (40 g)|40|160|5|31|1.5|brand=Nature's Path;sat=0;trans=0;chol=0;na=170;fiber=7;sugar=5;addsugar=5;k=197
-Cream of Wheat Instant Original (1 packet)|1 packet (28 g)|28|100|3|20|0|brand=Cream of Wheat;sat=0;trans=0;chol=0;na=170;fiber=1;sugar=0
-Cream of Wheat Instant Maple Brown Sugar (1 packet)|1 packet (35 g)|35|130|2|28|0|brand=Cream of Wheat;sat=0;trans=0;chol=0;na=140;fiber=1;sugar=13
-Grits, white, cooked|1 cup (257 g)|257|182|4.4|37.9|1.2|sat=0.2;chol=0;na=5;fiber=2.1;sugar=0.3;k=69
-Cream of Wheat, cooked with water|1 cup (245 g)|245|137|4|27.3|1|sat=0.3;trans=0.5;na=10;fiber=1;sugar=0.2;k=56
-Granola, homemade|1 oz (28.35 g)|28.35|139|3.9|15.3|6.9|sat=1.1;trans=0;chol=0;na=7;fiber=2.5;sugar=5.6;k=153
+Cheerios (1 1/2 cup)|1 1/2 cup (39 g)|39|140|5|29|2.5|brand=Cheerios;sat=0.5;trans=0;chol=0;na=190;fiber=4;sugar=2;addsugar=1;k=250;poly=1;mono=1;ca=130;fe=12.6;vd=3.9
+Honey Nut Cheerios (1 cup)|1 cup (37 g)|37|140|3|30|2|brand=Cheerios;sat=0;trans=0;chol=0;na=210;fiber=3;sugar=12;addsugar=12;k=150;poly=0.5;mono=0.5;ca=130;fe=3.6;vd=4.1
+Multi Grain Cheerios (1 1/3 cup)|1 1/3 cup (39 g)|39|149|3.2|31.8|1.6|brand=Cheerios;sat=0.3;trans=0;chol=0;na=149;fiber=3.2;sugar=8;addsugar=8;k=180;poly=0.7;mono=0.5;ca=200;fe=18;vd=4
+Cinnamon Toast Crunch (1 cup)|1 cup (41 g)|41|170|2|33|4|brand=General Mills;sat=0;trans=0;chol=0;na=230;fiber=3;sugar=12;addsugar=12;k=0;poly=1;mono=2.5;ca=130;fe=3.6;vd=4.1
+Lucky Charms (1 cup)|1 cup (36 g)|36|140|3|30|1.5|brand=General Mills;sat=0;trans=0;chol=0;na=220;fiber=2;sugar=12;addsugar=12;k=0;poly=0.5;mono=0.5;ca=130;fe=3.6;vd=4
+Cocoa Puffs (1 cup)|1 cup (36 g)|36|140|2|31|2|brand=General Mills;sat=0;trans=0;chol=0;na=130;fiber=2;sugar=12;addsugar=12;k=100;poly=0.5;mono=1;ca=130;fe=3.6;vd=4
+Reese's Puffs (1 cup)|1 cup (39 g)|39|160|3|30|4.5|brand=General Mills;sat=0.5;trans=0;chol=0;na=220;fiber=2;sugar=12;addsugar=12;k=90;poly=1;mono=2;ca=130;fe=3.6;vd=3.9
+Cookie Crisp (1 cup)|1 cup (36 g)|36|140|2|31|1.5|brand=General Mills;sat=0;trans=0;chol=0;na=190;fiber=2;sugar=12;addsugar=12;k=100;ca=130;fe=3.6;vd=4
+Trix (1 1/4 cup)|1 1/4 cup (39 g)|39|160|2|33|2|brand=General Mills;sat=0;trans=0;chol=0;na=180;fiber=1;sugar=12;addsugar=12;k=0;poly=0.5;mono=1;ca=130;fe=3.6;vd=3.9
+Golden Grahams (1 cup)|1 cup (40 g)|40|150|2|34|2|brand=General Mills;sat=0;trans=0;chol=0;na=290;fiber=2;sugar=12;addsugar=12;k=0;ca=130;fe=3.6;vd=4
+Kix (1 1/2 cup)|1 1/2 cup (40 g)|40|160|2.8|33.6|1.2|brand=General Mills;sat=0.2;trans=0;chol=0;na=224;fiber=2.8;sugar=4;addsugar=4;k=92;ca=132;fe=10.8;vd=4
+Rice Chex (1 1/3 cup)|1 1/3 cup (40 g)|40|150|3|35|1|brand=Chex;sat=0;trans=0;chol=0;na=310;fiber=2;sugar=3;addsugar=3;k=0;ca=130;fe=14.4;vd=4
+Corn Chex (1 1/4 cup)|1 1/4 cup (39 g)|39|150|3|33|1|brand=Chex;sat=0;trans=0;chol=0;na=280;fiber=2;sugar=4;addsugar=4;k=0;ca=130;fe=10.8;vd=3.9
+Wheat Chex (1 cup)|1 cup (59 g)|59|210|6|51|1|brand=Chex;sat=0;trans=0;chol=0;na=340;fiber=8;sugar=7;addsugar=6;k=230;ca=130;fe=18;vd=4.1
+Honey Nut Chex (1 cup)|1 cup (43 g)|43|160|2|38|1|brand=Chex;sat=0;trans=0;chol=0;na=250;fiber=2;sugar=12;addsugar=12;k=0;ca=130;fe=3.6;vd=3.9
+Chocolate Chex (1 cup)|1 cup (43 g)|43|180|2|35|3.5|brand=Chex;sat=0;trans=0;chol=0;na=250;fiber=2;sugar=11;addsugar=11;k=0;poly=0.5;mono=2.5;ca=130;fe=12.6;vd=3.9
+Wheaties (1 cup)|1 cup (38 g)|38|130|3|32|0.5|brand=General Mills;sat=0;trans=0;chol=0;na=220;fiber=4;sugar=5;addsugar=5;k=140;ca=30;fe=10.8;vd=4.2
+Oatmeal Crisp Crunchy Almond (1 cup)|1 cup (60 g)|60|233|6.2|47.2|4.2|brand=General Mills;sat=0.6;trans=0;chol=0;na=127;fiber=6;sugar=13.6;addsugar=12.9;k=200;poly=1.3;mono=1.9;ca=40;fe=7.2;vd=0
+Kellogg's Frosted Flakes (1 cup)|1 cup (37 g)|37|135|1.6|32.7|0.1|brand=Kellogg's;sat=0;trans=0;chol=0;na=188;fiber=1.1;sugar=12.2;addsugar=11.9;k=38;poly=0.1;mono=0;ca=1;fe=7.2;vd=2
+Kellogg's Corn Flakes (1 1/2 cup)|1 1/2 cup (42 g)|42|152|2.6|35.6|0.2|brand=Kellogg's;sat=0;trans=0;chol=0;na=302;fiber=1.4;sugar=4.2;addsugar=3.8;k=62;poly=0.1;mono=0;ca=3;fe=12;vd=3
+Kellogg's Special K Original (1 1/4 cup)|1 1/4 cup (39 g)|39|148|7.2|28.7|0.7|brand=Kellogg's;sat=0.2;trans=0;chol=0;na=273;fiber=0.6;sugar=4.8;addsugar=4.4;k=17;poly=0.2;mono=0.1;ca=7;fe=10.9;vd=2
+Kellogg's Special K Red Berries (1 cup)|1 cup (39 g)|39|141|2.8|33.5|0.6|brand=Kellogg's;sat=0.1;trans=0;chol=0;na=245;fiber=2.9;sugar=11.3;addsugar=10.2;k=83;poly=0.2;mono=0.1;ca=11;fe=10.8;vd=1.9
+Kellogg's Rice Krispies (1 1/2 cup)|1 1/2 cup (40 g)|40|155|2.6|35.8|0.2|brand=Kellogg's;sat=0.1;trans=0;chol=0;na=201;fiber=0.3;sugar=4.3;addsugar=4.2;k=36;poly=0.1;mono=0.1;ca=4;fe=11.2;vd=3
+Kellogg's Froot Loops (1 1/3 cup)|1 1/3 cup (39 g)|39|146|2.2|34.1|1.5|brand=Kellogg's;sat=0.7;trans=0;chol=0;na=206;fiber=2.2;sugar=12.2;addsugar=12;k=60;poly=0.4;mono=0.2;ca=5;fe=4.5;vd=2
+Kellogg's Apple Jacks (1 1/3 cup)|1 1/3 cup (39 g)|39|147|2.1|34.2|1.5|brand=Kellogg's;sat=0.7;trans=0;chol=0;na=206;fiber=2.2;sugar=13.4;addsugar=13.2;k=58;poly=0.4;mono=0.3;ca=5;fe=4.5;vd=2
+Kellogg's Corn Pops (1 1/3 cup)|1 1/3 cup (40 g)|40|154|1.5|36.2|0.4|brand=Kellogg's;sat=0.2;trans=0;chol=0;na=158;fiber=0.3;sugar=15.2;addsugar=15;k=39;poly=0.1;mono=0.1;ca=3;fe=4.5;vd=2
+Kellogg's Raisin Bran (1 cup)|1 cup (59 g)|59|192|4.7|47|1.1|brand=Kellogg's;sat=0.2;trans=0;chol=0;na=201;fiber=7.3;sugar=16.9;addsugar=8.8;k=282;poly=0.5;mono=0.2;ca=22;fe=1.8;vd=0
+Kellogg's Raisin Bran Crunch (1 cup)|1 cup (55 g)|55|193|3.7|46.4|1|brand=Kellogg's;sat=0.2;trans=0;chol=0;na=201;fiber=4.5;sugar=18.9;addsugar=13.3;k=282;poly=0.4;mono=0.2;ca=26;fe=1.1;vd=0
+Kellogg's Frosted Mini-Wheats (25 biscuits)|25 biscuits (60 g)|60|212|4.8|50.6|1.3|brand=Kellogg's;sat=0.2;trans=0;chol=0;na=10;fiber=5.8;sugar=12.5;addsugar=12.1;k=162;poly=0.8;mono=0.2;ca=9;fe=18;vd=0
+Kellogg's Krave Chocolate (1 cup)|1 cup (41 g)|41|171|2.7|31.6|4.5|brand=Kellogg's;sat=0.9;trans=0;chol=0;na=139;fiber=2.2;sugar=15.2;addsugar=14.3;k=110;poly=2.3;mono=1.1;ca=20;fe=5.5;vd=1.4
+Kellogg's Cracklin' Oat Bran (3/4 cup)|3/4 cup (56 g)|56|234|4.2|41.1|8|brand=Kellogg's;sat=3.5;trans=0.1;chol=0;na=66;fiber=6.9;sugar=15.7;addsugar=15.3;k=211;poly=1.6;mono=2.7;ca=22;fe=4.5;vd=3
+Kellogg's All-Bran Original (2/3 cup)|2/3 cup (41 g)|41|123|5.1|32|2|brand=Kellogg's;sat=0.4;trans=0;chol=0;na=96;fiber=12.3;sugar=8.7;addsugar=8.4;k=339;poly=1.3;mono=0.3;ca=7;fe=4.6;vd=2
+Honey Bunches of Oats with Almonds (1 cup)|1 cup (42 g)|42|170|3|34|3|brand=Post;sat=0;trans=0;chol=0;na=180;fiber=2;sugar=9;addsugar=8;k=80;poly=0.5;mono=1.5;ca=10;fe=16.2
+Grape-Nuts (1/2 cup)|1/2 cup (58 g)|58|200|6|47|1|brand=Post;trans=0;na=280;fiber=7;sugar=5;k=260;poly=0.5;mono=0;ca=20;fe=16.2
+Fruity Pebbles (1 cup)|1 cup (36 g)|36|140|1|31|1.5|brand=Post;sat=0;trans=0;chol=0;na=190;fiber=0;sugar=12;addsugar=12;k=20;ca=0;fe=1;vd=2
+Cocoa Pebbles (1 cup)|1 cup (36 g)|36|140|2|31|1.5|brand=Post;sat=0;trans=0;chol=0;na=220;fiber=1;sugar=12;addsugar=12;k=60;ca=0;fe=2.7;vd=2
+Post Shredded Wheat Big Biscuit (2 biscuits)|2 biscuits (51 g)|51|170|6|41|1|brand=Post;sat=0;trans=0;chol=0;na=0;fiber=7;sugar=0;addsugar=0;k=170;poly=0.5;mono=0;ca=20;fe=1.6;vd=0
+Quaker Life Cinnamon (3/4 cup)|3/4 cup (32 g)|32|120|2.9|25.2|1.3|brand=Quaker;sat=0.2;trans=0;chol=0;na=150;fiber=2;sugar=7.5;k=78;poly=0.4;mono=0.4;ca=126;fe=7.9
+Cap'n Crunch Original (3/4 cup)|3/4 cup (27 g)|27|110|1|23|1.5|brand=Quaker;sat=1;trans=0;chol=0;na=220;fiber=1;sugar=12;k=50;poly=0;mono=0;ca=0;fe=4.5
+Quaker Oatmeal Squares Brown Sugar (1 cup)|1 cup (56 g)|56|210|6|44|2.5|brand=Quaker;sat=0.5;trans=0;chol=0;na=190;fiber=5;sugar=9;addsugar=9;k=200;poly=1;mono=1;ca=30;fe=16.3;vd=0
+Kashi GO Crunch (3/4 cup)|3/4 cup (53 g)|53|193|9|37.9|3.2|brand=Kashi;sat=0.4;trans=0;chol=0;na=99;fiber=8.6;sugar=12;addsugar=10.3;k=353;poly=1.2;mono=1.4;ca=35;fe=1.5;vd=0
+Kashi GO Peanut Butter Crunch (3/4 cup)|3/4 cup (53 g)|53|222|10|31.1|9|brand=Kashi;sat=1.2;trans=0;chol=0;na=130;fiber=8;sugar=10.1;addsugar=8.6;k=380;poly=3.1;mono=4.7;ca=50;fe=1.8;vd=0
+Nature Valley Oats 'n Honey Granola (1/4 cup)|1/4 cup (27 g)|27|126|2.2|18.8|4.7|brand=Nature Valley;sat=0.5;trans=0;chol=0;na=96;fiber=1.5;sugar=7;addsugar=7;k=56;poly=1;mono=2.8;ca=9;fe=0.6;vd=0
+Bear Naked Fruit & Nut Granola (1/2 cup)|1/2 cup (60 g)|60|272|6.2|38.6|12.1|brand=Bear Naked;sat=2.9;trans=0;chol=0;na=4;fiber=5.1;sugar=13.3;addsugar=10.3;k=199;poly=3.6;mono=5.2;ca=36;fe=1.9;vd=0
+Bear Naked Vanilla Almond Granola (1/2 cup)|1/2 cup (52 g)|52|219|6.5|35.6|7.6|brand=Bear Naked;sat=0.8;trans=0.1;chol=0;na=150;fiber=5.2;sugar=7.2;addsugar=6.7;k=184;poly=2.3;mono=4.1;ca=48;fe=1.4;vd=0
+Bob's Red Mill Old Country Style Muesli (1/4 cup)|1/4 cup (35 g)|35|140|4|23|3|brand=Bob's Red Mill;sat=0;trans=0;chol=0;na=0;fiber=4;sugar=5;addsugar=0;k=195;ca=14;fe=1;vd=0
+Nature's Path Heritage Flakes (1 cup)|1 cup (40 g)|40|160|5|31|1.5|brand=Nature's Path;sat=0;trans=0;chol=0;na=170;fiber=7;sugar=5;addsugar=5;k=197;ca=0;fe=2;vd=0
+Cream of Wheat Instant Original (1 packet)|1 packet (28 g)|28|100|3|20|0|brand=Cream of Wheat;sat=0;trans=0;chol=0;na=170;fiber=1;sugar=0;ca=200;fe=8.1
+Cream of Wheat Instant Maple Brown Sugar (1 packet)|1 packet (35 g)|35|130|2|28|0|brand=Cream of Wheat;sat=0;trans=0;chol=0;na=140;fiber=1;sugar=13;ca=250;fe=9;vd=2.5
+Grits, white, cooked|1 cup (257 g)|257|182|4.4|37.9|1.2|sat=0.2;chol=0;na=5;fiber=2.1;sugar=0.3;k=69;poly=0.4;mono=0.2;ca=3;fe=1.5;vd=0
+Cream of Wheat, cooked with water|1 cup (245 g)|245|137|4|27.3|1|sat=0.3;trans=0.5;na=10;fiber=1;sugar=0.2;k=56;poly=0.5;mono=0.2;ca=306;fe=11.5
+Granola, homemade|1 oz (28.35 g)|28.35|139|3.9|15.3|6.9|sat=1.1;trans=0;chol=0;na=7;fiber=2.5;sugar=5.6;k=153;poly=2.2;mono=3.1;ca=22;fe=1.1;vd=0
 # ---- Food library batch 2026-10-13 (USDA FoodData Central; see food-library/items.json) ----
 # Dairy & alternatives
-Oatly Original Oatmilk (1 cup)|1 cup (240 ml)|240ml|120|3|16|5|brand=Oatly;sat=0.5;trans=0;chol=0;na=101;fiber=1.9;sugar=7;addsugar=7;k=389
-Oatly Barista Edition Oatmilk (1 cup)|1 cup (240 ml)|240ml|139|3|16|7|brand=Oatly;sat=0.5;trans=0;chol=0;na=101;fiber=1.9;sugar=7;addsugar=7;k=389
-Silk Unsweetened Organic Soymilk (1 cup)|1 cup (240 ml)|240ml|79|7|4|4|brand=Silk;sat=0.5;trans=0;chol=0;na=70;fiber=1.9;sugar=1;k=350
-Vitasoy Soy Drink (250 ml carton)|1 carton (250 ml)|250ml|110|7|11|4|brand=Vitasoy;sat=1;trans=0;chol=0;na=60;fiber=0;sugar=10
+Oatly Original Oatmilk (1 cup)|1 cup (240 ml)|240ml|120|3|16|5|brand=Oatly;sat=0.5;trans=0;chol=0;na=101;fiber=1.9;sugar=7;addsugar=7;k=389;ca=350;fe=0.3;vd=4.8
+Oatly Barista Edition Oatmilk (1 cup)|1 cup (240 ml)|240ml|139|3|16|7|brand=Oatly;sat=0.5;trans=0;chol=0;na=101;fiber=1.9;sugar=7;addsugar=7;k=389;ca=350;fe=0.3;vd=4.8
+Silk Unsweetened Organic Soymilk (1 cup)|1 cup (240 ml)|240ml|79|7|4|4|brand=Silk;sat=0.5;trans=0;chol=0;na=70;fiber=1.9;sugar=1;k=350;poly=2.5;mono=1;ca=300;fe=1.1;vd=4.8
+Vitasoy Soy Drink (250 ml carton)|1 carton (250 ml)|250ml|110|7|11|4|brand=Vitasoy;sat=1;trans=0;chol=0;na=60;fiber=0;sugar=10;poly=2.5;mono=0.5;ca=0;fe=1.4
 # Drinks
-Coca-Cola Classic (12 fl oz can)|1 can (12 fl oz) (355 ml)|355ml|138|0|39|0|brand=Coca-Cola;sat=0;trans=0;chol=0;na=46;fiber=0;sugar=39;addsugar=39;k=0
-Diet Coke (12 fl oz)|12 fl oz (355 ml)|355ml|0|0|0|0|brand=Coca-Cola;sat=0;trans=0;chol=0;na=71;fiber=0;sugar=0;addsugar=0;k=0
+Coca-Cola Classic (12 fl oz can)|1 can (12 fl oz) (355 ml)|355ml|138|0|39|0|brand=Coca-Cola;sat=0;trans=0;chol=0;na=46;fiber=0;sugar=39;addsugar=39;k=0;ca=0;fe=0;vd=0
+Diet Coke (12 fl oz)|12 fl oz (355 ml)|355ml|0|0|0|0|brand=Coca-Cola;sat=0;trans=0;chol=0;na=71;fiber=0;sugar=0;addsugar=0;k=0;ca=0;fe=0;vd=0
 Coca-Cola Zero Sugar (12 fl oz can)|1 can (12 fl oz) (355 ml)|355ml|0|0|0|0|brand=Coca-Cola;na=39;sugar=0;addsugar=0;k=60
 Pepsi (12 fl oz can)|1 can (12 fl oz) (355 ml)|355ml|149|0|41|0|brand=Pepsi;na=28;sugar=41;addsugar=40.8
-Diet Pepsi (12 fl oz)|12 fl oz (360 ml)|360ml|0|0|0.1|0|brand=Pepsi;sat=0;trans=0;chol=0;na=36;fiber=0;sugar=0;k=40
-Sprite (12 fl oz)|12 fl oz (355 ml)|355ml|138|0|39|0|brand=Sprite;sat=0;trans=0;chol=0;na=71;fiber=0;sugar=38;addsugar=38;k=0
+Diet Pepsi (12 fl oz)|12 fl oz (360 ml)|360ml|0|0|0.1|0|brand=Pepsi;sat=0;trans=0;chol=0;na=36;fiber=0;sugar=0;k=40;ca=0;fe=0
+Sprite (12 fl oz)|12 fl oz (355 ml)|355ml|138|0|39|0|brand=Sprite;sat=0;trans=0;chol=0;na=71;fiber=0;sugar=38;addsugar=38;k=0;ca=0;fe=0;vd=0
 Dr Pepper (12 fl oz can)|1 can (12 fl oz) (355 ml)|355ml|149|0|40|0|brand=Dr Pepper;na=53;sugar=39;addsugar=39
 Mtn Dew (16 fl oz bottle)|1 bottle (16 fl oz) (473 ml)|473ml|232|0|62|0|brand=Mtn Dew;na=80;sugar=62;addsugar=62
 Canada Dry Ginger Ale (12 fl oz can)|1 can (12 fl oz) (355 ml)|355ml|138|0|36|0|brand=Canada Dry;na=50;sugar=36;addsugar=35.9
 Canada Dry Zero Sugar Ginger Ale (12 fl oz)|12 fl oz (355 ml)|355ml|0|0|0|0|brand=Canada Dry;na=121;sugar=0;addsugar=0
 LaCroix Lime Sparkling Water (12 fl oz can)|1 can (12 fl oz) (355 ml)|355ml|0|0|0|0|brand=LaCroix;na=0;sugar=0
-Tropicana Pure Premium Orange Juice, No Pulp (8 fl oz)|8 fl oz (240 ml)|240ml|113|1.8|26.1|0.5|brand=Tropicana;sat=0;trans=0;chol=0;na=2;fiber=0.5;sugar=21.1;k=502
-Simply Orange Pulp Free with Calcium & Vitamin D (8 fl oz)|8 fl oz (240 ml)|240ml|110|2|26|0|brand=Simply;sat=0;trans=0;chol=0;na=0;sugar=23;k=451
-Mott's 100% Apple Juice (8 fl oz)|8 fl oz (240 ml)|240ml|120|0|29|0|brand=Mott's;na=14;sugar=25;addsugar=0;k=269
-Ocean Spray 100% Juice Cranberry Blend (8 fl oz)|8 fl oz (240 ml)|240ml|101|0|29|0|brand=Ocean Spray;na=24;sugar=23;addsugar=0;k=230
-V8 Original 100% Vegetable Juice (8 fl oz)|8 fl oz (240 ml)|240ml|46|2|8.9|0|brand=V8;sat=0;trans=0;chol=0;na=638;fiber=1.9;sugar=7;addsugar=0;k=468
+Tropicana Pure Premium Orange Juice, No Pulp (8 fl oz)|8 fl oz (240 ml)|240ml|113|1.8|26.1|0.5|brand=Tropicana;sat=0;trans=0;chol=0;na=2;fiber=0.5;sugar=21.1;k=502;ca=17;fe=0.5
+Simply Orange Pulp Free with Calcium & Vitamin D (8 fl oz)|8 fl oz (240 ml)|240ml|110|2|26|0|brand=Simply;sat=0;trans=0;chol=0;na=0;sugar=23;k=451;ca=350;vd=4.8
+Mott's 100% Apple Juice (8 fl oz)|8 fl oz (240 ml)|240ml|120|0|29|0|brand=Mott's;na=14;sugar=25;addsugar=0;k=269;fe=0.5
+Ocean Spray 100% Juice Cranberry Blend (8 fl oz)|8 fl oz (240 ml)|240ml|101|0|29|0|brand=Ocean Spray;na=24;sugar=23;addsugar=0;k=230;fe=0.5
+V8 Original 100% Vegetable Juice (8 fl oz)|8 fl oz (240 ml)|240ml|46|2|8.9|0|brand=V8;sat=0;trans=0;chol=0;na=638;fiber=1.9;sugar=7;addsugar=0;k=468;ca=41;fe=0.7;vd=0
 Capri Sun Pacific Cooler (1 pouch)|1 pouch (6 fl oz) (177 ml)|177ml|35|0|9|0|brand=Capri Sun;na=14;sugar=8;addsugar=5
 Minute Maid Zero Sugar Lemonade (8 fl oz)|8 fl oz (240 ml)|240ml|0|0|1|0|brand=Minute Maid;na=36;sugar=0
 Gatorade Zero Lemon Lime (20 fl oz bottle)|1 bottle (20 fl oz) (591 ml)|591ml|6|0|2|0|brand=Gatorade;na=272;sugar=0;addsugar=0;k=83
@@ -942,31 +960,31 @@ Gatorade Thirst Quencher Lemon-Lime (12 fl oz)|12 fl oz (360 ml)|360ml|79|0|22|0
 Powerade Mountain Berry Blast (12 fl oz)|12 fl oz (360 ml)|360ml|79|0|21|0|brand=Powerade;na=151;sugar=21;addsugar=20.9;k=40
 BodyArmor Strawberry Banana Sports Drink (20 fl oz bottle)|1 bottle (20 fl oz) (591 ml)|591ml|148|0|35|0|brand=BodyArmor;na=47;sugar=35;addsugar=33.1;k=881
 Red Bull Energy Drink (8.4 fl oz can)|1 can (8.4 fl oz) (250 ml)|250ml|110|1|28|0|brand=Red Bull;na=105;sugar=27
-Red Bull Sugarfree (8.4 fl oz can)|1 can (8.4 fl oz) (250 ml)|250ml|10|0|2|0|brand=Red Bull;na=105;sugar=0;addsugar=0
-Arizona Green Tea with Ginseng and Honey (8 fl oz)|8 fl oz (240 ml)|240ml|70|0|17|0|brand=Arizona;sat=0;trans=0;chol=0;na=10;fiber=0;sugar=17
+Red Bull Sugarfree (8.4 fl oz can)|1 can (8.4 fl oz) (250 ml)|250ml|10|0|2|0|brand=Red Bull;na=105;sugar=0;addsugar=0;ca=30
+Arizona Green Tea with Ginseng and Honey (8 fl oz)|8 fl oz (240 ml)|240ml|70|0|17|0|brand=Arizona;sat=0;trans=0;chol=0;na=10;fiber=0;sugar=17;ca=0;fe=0
 Pure Leaf Unsweetened Brewed Tea (12 fl oz)|12 fl oz (360 ml)|360ml|0|0|0|0|brand=Pure Leaf;na=0;sugar=0;addsugar=0
 Pure Leaf Sweet Tea (16.9 fl oz bottle)|1 bottle (16.9 fl oz) (500 ml)|500ml|140|0|38|0|brand=Pure Leaf;na=0;sugar=38;addsugar=38
-Gold Peak Sweet Tea (12 fl oz)|12 fl oz (355 ml)|355ml|121|0|32|0|brand=Gold Peak;sat=0;trans=0;chol=0;na=4;fiber=0;sugar=32;addsugar=31.9;k=0
-ITO EN Oi Ocha Green Tea, Unsweetened (16.9 fl oz bottle)|1 bottle (16.9 fl oz) (500 ml)|500ml|0|0|0.1|0|brand=ITO EN;sat=0;trans=0;chol=0;na=5;fiber=0;sugar=0;addsugar=0;k=0
-Starbucks Frappuccino Mocha (13.7 fl oz bottle)|1 bottle (13.7 fl oz) (411 ml)|411ml|259|9|47|4.5|brand=Starbucks;sat=3;trans=0;chol=21;na=140;fiber=0.8;sugar=45
-Starbucks Frappuccino Coffee (13.7 fl oz bottle)|1 bottle (13.7 fl oz) (411 ml)|411ml|292|9|53|4.5|brand=Starbucks;sat=3;trans=0;chol=21;na=160;fiber=0;sugar=46
-Starbucks Doubleshot Espresso & Cream Light (6.5 fl oz can)|1 can (6.5 fl oz) (192 ml)|192ml|69|3|5|4|brand=Starbucks;sat=2.5;trans=0;chol=15;na=50;fiber=0;sugar=5
-Starbucks Vanilla Sweet Cream Cold Brew (12 fl oz)|12 fl oz (360 ml)|360ml|90|2|17|2|brand=Starbucks;sat=1;trans=0;chol=4;na=22;fiber=0;sugar=15;addsugar=13;k=522
-Premier Protein Shake, Chocolate (11 fl oz)|1 shake (11 fl oz) (330 ml)|330ml|158|30|5|3|brand=Premier Protein;sat=0.5;trans=0;chol=20;na=182;fiber=3;sugar=1;addsugar=0;k=419
-Premier Protein Shake, Cookies & Cream (11 fl oz)|1 shake (11 fl oz) (330 ml)|330ml|158|30|4|3|brand=Premier Protein;sat=0.5;trans=0;chol=20;na=221;fiber=1;sugar=1;addsugar=0;k=300
-fairlife Nutrition Plan Protein Shake, Chocolate (11.5 fl oz)|1 bottle (11.5 fl oz) (340 ml)|340ml|150|30|4|2.5|brand=fairlife;sat=1.5;trans=0;chol=10;na=231;fiber=1;sugar=2;k=459
-Ensure Original Nutrition Shake, Vanilla (8 fl oz)|1 bottle (8 fl oz) (240 ml)|240ml|221|9|32|6|brand=Ensure;sat=1;trans=0;chol=5;na=199;fiber=1;sugar=15;k=370
-Ensure Original Nutrition Shake, Milk Chocolate (8 fl oz)|1 bottle (8 fl oz) (237 ml)|237ml|220|9|33|6|brand=Ensure;sat=1;trans=0;chol=5;na=211;fiber=0.9;sugar=10;addsugar=9
+Gold Peak Sweet Tea (12 fl oz)|12 fl oz (355 ml)|355ml|121|0|32|0|brand=Gold Peak;sat=0;trans=0;chol=0;na=4;fiber=0;sugar=32;addsugar=31.9;k=0;ca=0;fe=0;vd=0
+ITO EN Oi Ocha Green Tea, Unsweetened (16.9 fl oz bottle)|1 bottle (16.9 fl oz) (500 ml)|500ml|0|0|0.1|0|brand=ITO EN;sat=0;trans=0;chol=0;na=5;fiber=0;sugar=0;addsugar=0;k=0;poly=0;mono=0;ca=0;fe=0;vd=0
+Starbucks Frappuccino Mocha (13.7 fl oz bottle)|1 bottle (13.7 fl oz) (411 ml)|411ml|259|9|47|4.5|brand=Starbucks;sat=3;trans=0;chol=21;na=140;fiber=0.8;sugar=45;ca=300;fe=0.4
+Starbucks Frappuccino Coffee (13.7 fl oz bottle)|1 bottle (13.7 fl oz) (411 ml)|411ml|292|9|53|4.5|brand=Starbucks;sat=3;trans=0;chol=21;na=160;fiber=0;sugar=46;ca=349;fe=0.4
+Starbucks Doubleshot Espresso & Cream Light (6.5 fl oz can)|1 can (6.5 fl oz) (192 ml)|192ml|69|3|5|4|brand=Starbucks;sat=2.5;trans=0;chol=15;na=50;fiber=0;sugar=5;ca=100;fe=0
+Starbucks Vanilla Sweet Cream Cold Brew (12 fl oz)|12 fl oz (360 ml)|360ml|90|2|17|2|brand=Starbucks;sat=1;trans=0;chol=4;na=22;fiber=0;sugar=15;addsugar=13;k=522;ca=54;fe=0;vd=0
+Premier Protein Shake, Chocolate (11 fl oz)|1 shake (11 fl oz) (330 ml)|330ml|158|30|5|3|brand=Premier Protein;sat=0.5;trans=0;chol=20;na=182;fiber=3;sugar=1;addsugar=0;k=419;ca=650;fe=2.5;vd=6.6
+Premier Protein Shake, Cookies & Cream (11 fl oz)|1 shake (11 fl oz) (330 ml)|330ml|158|30|4|3|brand=Premier Protein;sat=0.5;trans=0;chol=20;na=221;fiber=1;sugar=1;addsugar=0;k=300;ca=650;fe=1.8;vd=6.6
+fairlife Nutrition Plan Protein Shake, Chocolate (11.5 fl oz)|1 bottle (11.5 fl oz) (340 ml)|340ml|150|30|4|2.5|brand=fairlife;sat=1.5;trans=0;chol=10;na=231;fiber=1;sugar=2;k=459;ca=731;fe=1.9;vd=5
+Ensure Original Nutrition Shake, Vanilla (8 fl oz)|1 bottle (8 fl oz) (240 ml)|240ml|221|9|32|6|brand=Ensure;sat=1;trans=0;chol=5;na=199;fiber=1;sugar=15;k=370;poly=2;mono=3;ca=300;fe=4.5;vd=5
+Ensure Original Nutrition Shake, Milk Chocolate (8 fl oz)|1 bottle (8 fl oz) (237 ml)|237ml|220|9|33|6|brand=Ensure;sat=1;trans=0;chol=5;na=211;fiber=0.9;sugar=10;addsugar=9;poly=2;mono=3
 GT's Gingerade Kombucha (16 fl oz bottle)|1 bottle (16 fl oz) (473 ml)|473ml|52|0|12|0|brand=GT's;na=9;sugar=12;addsugar=0
 GT's Trilogy Kombucha (16 fl oz bottle)|1 bottle (16 fl oz) (479 ml)|479ml|48|0|12|0|brand=GT's;sat=10;sugar=12;addsugar=0
-Vita Coco Coconut Water, Original (8 fl oz)|8 fl oz (240 ml)|240ml|46|0|11|0|brand=Vita Coco;sat=0;trans=0;chol=0;na=36;fiber=0;sugar=10;addsugar=1;k=470
-Yakult Probiotic Drink (1 bottle)|1 bottle (80 ml)|80ml|50|1|12|0|brand=Yakult;sat=0;trans=0;chol=0;na=15;fiber=0;sugar=10;addsugar=9;k=50
-Yakult Light Probiotic Drink (1 bottle)|1 bottle (80 ml)|80ml|25|1|6|0|brand=Yakult;sat=0;trans=0;chol=0;na=15;fiber=2;sugar=3;addsugar=1;k=50
-Calpico Soda, Original (11.3 fl oz can)|1 can (11.3 fl oz) (335 ml)|335ml|141|1|34|0|brand=Calpico;na=34;sugar=34
-Shirakiku Ramune Soda (1 bottle)|1 bottle (200 ml)|200ml|90|0|21|0|brand=Shirakiku;sat=0;trans=0;chol=0;na=0;fiber=0;sugar=18
-Espresso (1 shot)|1 shot (1 fl oz) (29.6 g)|29.6|3|0|0.5|0.1|sat=0;trans=0;chol=0;na=4;fiber=0;sugar=0;k=34
-Club soda (12 fl oz)|12 fl oz (355 g)|355|0|0|0|0|sat=0;trans=0;chol=0;na=75;fiber=0;sugar=0;k=7
-Chamomile tea, brewed|1 cup (237 g)|237|2|0|0.5|0|sat=0;trans=0;chol=0;na=2;fiber=0;sugar=0;k=21
+Vita Coco Coconut Water, Original (8 fl oz)|8 fl oz (240 ml)|240ml|46|0|11|0|brand=Vita Coco;sat=0;trans=0;chol=0;na=36;fiber=0;sugar=10;addsugar=1;k=470;ca=43;fe=0;vd=0
+Yakult Probiotic Drink (1 bottle)|1 bottle (80 ml)|80ml|50|1|12|0|brand=Yakult;sat=0;trans=0;chol=0;na=15;fiber=0;sugar=10;addsugar=9;k=50;ca=40;fe=0;vd=0
+Yakult Light Probiotic Drink (1 bottle)|1 bottle (80 ml)|80ml|25|1|6|0|brand=Yakult;sat=0;trans=0;chol=0;na=15;fiber=2;sugar=3;addsugar=1;k=50;ca=40;fe=0;vd=0
+Calpico Soda, Original (11.3 fl oz can)|1 can (11.3 fl oz) (335 ml)|335ml|141|1|34|0|brand=Calpico;na=34;sugar=34;ca=20
+Shirakiku Ramune Soda (1 bottle)|1 bottle (200 ml)|200ml|90|0|21|0|brand=Shirakiku;sat=0;trans=0;chol=0;na=0;fiber=0;sugar=18;ca=0;fe=0
+Espresso (1 shot)|1 shot (1 fl oz) (29.6 g)|29.6|3|0|0.5|0.1|sat=0;trans=0;chol=0;na=4;fiber=0;sugar=0;k=34;poly=0;mono=0;ca=1;fe=0;vd=0
+Club soda (12 fl oz)|12 fl oz (355 g)|355|0|0|0|0|sat=0;trans=0;chol=0;na=75;fiber=0;sugar=0;k=7;poly=0;mono=0;ca=18;fe=0;vd=0
+Chamomile tea, brewed|1 cup (237 g)|237|2|0|0.5|0|sat=0;trans=0;chol=0;na=2;fiber=0;sugar=0;k=21;poly=0;mono=0;ca=5;fe=0.2;vd=0
 `;
 </script>
 <script>
@@ -1132,17 +1150,19 @@ function entryDetail(e){
   if(e.quick) return'Quick add';
   if(e.mode==='grams') return`${fmtG(q)} ${e.unitType==='ml'?'ml':'g'}`;
   if(e.mode==='unit'&&e.units) return`${fmtG(q)} ${e.units.label}`;
+  if(/^alt:/.test(e.mode||'')&&e.alts){const a=e.alts[+e.mode.slice(4)];if(a)return`${fmtG(q)} ${a.label}`}
   return q===1?e.serving:`${fmtG(q)} × ${e.serving}`;
 }
 function portionFactor(food,mode,qty){
   if(mode==='grams') return qty/(food.grams||1);
   if(mode==='unit'&&food.units) return qty/(food.units.per||1);
+  if(/^alt:/.test(mode)){const a=(food.alts||[])[+mode.slice(4)];if(a&&food.grams)return qty*a.g/food.grams}
   return qty;
 }
 function calcEntry(food,mode,qty){
   const factor=portionFactor(food,mode,qty);
   const n={};
-  Object.entries(food.n||{}).forEach(([k,v])=>{if(v!=null&&!isNaN(v)){const def=NUTS.find(x=>x.k===k);n[k]=round(v*factor,def&&def.unit==='mg'?0:1)}});
+  Object.entries(food.n||{}).forEach(([k,v])=>{if(v!=null&&!isNaN(v)){const def=NUTS.find(x=>x.k===k);n[k]=round(v*factor,def&&def.dp!=null?def.dp:def&&def.unit==='mg'?0:1)}});
   return{kcal:round(food.kcal*factor,0),p:round(food.p*factor,1),c:round(food.c*factor,1),f:round(food.f*factor,1),n};
 }
 function nutrientTotals(entries){
@@ -1151,19 +1171,24 @@ function nutrientTotals(entries){
   entries.forEach(e=>NUTS.forEach(d=>{const v=e.n&&e.n[d.k];if(v!=null&&!isNaN(v)){out[d.k].sum+=+v;out[d.k].have++}else out[d.k].missing++}));
   return out;
 }
-const fmtNut=(v,unit)=>unit==='mg'?`${fmtN(v)} mg`:`${fmtG(v)} g`;
+const fmtNut=(v,unit)=>unit==='mg'?(v<10&&v%1?`${fmtG(v)} mg`:`${fmtN(v)} mg`):unit==='mcg'?`${fmtG(v)} mcg`:`${fmtG(v)} g`;
 
 /* ================= FOODS ================= */
 // Extended nutrients (optional on every food). dv = FDA Daily Value; limit = "aim for less than"
 const NUTS=[
   {k:'satFat',raw:'sat',label:'Saturated fat',short:'Sat fat',unit:'g',dv:20,limit:true},
+  {k:'polyFat',raw:'poly',label:'Polyunsaturated fat',short:'Poly fat',unit:'g'},
+  {k:'monoFat',raw:'mono',label:'Monounsaturated fat',short:'Mono fat',unit:'g'},
   {k:'transFat',raw:'trans',label:'Trans fat',short:'Trans fat',unit:'g'},
   {k:'cholesterol',raw:'chol',label:'Cholesterol',short:'Chol',unit:'mg',dv:300,limit:true},
   {k:'sodium',raw:'na',label:'Sodium',short:'Sodium',unit:'mg',dv:2300,limit:true},
   {k:'fiber',raw:'fiber',label:'Dietary fiber',short:'Fiber',unit:'g',dv:28},
   {k:'sugars',raw:'sugar',label:'Total sugars',short:'Sugars',unit:'g'},
   {k:'addedSugars',raw:'addsugar',label:'Added sugars',short:'Added sugars',unit:'g',dv:50,limit:true},
-  {k:'potassium',raw:'k',label:'Potassium',short:'Potassium',unit:'mg',dv:4700}
+  {k:'potassium',raw:'k',label:'Potassium',short:'Potassium',unit:'mg',dv:4700},
+  {k:'calcium',raw:'ca',label:'Calcium',short:'Calcium',unit:'mg',dv:1300},
+  {k:'iron',raw:'fe',label:'Iron',short:'Iron',unit:'mg',dv:18,dp:1},
+  {k:'vitaminD',raw:'vd',label:'Vitamin D',short:'Vit D',unit:'mcg',dv:20,dp:1}
 ];
 function parseFoods(raw){
   let cat='Other';const out=[];
@@ -1172,19 +1197,13 @@ function parseFoods(raw){
     const p=l.split('|');const g=p[2];
     let grams=null,unitType=null;
     if(g){grams=parseFloat(g);unitType=/ml/i.test(g)?'ml':'g'}
-    const n={};let units=null,brand='';
+    const n={};let units=null,brand='',alts=null;
     (p[7]||'').split(';').filter(Boolean).forEach(kv=>{const[k,v]=kv.split('=');
       if(k==='units'){const[per,label]=v.split(':');units={per:+per,label}}
       else if(k==='brand'){brand=v}
-      else if(k==='brand'){brand=v}
-      else if(k==='brand'){brand=v}
-      else if(k==='brand'){brand=v}
-      else if(k==='brand'){brand=v}
-      else if(k==='brand'){brand=v}
-      else if(k==='brand'){brand=v}
-      else if(k==='brand'){brand=v}
+      else if(k==='alt'){alts=v.split(',').map(x=>{const[l,g]=x.split(':');return{label:l,g:+g}})}
       else{const d=NUTS.find(x=>x.raw===k);if(d)n[d.k]=+v}});
-    out.push({id:'b_'+p[0].toLowerCase().replace(/[^a-z0-9]+/g,'_'),name:p[0],serving:p[1],grams,unitType,kcal:+p[3],p:+p[4],c:+p[5],f:+p[6],n,units,cat,brand});
+    out.push({id:'b_'+p[0].toLowerCase().replace(/[^a-z0-9]+/g,'_'),name:p[0],serving:p[1],grams,unitType,kcal:+p[3],p:+p[4],c:+p[5],f:+p[6],n,units,alts,cat,brand});
   });
   return out;
 }
@@ -1215,7 +1234,7 @@ function recentFoods(limit=15){
   });
   return[...map.values()].map(r=>({...r,score:r.count+Math.max(0,14-isoDiff(r.last,today))/2})).sort((a,b)=>b.score-a.score).slice(0,limit);
 }
-function foodFromEntry(e){return{id:e.foodId||null,name:e.name,brand:e.brand||'',serving:e.serving,grams:e.grams,unitType:e.unitType,units:e.units||null,kcal:e.per.kcal,p:e.per.p,c:e.per.c,f:e.per.f,n:{...((e.per&&e.per.n)||{})},quick:!!e.quick}}
+function foodFromEntry(e){return{id:e.foodId||null,name:e.name,brand:e.brand||'',serving:e.serving,grams:e.grams,unitType:e.unitType,units:e.units||null,alts:e.alts||null,kcal:e.per.kcal,p:e.per.p,c:e.per.c,f:e.per.f,n:{...((e.per&&e.per.n)||{})},quick:!!e.quick}}
 function liveFood(e){ // prefer the current definition of a food (e.g. corrected built-in values) when re-logging
   const f=e.foodId&&allFoods().find(x=>x.id===e.foodId);return f||foodFromEntry(e);
 }
@@ -1671,45 +1690,74 @@ function renderResults(){
 
 /* ---------- Portion ---------- */
 function isAmountServing(f){return!!(f.grams&&/^\s*\d+(\.\d+)?\s*(g|ml)\s*$/i.test(f.serving||''))}
-function defaultPortion(f){return isAmountServing(f)?{mode:'grams',qty:f.grams}:{mode:'serving',qty:1}}
+function defaultPortion(f){return isAmountServing(f)?{mode:'grams',qty:f.grams}:f.units&&f.alts?{mode:'unit',qty:f.units.per}:{mode:'serving',qty:1}}
+function unitOpts(f){
+  const o=[{v:'serving',l:f.units||f.alts?`serving (${f.serving})`:(f.serving||'serving')}];
+  if(f.units) o.push({v:'unit',l:f.units.label});
+  (f.alts||[]).forEach((x,i)=>{if(f.grams)o.push({v:'alt:'+i,l:x.label})});
+  if(f.grams) o.push({v:'grams',l:f.unitType==='ml'?'ml':'g'});
+  return o;
+}
+function unitLabel(f,mode,qty){
+  if(mode==='grams') return f.unitType==='ml'?'ml':'g';
+  if(mode==='unit') return f.units.label;
+  if(/^alt:/.test(mode)) return f.alts[+mode.slice(4)].label;
+  return qty===1?'serving':'servings';
+}
+const NUT_LIST=[['Calorie','kcal','',0],['Total fat','f','g',0],['Saturated fat','satFat','g',1],['Polyunsaturated fat','polyFat','g',1],['Monounsaturated fat','monoFat','g',1],['Trans fat','transFat','g',1],
+  ['Cholesterol','cholesterol','mg',0],['Sodium','sodium','mg',0],['Total carbs','c','g',0],['Fiber','fiber','g',1],['Sugars','sugars','g',1],['Added sugars','addedSugars','g',2],['Protein','p','g',0],
+  ['Potassium','potassium','mg',0],['Calcium','calcium','mg',0],['Iron','iron','mg',0],['Vitamin D','vitaminD','mcg',0]];
 function openPortion(food,o){
   const d=defaultPortion(food);
-  ui.portion={food,mode:o.mode||d.mode,qty:o.qty!=null?+o.qty:d.qty,meal:o.meal,editId:o.editId||null,origMeal:o.meal,back:!!o.back};
+  ui.portion={food,mode:o.mode||d.mode,qty:o.qty!=null?+o.qty:d.qty,meal:o.meal,editId:o.editId||null,origMeal:o.meal,back:!!o.back,preview:true};
   if(ui.portion.mode==='grams'&&!food.grams) ui.portion.mode='serving';
   if(ui.portion.mode==='unit'&&!food.units) ui.portion.mode='serving';
-  const f=food;
-  const modes=[['serving','Servings']];
-  if(f.units) modes.push(['unit',cap(f.units.label)]);
-  if(f.grams) modes.push(['grams',f.unitType==='ml'?'Millilitres':'Grams']);
-  openSheet(o.editId?'Edit entry':'Add food',`
-    <h3>${esc(f.name)}${f.brand?` <span class="muted small" style="font-weight:500">· ${esc(f.brand)}</span>`:''}</h3>
-    <div class="muted small">Per ${esc(servingText(f))}: ${fmtN(f.kcal)} Cal · ${fmtG(f.p)}p ${fmtG(f.c)}c ${fmtG(f.f)}f</div>
-    <div class="spacer"></div>
-    ${modes.length>1?`<div class="seg">${modes.map(([v,l])=>`<button type="button" data-act="pmode" data-v="${v}" class="${ui.portion.mode===v?'on':''}">${esc(l)}</button>`).join('')}</div>`:''}
-    <div class="qty"><button type="button" data-act="pstep" data-v="-1" aria-label="Less">−</button><input id="pq" type="number" inputmode="decimal" step="any" min="0" value="${fmtG(ui.portion.qty)}"><span class="unit" id="punit"></span><button type="button" data-act="pstep" data-v="1" aria-label="More">+</button></div>
-    <div class="chips" id="pchips"></div>
-    <div class="lbl">Meal</div>
-    <div class="chips">${state.meals.map(m=>`<button type="button" class="chip ${m.id===ui.portion.meal?'on':''}" data-act="pmeal" data-v="${esc(m.id)}">${esc(m.name)}</button>`).join('')}</div>
-    <div class="result" id="pres"></div>
-    <button class="btn-primary btn-block btn-big" data-act="psave">${o.editId?'Save changes':'Add to diary'}</button>
-    ${o.editId?'<button class="btn-danger btn-block" style="margin-top:10px" data-act="pdelete">Delete entry</button>':''}
+  if(/^alt:/.test(ui.portion.mode)&&!(food.alts&&food.alts[+ui.portion.mode.slice(4)])) ui.portion.mode='serving';
+  const f=food,ed=!!o.editId;
+  openSheet(ed?'Edit entry':'Add food',`
+    <div class="fd-prev" id="pprev"></div>
+    <div class="fd-name">${esc(f.name)}</div>
+    <div class="muted small fd-brand">${esc(f.brand||'Generic')}${f.custom?' · My food':''}</div>
+    <div class="fd-box" id="pbox"></div>
+    <div class="fd-amt"><input id="pq" type="number" inputmode="decimal" step="any" min="0" value="${fmtG(ui.portion.qty)}" aria-label="Amount">
+      <select id="punitSel" aria-label="Unit">${unitOpts(f).map(x=>`<option value="${x.v}" ${x.v===ui.portion.mode?'selected':''}>${esc(x.l)}</option>`).join('')}</select></div>
+    <div class="muted tiny" style="margin:-4px 2px 10px"><span id="punit"></span> · 1 serving = ${esc(servingText(f))}</div>
+    <button class="btn-primary btn-block btn-big" data-act="psave">${ed?'Update':'Add'}</button>
+    ${ed?'<button class="btn-danger btn-block" style="margin-top:10px" data-act="pdelete">Delete entry</button>':''}
     ${o.back?'<button class="btn-ghost btn-block" style="margin-top:6px" data-act="pback">‹ Back to search</button>':''}
-  `,{mount:()=>{$('#pq').oninput=()=>{ui.portion.qty=+$('#pq').value||0;updPortion(false)};updPortion(false)}});
+    <div class="fd-list" id="pres"></div>
+  `,{mount:()=>{
+    $('#sheetTitle').innerHTML=`<select id="pmealSel" class="fd-meal" aria-label="Meal">${state.meals.map(m=>`<option value="${esc(m.id)}" ${m.id===ui.portion.meal?'selected':''}>${esc(m.name)}</option>`).join('')}</select><span style="color:var(--blue);font-size:13px">▼</span>`;
+    $('#pmealSel').onchange=e=>{ui.portion.meal=e.target.value};
+    $('#pq').oninput=()=>{ui.portion.qty=+$('#pq').value||0;updPortion(false)};
+    $('#punitSel').onchange=e=>setPortionMode(e.target.value);
+    updPortion(false)}});
+}
+function setPortionMode(v){
+  const pt=ui.portion,f=pt.food;if(pt.mode===v)return;
+  const fac=portionFactor(f,pt.mode,pt.qty),one=portionFactor(f,v,1);
+  pt.qty=one>0?round(fac/one,v==='grams'?0:2):pt.qty;pt.mode=v;
+  const sel=$('#punitSel');if(sel)sel.value=v;
+  updPortion();
 }
 const cap=s=>String(s||'').charAt(0).toUpperCase()+String(s||'').slice(1);
 function updPortion(setInput=true){
   const pt=ui.portion,f=pt.food;
   if(setInput) $('#pq').value=fmtG(pt.qty);
-  $('#punit').textContent=pt.mode==='grams'?(f.unitType==='ml'?'ml':'g'):pt.mode==='unit'?f.units.label:(pt.qty===1?'serving':'servings');
-  const chips=pt.mode==='grams'?[50,100,150,200,250]:pt.mode==='unit'?[1,2,3,4,6]:[0.5,1,1.5,2,3];
-  const suf=pt.mode==='grams'?(f.unitType==='ml'?' ml':' g'):pt.mode==='unit'?' '+f.units.label:'×';
-  $('#pchips').innerHTML=chips.map(v=>`<button type="button" class="chip ${v===pt.qty?'on':''}" data-act="pqty" data-v="${v}">${v}${esc(suf)}</button>`).join('');
+  $('#punit').textContent=unitLabel(f,pt.mode,pt.qty);
   const r=calcEntry(f,pt.mode,pt.qty);
-  const ext=NUTS.filter(n=>r.n&&r.n[n.k]!=null).map(n=>`${n.short} ${fmtNut(r.n[n.k],n.unit)}`).join(' · ');
-  $('#pres').innerHTML=`<div class="flex between"><span class="rk">${fmtN(r.kcal)} <span style="font-size:15px;font-weight:600">Cal</span></span><span class="small"><b style="color:var(--p)">${fmtG(r.p)}p</b> · <b style="color:var(--c)">${fmtG(r.c)}c</b> · <b style="color:var(--f)">${fmtG(r.f)}f</b></span></div>${ext?`<div class="muted tiny" style="margin-top:6px">${esc(ext)}</div>`:''}`;
+  // preview: macros remaining today if this food is added at the amount shown
+  const t=targets();const all=Object.values(dayRead(ui.date)).flat().filter(e=>e.id!==pt.editId);const tot=sumEntries(all);
+  const left=k=>t[k]-tot[k]-(r[k]||0);
+  const cell=(k,lab,col)=>{const l=left(k),pct=t[k]>0?clamp((tot[k]+(r[k]||0))/t[k]*100,0,100):0;return`<div class="fd-pc"><b>${k==='kcal'?fmtN(Math.round(l)):fmtN(Math.round(l))+lab}</b>${k==='kcal'?' <span class="muted tiny">Cal left</span>':''}<div class="nbar"><i style="width:${pct}%;background:${l<0?'var(--warm)':col}"></i></div></div>`};
+  $('#pprev').innerHTML=`<div class="fd-pr">${cell('kcal','','var(--cal)')}${cell('p','p','var(--p)')}${cell('c','c','var(--c)')}${cell('f','f','var(--f)')}</div><div class="fd-pn">Previewing macros remaining with this food at the amount shown</div>`;
+  $('#pbox').innerHTML=[['kcal','Cal',''],['p','Protein (g)','var(--p)'],['c','Carbs (g)','var(--c)'],['f','Fat (g)','var(--f)']].map(([k,l,col])=>`<div><b>${k==='kcal'?fmtN(r.kcal):fmtG(r[k])}</b><span>${col?`<i style="background:${col}"></i>`:''}${l}</span></div>`).join('');
+  const val=k=>k==='kcal'?r.kcal:['p','c','f'].includes(k)?r[k]:(r.n||{})[k];
+  $('#pres').innerHTML=NUT_LIST.map(([l,k,u,lvl])=>{const v=val(k);const txt=v==null?'—':k==='kcal'?fmtN(v):fmtNut(v,u);return`<div class="fd-r lv${lvl}${['f','c','p','cholesterol','sodium','potassium','kcal'].includes(k)?' top':''}"><span>${l}</span><b class="${v==null?'muted':''}">${txt}</b></div>`}).join('')+
+    (NUT_LIST.some(([l,k])=>val(k)==null)?`<p class="muted tiny" style="margin-top:10px">— = not listed by the source for this food.</p>`:'');
 }
 function makeEntry(f,mode,qty,id){
-  return{id:id||uid(),foodId:f.id||null,name:f.name,brand:f.brand||'',serving:f.serving,grams:f.grams||null,unitType:f.unitType||null,units:f.units||null,
+  return{id:id||uid(),foodId:f.id||null,name:f.name,brand:f.brand||'',serving:f.serving,grams:f.grams||null,unitType:f.unitType||null,units:f.units||null,alts:f.alts||null,alts:f.alts||null,
     per:{kcal:f.kcal,p:f.p,c:f.c,f:f.f,n:{...(f.n||{})}},mode,qty,quick:!!f.quick,...calcEntry(f,mode,qty)};
 }
 function portionSave(){
@@ -1759,7 +1807,7 @@ function quickSave(){
 }
 
 /* ---------- Custom foods (Nutrition Facts label editor) ---------- */
-const LABEL_DV={f:78,satFat:20,cholesterol:300,sodium:2300,c:275,fiber:28,addedSugars:50,p:50,potassium:4700};
+const LABEL_DV={f:78,satFat:20,cholesterol:300,sodium:2300,c:275,fiber:28,addedSugars:50,p:50,potassium:4700,calcium:1300,iron:18,vitaminD:20};
 function openCustomForm(food,fromAdd,prefillName){
   const f=food||{name:prefillName||'',brand:'',serving:'',grams:'',unitType:'g',kcal:'',p:'',c:'',f:'',n:{}};
   const n=f.n||{};
@@ -1778,6 +1826,8 @@ function openCustomForm(food,fromAdd,prefillName){
       <div class="r med small-t"><span></span><b>% Daily Value*</b></div>
       ${row('','Total Fat','cfF',f.f,'g','f')}
       ${row('sub','Saturated Fat','cfSat',n.satFat,'g','satFat')}
+      ${row('sub','Polyunsaturated Fat','cfPoly',n.polyFat,'g','')}
+      ${row('sub','Monounsaturated Fat','cfMono',n.monoFat,'g','')}
       ${row('sub','<i>Trans</i> Fat','cfTrans',n.transFat,'g','')}
       ${row('','Cholesterol','cfChol',n.cholesterol,'mg','cholesterol')}
       ${row('','Sodium','cfNa',n.sodium,'mg','sodium')}
@@ -1788,6 +1838,9 @@ function openCustomForm(food,fromAdd,prefillName){
       ${row('','Protein','cfP',f.p,'g','p')}
       <div class="r thick"></div>
       ${row('','Potassium','cfK2',n.potassium,'mg','potassium')}
+      ${row('','Calcium','cfCa',n.calcium,'mg','calcium')}
+      ${row('','Iron','cfFe',n.iron,'mg','iron')}
+      ${row('','Vitamin D','cfVd',n.vitaminD,'mcg','vitaminD')}
       <div class="foot">* % Daily Value is based on a 2,000 Cal diet. Leave anything you don't know blank.</div>
     </div>
     <div id="cfWarn"></div>
@@ -1798,7 +1851,7 @@ function openCustomForm(food,fromAdd,prefillName){
 function readCustomLabel(){
   const num=id=>{const s=$('#'+id).value;return s===''?null:+s};
   return{p:num('cfP'),c:num('cfC'),f:num('cfF'),kcal:num('cfK'),
-    n:{satFat:num('cfSat'),transFat:num('cfTrans'),cholesterol:num('cfChol'),sodium:num('cfNa'),fiber:num('cfFiber'),sugars:num('cfSugar'),addedSugars:num('cfAdded'),potassium:num('cfK2')}};
+    n:{satFat:num('cfSat'),transFat:num('cfTrans'),cholesterol:num('cfChol'),sodium:num('cfNa'),fiber:num('cfFiber'),sugars:num('cfSugar'),addedSugars:num('cfAdded'),potassium:num('cfK2'),polyFat:num('cfPoly'),monoFat:num('cfMono'),calcium:num('cfCa'),iron:num('cfFe'),vitaminD:num('cfVd')}};
 }
 function macroCal(p,c,f){return(p||0)*4+(c||0)*4+(f||0)*9}
 function updCustomLabel(){
@@ -1924,7 +1977,7 @@ function openNutrients(){
     <div class="section-t">Other nutrients <span style="text-transform:none;letter-spacing:0;font-weight:500">· % of FDA Daily Value</span></div>
     ${entries.length?rows:'<p class="muted small">Nothing logged for this day yet.</p>'}
     ${missingAny?`<div class="note">Some foods don't have data for every nutrient (most built-in foods only list Cal/protein/carbs/fat), so real totals may be higher than shown. Custom foods entered from a label fill this in.</div>`:''}
-    <p class="muted tiny">Daily Values: sodium 2,300 mg · saturated fat 20 g · fiber 28 g · added sugars 50 g · cholesterol 300 mg · potassium 4,700 mg. Sodium, saturated fat, added sugars and cholesterol are “aim for less than”; fiber and potassium are “aim for at least”.</p>`);
+    <p class="muted tiny">Daily Values: sodium 2,300 mg · saturated fat 20 g · fiber 28 g · added sugars 50 g · cholesterol 300 mg · potassium 4,700 mg · calcium 1,300 mg · iron 18 mg · vitamin D 20 mcg. Sodium, saturated fat, added sugars and cholesterol are “aim for less than”; fiber, potassium, calcium, iron and vitamin D are “aim for at least”.</p>`);
 }
 
 /* ---------- Coach sheets ---------- */
@@ -2154,7 +2207,7 @@ const A={
       openPortion(liveFood(x.e),{meal:ui.addMeal,mode:x.e.mode,qty:x.e.qty,back:true});return}
     const f=allFoods().find(f=>f.id===el.dataset.id);if(f)openPortion(f,{meal:ui.addMeal,back:true});
   },
-  pmode:el=>{const pt=ui.portion,v=el.dataset.v,f=pt.food;if(pt.mode===v)return;const fac=portionFactor(f,pt.mode,pt.qty);pt.qty=v==='grams'?round(fac*f.grams,0):v==='unit'?round(fac*f.units.per,2):round(fac,2);pt.mode=v;$$('[data-act="pmode"]').forEach(b=>b.classList.toggle('on',b.dataset.v===v));updPortion()},
+  pmode:el=>setPortionMode(el.dataset.v),
   pstep:el=>{const pt=ui.portion,st=pt.mode==='grams'?10:pt.mode==='unit'?1:0.5;pt.qty=Math.max(0,round((pt.qty||0)+st*(+el.dataset.v),2));updPortion()},
   pqty:el=>{ui.portion.qty=+el.dataset.v;updPortion()},
   pmeal:el=>{ui.portion.meal=el.dataset.v;$$('[data-act="pmeal"]').forEach(b=>b.classList.toggle('on',b.dataset.v===el.dataset.v))},
