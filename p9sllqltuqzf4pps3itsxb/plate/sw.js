@@ -1,5 +1,5 @@
 // Tiny offline cache for this app only (network first, cache fallback).
-const CACHE = 'plate-cache-v18';
+const CACHE = 'plate-cache-v19';
 const SCOPE = self.registration.scope;
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(['./', './apple-touch-icon.png', './manifest.webmanifest'])).then(() => self.skipWaiting()));
